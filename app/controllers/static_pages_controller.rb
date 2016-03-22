@@ -10,7 +10,4 @@ class StaticPagesController < ApplicationController
 
   def terms
   end
-
-  def submit_your_story
-  end
 end
