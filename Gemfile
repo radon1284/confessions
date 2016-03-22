@@ -16,7 +16,9 @@ gem 'jquery-rails'
 gem 'puma'
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'byebug'
+  gem 'pry-byebug'
   gem 'dotenv-rails'
   gem 'rubocop', require: false
   gem 'rspec-rails'
