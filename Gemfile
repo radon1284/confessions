@@ -36,4 +36,5 @@ group :test do
   gem 'simplecov', require: false
   gem "capybara-webkit"
   gem "database_cleaner"
+  gem "coveralls"
 end
