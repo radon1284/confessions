@@ -1,0 +1,17 @@
+<h1>
+  Homepage
+</h1>
+
+<%= render "mailchimp_signup_form" %>
+
+<h2>
+  Books
+</h2>
+
+<ul>
+  <% books.each do |book| %>
+    <li>
+      <%= link_to book.title, book_path(book.slug) %>
+    </li>
+  <% end %>
+</ul>
