@@ -65,6 +65,10 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.before(:each) do
+    DI.reset_overrides
+  end
+
   config.include FixtureHelpers
   FactoryGirl::SyntaxRunner.send(:include, FixtureHelpers)
   config.include ShowMeTheCookies, type: :feature
