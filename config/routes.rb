@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get "cart" => "cart#show"
   post "cart/add"
+
+  post "payments/pay"
 end

@@ -13,3 +13,14 @@
 <p>
   Total: <%= humanized_money_with_symbol(cart.total) %>
 </p>
+
+<%= form_tag(payments_pay_path, method: :post) do %>
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key=<%= ENV.fetch("STRIPE_PUBLISHABLE_KEY") %>
+    data-amount=<%= cart.total.cents %>
+    data-currency=<%= cart.total.currency %>
+    data-name="Confessions"
+    data-locale="auto">
+  </script>
+<% end %>
