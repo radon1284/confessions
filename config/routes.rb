@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get "terms" => "static_pages#terms"
 
   resources :books, only: [:show, :index]
+
+  get "cart" => "cart#show"
+  post "cart/add"
 end

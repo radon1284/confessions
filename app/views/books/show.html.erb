@@ -6,4 +6,6 @@
   Price: <%= humanized_money_with_symbol(book.product.price) %>
 </p>
 
+<%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
+
 <%= render "books/contents/#{book.slug}" %>

@@ -7,4 +7,8 @@ class Product < ActiveRecord::Base
   def price
     Money.new(price_in_cents, currency)
   end
+
+  def display_name
+    purchasable.title
+  end
 end

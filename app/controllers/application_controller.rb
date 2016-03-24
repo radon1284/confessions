@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
       cookies.permanent[:visitor_identifier] = SecureRandom.hex(24)
     end
   end
+
+  def current_visitor
+    Visitor.new(cookies.fetch(:visitor_identifier))
+  end
 end
