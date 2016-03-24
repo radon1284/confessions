@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 gem 'puma'
+gem 'money-rails'
 
 group :development, :test do
   gem 'pry-rails'

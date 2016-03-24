@@ -2,4 +2,8 @@
   <%= book.title %>
 </h1>
 
+<p>
+  Price: <%= humanized_money_with_symbol(book.product.price) %>
+</p>
+
 <%= render "books/contents/#{book.slug}" %>

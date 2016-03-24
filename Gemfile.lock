@@ -94,6 +94,16 @@ GEM
     mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    monetize (1.4.0)
+      money (~> 6.7)
+    money (6.7.0)
+      i18n (>= 0.6.4, <= 0.7.0)
+      sixarm_ruby_unaccent (>= 1.1.1, < 2)
+    money-rails (1.6.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.4.0)
+      money (~> 6.7)
+      railties (>= 3.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     parser (2.3.0.6)
@@ -180,6 +190,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    sixarm_ruby_unaccent (1.1.1)
     slop (3.6.0)
     spring (1.6.4)
     sprockets (3.5.2)
@@ -222,6 +233,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   launchy
+  money-rails
   pg
   pry-byebug
   pry-rails
