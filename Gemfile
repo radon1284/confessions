@@ -39,6 +39,7 @@ group :test do
   gem "capybara-webkit"
   gem "database_cleaner"
   gem "coveralls"
+  gem "show_me_the_cookies"
 end
 
 group :production do
