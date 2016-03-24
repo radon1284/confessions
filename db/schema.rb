@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323141240) do
+ActiveRecord::Schema.define(version: 20160324093614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20160323141240) do
   end
 
   add_index "books", ["slug"], name: "index_books_on_slug", unique: true, using: :btree
+
+  create_table "persisted_events", force: :cascade do |t|
+    t.string   "event_type",         null: false
+    t.string   "visitor_identifier"
+    t.json     "payload"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "persisted_events", ["visitor_identifier"], name: "index_persisted_events_on_visitor_identifier", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.integer  "purchasable_id"
