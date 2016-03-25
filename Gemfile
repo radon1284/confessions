@@ -16,6 +16,7 @@ gem 'jquery-rails'
 
 gem 'puma'
 gem 'money-rails'
+gem 'stripe'
 
 group :development, :test do
   gem 'pry-rails'
