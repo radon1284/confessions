@@ -16,6 +16,12 @@
   <%= link_to "Terms and conditions", terms_path %>
 </p>
 
+<% flash.each do |_, message| %>
+  <p>
+    <%= message %>
+  </p>
+<% end %>
+
 <%= yield %>
 
 </body>
