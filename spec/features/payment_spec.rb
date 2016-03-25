@@ -7,7 +7,7 @@ describe "Payment", :js do
 
   before do
     AddProductToCart.build.call(product, visitor)
-    create_cookie("visitor_identifier", "123")
+    pretend_to_be_visitor(visitor)
     DI.add_override(MakeStripePayment, make_stripe_payment)
   end
 
