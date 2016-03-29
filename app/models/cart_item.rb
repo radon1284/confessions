@@ -1,4 +1,6 @@
 class CartItem
+  include Equalizer.new(:product_id)
+
   attr_reader :product_id, :price
   attr_accessor :product
 

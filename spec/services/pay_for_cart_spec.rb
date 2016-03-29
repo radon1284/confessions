@@ -21,4 +21,10 @@ describe PayForCart do
     expect(order.order_items.count).to eq 1
     expect(order.order_items.last.price_in_cents).to eq 1_000
   end
+
+  it "clears the cart" do
+    expect { service.call(visitor, stripe_token) }
+      .to change { PersistedEvent.where(event_type: "cart_cleared").count }
+      .by(1)
+  end
 end

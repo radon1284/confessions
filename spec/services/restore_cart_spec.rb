@@ -37,4 +37,19 @@ describe RestoreCart do
     expect(cart.items.map(&:price))
       .to contain_exactly(interesting_product.price, long_product.price)
   end
+
+  context "when cart was cleared" do
+    before do
+      PersistedEvent.create!(
+        event_type: "cart_cleared",
+        visitor_identifier: visitor.identifier
+      )
+      AddProductToCart.build.call(long_product, visitor)
+    end
+
+    it "returns only the items added after clearing" do
+      cart = service.call(visitor, Time.current)
+      expect(cart.items.size).to eq 1
+    end
+  end
 end

@@ -18,6 +18,7 @@ gem 'puma'
 gem 'money-rails'
 gem 'stripe'
 gem 'rollbar'
+gem 'equalizer'
 
 group :development, :test do
   gem 'pry-rails'

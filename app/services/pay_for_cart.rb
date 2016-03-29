@@ -14,6 +14,7 @@ class PayForCart
   def call(visitor, stripe_token)
     cart = restore_cart.call(visitor, Time.current)
     make_stripe_payment.call(cart, stripe_token)
+    clear_cart(visitor)
     Order.create!(order_items: build_order_items(cart))
   end
 
@@ -21,6 +22,13 @@ class PayForCart
 
   attr_accessor :restore_cart
   attr_accessor :make_stripe_payment
+
+  def clear_cart(visitor)
+    PersistedEvent.create!(
+      event_type: "cart_cleared",
+      visitor_identifier: visitor.identifier
+    )
+  end
 
   def build_order_items(cart)
     cart.items.map do |cart_item|
