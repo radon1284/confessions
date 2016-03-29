@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :purchasable, polymorphic: true
+  has_many :order_items, dependent: :destroy
 
   validates_presence_of :price_in_cents, :currency, :purchasable
   validates_numericality_of :price_in_cents

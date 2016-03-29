@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324093614) do
+ActiveRecord::Schema.define(version: 20160329090008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pgcrypto"
 
   create_table "books", force: :cascade do |t|
     t.text     "slug"
@@ -24,6 +25,23 @@ ActiveRecord::Schema.define(version: 20160324093614) do
   end
 
   add_index "books", ["slug"], name: "index_books_on_slug", unique: true, using: :btree
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.uuid     "order_id"
+    t.integer  "price_in_cents"
+    t.string   "currency"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
+
+  create_table "orders", id: :uuid, default: "gen_random_uuid()", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "persisted_events", force: :cascade do |t|
     t.string   "event_type",         null: false
@@ -46,4 +64,6 @@ ActiveRecord::Schema.define(version: 20160324093614) do
 
   add_index "products", ["purchasable_type", "purchasable_id"], name: "index_products_on_purchasable_type_and_purchasable_id", using: :btree
 
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
 end
