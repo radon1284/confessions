@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   post "cart/add"
 
   post "payments/pay"
+
+  resources :orders, only: [:show]
 end

@@ -17,4 +17,11 @@ describe "Payment", :js do
       name='stripeToken'>\").submit()")
     expect(page).to have_content("Thank you for paying!")
   end
+
+  it "redirects to the order page" do
+    visit cart_path
+    page.execute_script("$(\"form\").append(\"<input value='token' \
+      name='stripeToken'>\").submit()")
+    expect(page).to have_content("Your order details")
+  end
 end
