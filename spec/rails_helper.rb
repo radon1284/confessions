@@ -32,6 +32,16 @@ Capybara::Webkit.configure do |config|
 end
 # rubocop:enable Style/SymbolProc
 
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/vcr_cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.allow_http_connections_when_no_cassette = true
+  c.filter_sensitive_data('<STRIPE_TOKEN>') do
+    ENV.fetch("STRIPE_SECRET_KEY")
+  end
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
