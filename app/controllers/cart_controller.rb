@@ -13,4 +13,10 @@ class CartController < ApplicationController
       }
     )
   end
+
+  def remove
+    product = Product.find(params.fetch(:product_id))
+    DI.get(RemoveProductFromCart).call(product, current_visitor)
+    redirect_to cart_url
+  end
 end

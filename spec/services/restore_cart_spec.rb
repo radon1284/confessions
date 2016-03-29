@@ -52,4 +52,15 @@ describe RestoreCart do
       expect(cart.items.size).to eq 1
     end
   end
+
+  context "when a product was later removed" do
+    before do
+      RemoveProductFromCart.build.call(interesting_product, visitor)
+    end
+
+    it "doesn't return this product" do
+      cart = service.call(visitor, Time.current)
+      expect(cart.items.size).to eq 1
+    end
+  end
 end

@@ -7,6 +7,13 @@
     <% cart.items.each do |item| %>
       <li>
         <%= item.display_name %> <%= humanized_money_with_symbol(item.price) %>
+        <%=
+          button_to(
+            "Remove",
+            cart_remove_path(product_id: item.product_id),
+            method: :delete
+          )
+        %>
       </li>
     <% end %>
   </ul>

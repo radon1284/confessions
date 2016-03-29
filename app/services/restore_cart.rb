@@ -1,5 +1,6 @@
 class RestoreCart
-  RELEVANT_EVENT_TYPES = %w(product_added_to_cart cart_cleared).freeze
+  RELEVANT_EVENT_TYPES =
+    %w(product_added_to_cart cart_cleared product_removed_from_cart).freeze
 
   def self.build
     new
@@ -26,12 +27,7 @@ class RestoreCart
   def apply_events(events)
     events
       .reduce(Set.new) do |state, event|
-        case event.event_type
-        when "product_added_to_cart"
-          state.add(cart_item_from_event(event))
-        when "cart_cleared"
-          state.clear
-        end
+        change_state(state, event)
       end
       .to_a
   end
@@ -55,5 +51,18 @@ class RestoreCart
       event.payload.fetch("price_in_cents"),
       event.payload.fetch("currency")
     )
+  end
+
+  def change_state(state, event)
+    case event.event_type
+    when "product_added_to_cart"
+      state.add(cart_item_from_event(event))
+    when "cart_cleared"
+      state.clear
+    when "product_removed_from_cart"
+      state.delete_if do |cart_item|
+        cart_item.product_id == event.payload.fetch("product_id")
+      end
+    end
   end
 end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "cart" => "cart#show"
   post "cart/add"
+  delete "cart/remove"
 
   post "payments/pay"
 
