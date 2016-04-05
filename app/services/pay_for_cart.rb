@@ -11,11 +11,12 @@ class PayForCart
     self.make_stripe_payment = make_stripe_payment
   end
 
-  def call(visitor, stripe_token)
+  def call(visitor, stripe_token, email)
     cart = restore_cart.call(visitor, Time.current)
     make_stripe_payment.call(cart, stripe_token)
     clear_cart(visitor)
-    Order.create!(order_items: build_order_items(cart))
+    user = User.where(email: email).first_or_create!
+    user.orders.create!(order_items: build_order_items(cart))
   end
 
   private

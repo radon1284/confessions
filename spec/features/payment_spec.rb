@@ -11,17 +11,21 @@ describe "Payment", :js do
     DI.add_override(MakeStripePayment, make_stripe_payment)
   end
 
+  def simulate_user_filling_in_the_form
+    page.execute_script("$(\"form\").append(\"<input value='token' \
+      name='stripeToken'><input value='test@example.com' \
+      name='stripeEmail'>\").submit()")
+  end
+
   it "shows message after successful payment" do
     visit cart_path
-    page.execute_script("$(\"form\").append(\"<input value='token' \
-      name='stripeToken'>\").submit()")
+    simulate_user_filling_in_the_form
     expect(page).to have_content("Thank you for paying!")
   end
 
   it "redirects to the order page" do
     visit cart_path
-    page.execute_script("$(\"form\").append(\"<input value='token' \
-      name='stripeToken'>\").submit()")
+    simulate_user_filling_in_the_form
     expect(page).to have_content("Your order details")
   end
 end

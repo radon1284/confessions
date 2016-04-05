@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   def pay
-    order = DI.get(PayForCart).call(current_visitor, stripe_token)
+    order = pay_for_cart
     redirect_to order_url(order), notice: t("payment.success")
   rescue MakeStripePayment::PaymentFailedDueToCustomer => ex
     redirect_to cart_url, flash: {
@@ -12,7 +12,19 @@ class PaymentsController < ApplicationController
 
   private
 
+  def pay_for_cart
+    DI.get(PayForCart).call(
+      current_visitor,
+      stripe_token,
+      email_provided_by_stripe
+    )
+  end
+
   def stripe_token
     params.fetch(:stripeToken)
+  end
+
+  def email_provided_by_stripe
+    params.fetch(:stripeEmail)
   end
 end
