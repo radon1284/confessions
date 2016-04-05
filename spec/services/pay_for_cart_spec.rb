@@ -5,7 +5,7 @@ describe PayForCart do
   let!(:cart_item) { CartItem.new(product.id, 1_000, "USD") }
   let!(:cart) { Cart.new([cart_item]) }
   let!(:restore_cart) { ->(_, _) { cart } }
-  let!(:make_stripe_payment) { -> (_, _) {} }
+  let!(:make_stripe_payment) { -> (_, _, _) {} }
   let!(:service) { PayForCart.new(restore_cart, make_stripe_payment) }
   let!(:visitor) { Visitor.new("123") }
   let!(:stripe_token) { "abc" }
@@ -52,6 +52,19 @@ describe PayForCart do
         order = Order.last
         expect(order.user).to eq user
       end
+    end
+  end
+
+  describe "connecting order with Stripe charge" do
+    let!(:make_stripe_payment) { spy("make_stripe_payment") }
+    let!(:service) { PayForCart.new(restore_cart, make_stripe_payment) }
+
+    it "passes order UUID" do
+      service.call(visitor, stripe_token, email)
+      uuid = Order.last.id
+      expect(make_stripe_payment)
+        .to have_received(:call)
+        .with(anything, anything, uuid)
     end
   end
 end

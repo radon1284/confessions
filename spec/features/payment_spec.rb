@@ -3,7 +3,7 @@ require "rails_helper"
 describe "Payment", :js do
   let!(:product) { FactoryGirl.create(:product) }
   let!(:visitor) { Visitor.new("123") }
-  let!(:make_stripe_payment) { ->(_, _) {} }
+  let!(:make_stripe_payment) { ->(_, _, _) {} }
 
   before do
     AddProductToCart.build.call(product, visitor)

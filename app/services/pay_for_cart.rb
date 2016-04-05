@@ -13,10 +13,14 @@ class PayForCart
 
   def call(visitor, stripe_token, email)
     cart = restore_cart.call(visitor, Time.current)
-    make_stripe_payment.call(cart, stripe_token)
+    order_id = SecureRandom.uuid
+    make_stripe_payment.call(cart, stripe_token, order_id)
     clear_cart(visitor)
     user = User.where(email: email).first_or_create!
-    user.orders.create!(order_items: build_order_items(cart))
+    user.orders.create!(
+      id: order_id,
+      order_items: build_order_items(cart)
+    )
   end
 
   private

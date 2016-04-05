@@ -6,8 +6,8 @@ class MakeStripePayment
     new
   end
 
-  def call(cart, token)
-    create_charge(cart.total, token)
+  def call(cart, token, order_id)
+    create_charge(cart.total, token, order_id)
   rescue Stripe::CardError => ex
     Rollbar.warning(ex)
     raise PaymentFailedDueToCustomer, ex.message
@@ -18,11 +18,14 @@ class MakeStripePayment
 
   private
 
-  def create_charge(total, token)
+  def create_charge(total, token, order_id)
     Stripe::Charge.create(
       amount: total.cents,
       currency: total.currency,
-      source: token
+      source: token,
+      metadata: {
+        order_id: order_id
+      }
     )
   end
 end

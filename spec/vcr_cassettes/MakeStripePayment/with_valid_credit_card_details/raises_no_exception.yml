@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 29 Mar 2016 08:19:51 GMT
+      - Tue, 05 Apr 2016 12:31:16 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_8AdL8FFUPMWfTB
+      - req_8DJyNgI7KZs3Mp
       Stripe-Version:
       - '2016-03-07'
       Strict-Transport-Security:
@@ -58,10 +58,10 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_8AdLM1WfDUPc2u",
+          "id": "tok_8DJyRB5XEwUbly",
           "object": "token",
           "card": {
-            "id": "card_8AdLMotkhFWrA9",
+            "id": "card_8DJy4e6VZBO3X2",
             "object": "card",
             "address_city": null,
             "address_country": null,
@@ -85,19 +85,19 @@ http_interactions:
             "tokenization_method": null
           },
           "client_ip": "193.238.18.133",
-          "created": 1459239591,
+          "created": 1459859476,
           "livemode": false,
           "type": "card",
           "used": false
         }
     http_version: 
-  recorded_at: Tue, 29 Mar 2016 08:19:51 GMT
+  recorded_at: Tue, 05 Apr 2016 12:31:16 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: UTF-8
-      string: amount=1000&currency=USD&source=tok_8AdLM1WfDUPc2u
+      string: amount=1000&currency=USD&metadata[order_id]=7429efac-f449-4ca0-a172-a30c2497cf11&source=tok_8DJyRB5XEwUbly
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -114,7 +114,7 @@ http_interactions:
         version 4.2.0-34-generic (buildd@lgw01-54) (gcc version 5.2.1 20151010 (Ubuntu
         5.2.1-22ubuntu2) ) #39-Ubuntu SMP Thu Mar 10 22:13:01 UTC 2016","hostname":"adamsunday-ThinkPad-E450"}'
       Content-Length:
-      - '50'
+      - '106'
   response:
     status:
       code: 200
@@ -123,11 +123,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 29 Mar 2016 08:19:53 GMT
+      - Tue, 05 Apr 2016 12:31:17 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1428'
+      - '1486'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -141,7 +141,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_8AdLgfzfgIVYKG
+      - req_8DJyh9tbFUviqx
       Stripe-Version:
       - '2016-03-07'
       Strict-Transport-Security:
@@ -150,14 +150,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ch_8AdLWt8bRw2e3q",
+          "id": "ch_8DJy6Vp7X6ozRH",
           "object": "charge",
           "amount": 1000,
           "amount_refunded": 0,
           "application_fee": null,
-          "balance_transaction": "txn_8AdLf0sNl2thbs",
+          "balance_transaction": "txn_8DJyJ3Zf7XbTk5",
           "captured": true,
-          "created": 1459239592,
+          "created": 1459859477,
           "currency": "usd",
           "customer": null,
           "description": null,
@@ -168,7 +168,9 @@ http_interactions:
           "fraud_details": {},
           "invoice": null,
           "livemode": false,
-          "metadata": {},
+          "metadata": {
+            "order_id": "7429efac-f449-4ca0-a172-a30c2497cf11"
+          },
           "order": null,
           "paid": true,
           "receipt_email": null,
@@ -179,11 +181,11 @@ http_interactions:
             "data": [],
             "has_more": false,
             "total_count": 0,
-            "url": "/v1/charges/ch_8AdLWt8bRw2e3q/refunds"
+            "url": "/v1/charges/ch_8DJy6Vp7X6ozRH/refunds"
           },
           "shipping": null,
           "source": {
-            "id": "card_8AdLMotkhFWrA9",
+            "id": "card_8DJy4e6VZBO3X2",
             "object": "card",
             "address_city": null,
             "address_country": null,
@@ -212,5 +214,5 @@ http_interactions:
           "status": "succeeded"
         }
     http_version: 
-  recorded_at: Tue, 29 Mar 2016 08:19:53 GMT
+  recorded_at: Tue, 05 Apr 2016 12:31:17 GMT
 recorded_with: VCR 3.0.1

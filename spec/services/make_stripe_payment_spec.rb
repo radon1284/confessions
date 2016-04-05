@@ -4,6 +4,7 @@ describe MakeStripePayment, :vcr do
   let!(:service) { MakeStripePayment.build }
   let!(:cart_item) { CartItem.new(1, 1000, "USD") }
   let!(:cart) { Cart.new([cart_item]) }
+  let!(:order_id) { SecureRandom.uuid }
 
   context "with valid credit card details" do
     let!(:token) do
@@ -18,7 +19,7 @@ describe MakeStripePayment, :vcr do
     end
 
     it "raises no exception" do
-      expect { service.call(cart, token) }.not_to raise_error
+      expect { service.call(cart, token, order_id) }.not_to raise_error
     end
   end
 end
