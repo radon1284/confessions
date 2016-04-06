@@ -6,7 +6,7 @@ describe "Payment", :js do
   let!(:make_stripe_payment) { ->(_, _, _) {} }
 
   before do
-    AddProductToCart.build.call(product, visitor)
+    EventPublisher.publish(ProductAddedToCart.new(visitor, product))
     pretend_to_be_visitor(visitor)
     DI.add_override(MakeStripePayment, make_stripe_payment)
   end

@@ -29,10 +29,7 @@ class PayForCart
   attr_accessor :make_stripe_payment
 
   def clear_cart(visitor)
-    PersistedEvent.create!(
-      event_type: "cart_cleared",
-      visitor_identifier: visitor.identifier
-    )
+    EventPublisher.publish(CartCleared.new(visitor))
   end
 
   def build_order_items(cart)

@@ -5,7 +5,7 @@ describe "Remove from cart" do
   let!(:visitor) { Visitor.new("123") }
 
   before do
-    AddProductToCart.build.call(product, visitor)
+    EventPublisher.publish(ProductAddedToCart.new(visitor, product))
     pretend_to_be_visitor(visitor)
   end
 

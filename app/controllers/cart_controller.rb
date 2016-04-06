@@ -1,7 +1,9 @@
 class CartController < ApplicationController
   def add
     product = Product.find(params.fetch(:product_id))
-    DI.get(AddProductToCart).call(product, current_visitor)
+    EventPublisher.publish(
+      ProductAddedToCart.new(current_visitor, product)
+    )
     redirect_to cart_url
   end
 
@@ -16,7 +18,9 @@ class CartController < ApplicationController
 
   def remove
     product = Product.find(params.fetch(:product_id))
-    DI.get(RemoveProductFromCart).call(product, current_visitor)
+    EventPublisher.publish(
+      ProductRemovedFromCart.new(current_visitor, product)
+    )
     redirect_to cart_url
   end
 end

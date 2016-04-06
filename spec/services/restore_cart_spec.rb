@@ -21,8 +21,12 @@ describe RestoreCart do
   let!(:visitor) { Visitor.new("123") }
 
   before do
-    AddProductToCart.build.call(interesting_product, visitor)
-    AddProductToCart.build.call(long_product, visitor)
+    EventPublisher.publish(
+      ProductAddedToCart.new(visitor, interesting_product)
+    )
+    EventPublisher.publish(
+      ProductAddedToCart.new(visitor, long_product)
+    )
   end
 
   it "calculates the cart total" do
@@ -40,11 +44,8 @@ describe RestoreCart do
 
   context "when cart was cleared" do
     before do
-      PersistedEvent.create!(
-        event_type: "cart_cleared",
-        visitor_identifier: visitor.identifier
-      )
-      AddProductToCart.build.call(long_product, visitor)
+      EventPublisher.publish(CartCleared.new(visitor))
+      EventPublisher.publish(ProductAddedToCart.new(visitor, long_product))
     end
 
     it "returns only the items added after clearing" do
@@ -55,7 +56,9 @@ describe RestoreCart do
 
   context "when a product was later removed" do
     before do
-      RemoveProductFromCart.build.call(interesting_product, visitor)
+      EventPublisher.publish(
+        ProductRemovedFromCart.new(visitor, interesting_product)
+      )
     end
 
     it "doesn't return this product" do
