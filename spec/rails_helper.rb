@@ -32,6 +32,9 @@ Capybara::Webkit.configure do |config|
 end
 # rubocop:enable Style/SymbolProc
 
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
+
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.hook_into :webmock
@@ -83,6 +86,10 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DI.reset_overrides
+  end
+
+  config.before(:each) do
+    Sidekiq::Worker.clear_all
   end
 
   config.include FixtureHelpers
