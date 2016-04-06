@@ -1,9 +1,17 @@
 class EventPublisher
+  @handlers = Hash.new { |hash, key| hash[key] = [] }
+
   def self.publish(event)
-    PersistedEvent.create!(
-      event_type: event.class.name.underscore,
-      visitor_identifier: event.visitor.identifier,
-      payload: event.payload
-    )
+    @handlers[event.class].each do |handler|
+      handler.call(event)
+    end
+  end
+
+  def self.push_handler(event_class, handler)
+    @handlers[event_class] << handler
+  end
+
+  def self.clear_handlers(event_class)
+    @handlers[event_class] = []
   end
 end
