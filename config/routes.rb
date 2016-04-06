@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   post "payments/pay"
 
   resources :orders, only: [:show]
+
+  if Rails.env.development?
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end

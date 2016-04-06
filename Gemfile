@@ -19,6 +19,8 @@ gem 'money-rails'
 gem 'stripe'
 gem 'rollbar'
 gem 'equalizer'
+gem 'sidekiq'
+gem 'sinatra', require: nil
 
 group :development, :test do
   gem 'pry-rails'
