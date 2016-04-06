@@ -29,6 +29,14 @@ describe PayForCart do
       .by(1)
   end
 
+  it "publishes the order completed event" do
+    expect { service.call(visitor, stripe_token, email) }
+      .to change {
+        PersistedEvent.where(event_type: "order_completed").count
+      }
+      .by(1)
+  end
+
   describe "assigning order to user" do
     context "when there is no user with given email address" do
       it "creates a new user" do

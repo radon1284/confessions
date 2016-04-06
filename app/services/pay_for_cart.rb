@@ -12,27 +12,40 @@ class PayForCart
   end
 
   def call(visitor, stripe_token, email)
-    cart = restore_cart.call(visitor, Time.current)
-    order_id = SecureRandom.uuid
+    self.cart = restore_cart.call(visitor, Time.current)
+    self.order_id = generate_order_id
     make_stripe_payment.call(cart, stripe_token, order_id)
-    clear_cart(visitor)
-    user = User.where(email: email).first_or_create!
-    user.orders.create!(
-      id: order_id,
-      order_items: build_order_items(cart)
-    )
+    handle_successful_payment(visitor, email)
+    order
   end
 
   private
 
   attr_accessor :restore_cart
   attr_accessor :make_stripe_payment
+  attr_accessor :cart
+  attr_accessor :order_id
+  attr_accessor :order
 
-  def clear_cart(visitor)
-    EventPublisher.publish(CartCleared.new(visitor))
+  def generate_order_id
+    SecureRandom.uuid
   end
 
-  def build_order_items(cart)
+  def handle_successful_payment(visitor, email)
+    user = User.where(email: email).first_or_create!
+    self.order = create_order(user)
+    EventPublisher.publish(CartCleared.new(visitor))
+    EventPublisher.publish(OrderCompleted.new(visitor, order))
+  end
+
+  def create_order(user)
+    user.orders.create!(
+      id: order_id,
+      order_items: build_order_items
+    )
+  end
+
+  def build_order_items
     cart.items.map do |cart_item|
       OrderItem.new(
         product_id: cart_item.product_id,
