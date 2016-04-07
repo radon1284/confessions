@@ -92,10 +92,15 @@ RSpec.configure do |config|
     Sidekiq::Worker.clear_all
   end
 
+  config.before(:each) do
+    reset_email
+  end
+
   config.include FixtureHelpers
   FactoryGirl::SyntaxRunner.send(:include, FixtureHelpers)
   config.include ShowMeTheCookies, type: :feature
   config.include IdentificationHelpers, type: :feature
+  config.include EmailHelpers
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
