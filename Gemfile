@@ -21,6 +21,7 @@ gem 'rollbar'
 gem 'equalizer'
 gem 'sidekiq'
 gem 'sinatra', require: nil
+gem 'jwt'
 
 group :development, :test do
   gem 'pry-rails'
