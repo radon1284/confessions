@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   post "payments/pay"
 
-  resources :orders, only: [:show]
+  resources :orders, only: [:show, :index]
 
   get "login" => "authentication#login"
   post "authentication/send_token"

@@ -7,4 +7,14 @@ class OrdersController < ApplicationController
       }
     )
   end
+
+  def index
+    return redirect_to login_url if current_user.blank?
+    orders = current_user.orders
+    render(
+      locals: {
+        orders: orders
+      }
+    )
+  end
 end

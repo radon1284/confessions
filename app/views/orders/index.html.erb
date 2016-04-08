@@ -1,0 +1,16 @@
+<h1>
+  Your orders
+</h1>
+
+<ul>
+  <% orders.each do |order| %>
+    <li>
+      <%=
+        link_to(
+          "Order #{order.created_at.strftime("%F")}",
+          order_path(order)
+        )
+      %>
+    </li>
+  <% end %>
+</ul>
