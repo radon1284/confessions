@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post "authentication/send_token"
   get "authentication/authenticate_by_token"
 
+  resources :customer_support_requests, only: [:new, :create]
+
   if Rails.env.development?
     require 'sidekiq/web'
     mount Sidekiq::Web => '/sidekiq'
