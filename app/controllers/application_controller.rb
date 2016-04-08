@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
   def current_visitor
     Visitor.new(cookies.fetch(:visitor_identifier))
   end
+
+  def current_user
+    User.find(session[:user_id]) if session[:user_id]
+  end
 end

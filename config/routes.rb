@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:show]
 
+  get "login" => "authentication#login"
+  post "authentication/send_token"
+  get "authentication/authenticate_by_token"
+
   if Rails.env.development?
     require 'sidekiq/web'
     mount Sidekiq::Web => '/sidekiq'

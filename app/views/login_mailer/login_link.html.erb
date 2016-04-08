@@ -1,0 +1,6 @@
+<%=
+  link_to(
+    "Click this link to log in",
+    authentication_authenticate_by_token_url(token: @token)
+  )
+%>
