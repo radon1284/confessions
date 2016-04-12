@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   post "authentication/send_token"
   get "authentication/authenticate_by_token"
 
+  namespace :admin do
+    get "/", to: redirect("/admin/orders")
+    resources :orders, only: [:index]
+  end
+
   resources :customer_support_requests, only: [:new, :create]
 
   if Rails.env.development?

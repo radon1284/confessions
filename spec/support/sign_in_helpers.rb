@@ -7,4 +7,11 @@ module SignInHelpers
     )
     visit authentication_authenticate_by_token_path(token: token)
   end
+
+  def sign_in_admin
+    page.driver.browser.authorize(
+      ENV.fetch('ADMIN_NAME'),
+      ENV.fetch('ADMIN_PASSWORD')
+    )
+  end
 end

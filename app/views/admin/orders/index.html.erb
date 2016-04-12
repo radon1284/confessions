@@ -1,0 +1,30 @@
+<h1>
+  Orders
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        date
+      </th>
+      <th>
+        email
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% orders.each do |order| %>
+      <tr>
+        <td>
+          <%= order.created_at.strftime("%F") %>
+        </td>
+        <td>
+          <%= order.user.email %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate orders %>

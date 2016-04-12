@@ -18,12 +18,7 @@
   <%= link_to "Your previous orders", orders_path %>
 </p>
 
-<% flash.each do |_, message| %>
-  <p>
-    <%= message %>
-  </p>
-<% end %>
-
+<%= render "layouts/flash" %>
 <%= yield %>
 
 </body>
