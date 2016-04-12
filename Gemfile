@@ -23,6 +23,7 @@ gem 'sidekiq'
 gem 'sinatra', require: nil
 gem 'jwt'
 gem 'kaminari'
+gem 'carrierwave-aws'
 
 group :development, :test do
   gem 'pry-rails'
