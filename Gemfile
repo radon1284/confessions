@@ -22,6 +22,7 @@ gem 'equalizer'
 gem 'sidekiq'
 gem 'sinatra', require: nil
 gem 'jwt'
+gem 'kaminari'
 
 group :development, :test do
   gem 'pry-rails'
