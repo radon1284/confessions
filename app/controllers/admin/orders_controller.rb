@@ -8,4 +8,13 @@ class Admin::OrdersController < Admin::BaseController
       }
     )
   end
+
+  def show
+    order = Order.includes(products: :purchasable).find(params.fetch(:id))
+    render(
+      locals: {
+        order: order
+      }
+    )
+  end
 end

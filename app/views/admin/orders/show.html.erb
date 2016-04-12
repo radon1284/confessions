@@ -1,0 +1,84 @@
+<table>
+  <tbody>
+    <tr>
+      <td>
+        ID
+      </td>
+      <td>
+        <%= order.id %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Email
+      </td>
+      <td>
+        <%= order.user.email %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Total
+      </td>
+      <td>
+        <%= humanized_money_with_symbol(order.total) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Time
+      </td>
+      <td>
+        <%= order.created_at %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        View as customer
+      </td>
+      <td>
+        <%= link_to "click here", order_path(order) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Go to Stripe
+      </td>
+      <td>
+        <%=
+          link_to(
+            "click here",
+            "https://dashboard.stripe.com/search?query=#{order.id}"
+          )
+        %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        name
+      </th>
+      <th>
+        amount
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% order.order_items.each do |order_item| %>
+      <td>
+        <%= order_item.product.display_name %>
+      </td>
+      <td>
+        <%=
+          humanized_money_with_symbol(
+            order_item.price
+          )
+        %>
+      </td>
+    <% end %>
+  </tbody>
+</table>

@@ -17,7 +17,12 @@
     <% orders.each do |order| %>
       <tr>
         <td>
-          <%= order.created_at.strftime("%F") %>
+          <%=
+            link_to(
+              order.created_at.strftime("%F"),
+              admin_order_path(order)
+            )
+          %>
         </td>
         <td>
           <%= order.user.email %>

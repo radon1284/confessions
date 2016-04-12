@@ -4,4 +4,8 @@ class Order < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :user
+
+  def total
+    order_items.map(&:price).sum
+  end
 end

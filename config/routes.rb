@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/", to: redirect("/admin/orders")
-    resources :orders, only: [:index]
+    resources :orders, only: [:index, :show]
   end
 
   resources :customer_support_requests, only: [:new, :create]
