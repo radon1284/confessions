@@ -14,6 +14,7 @@ class CustomerSupportRequestsController < ApplicationController
     )
 
     if customer_support_request.save
+      notify_customer_support(customer_support_request)
       redirect_to root_url, notice: "You message has been sent."
     else
       handle_error(customer_support_request)
@@ -32,6 +33,12 @@ class CustomerSupportRequestsController < ApplicationController
       locals: {
         customer_support_request: customer_support_request
       }
+    )
+  end
+
+  def notify_customer_support(customer_support_request)
+    CustomerSupportNotificationWorker.perform_async(
+      customer_support_request.id
     )
   end
 end
