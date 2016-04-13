@@ -16,4 +16,10 @@ class BooksController < ApplicationController
       }
     )
   end
+
+  def download_pdf
+    order = Order.find(params.fetch(:order_id))
+    book = order.books.find(params.fetch(:id))
+    redirect_to book.content_pdf.download_url
+  end
 end

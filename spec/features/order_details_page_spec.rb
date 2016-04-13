@@ -11,4 +11,14 @@ describe "Order details page" do
     visit order_path(order)
     expect(page).to have_content(product.display_name)
   end
+
+  it "allows to download the PDF content" do
+    product.purchasable.update!(
+      content_pdf: File.open(file_fixture_path("book1.pdf"))
+    )
+    visit order_path(order)
+    click_on "Download PDF"
+    expect(page.response_headers["Content-Type"])
+      .to eq "application/pdf"
+  end
 end

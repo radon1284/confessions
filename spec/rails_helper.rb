@@ -100,6 +100,10 @@ RSpec.configure do |config|
     FileUtils.rm_rf(Dir[Rails.root.join("public", "uploads")])
   end
 
+  config.after(:each) do
+    FileUtils.rm_rf(Dir[Rails.root.join("public", "uploads")])
+  end
+
   config.include FixtureHelpers
   FactoryGirl::SyntaxRunner.send(:include, FixtureHelpers)
   config.include ShowMeTheCookies, type: :feature

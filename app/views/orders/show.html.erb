@@ -3,9 +3,15 @@
 </h1>
 
 <ul>
-  <% order.products.each do |product| %>
+  <% order.books.each do |book| %>
     <li>
-      <%= product.display_name %>
+      <%= book.title %>
+      <%=
+        link_to(
+          "Download PDF",
+          download_pdf_order_book_path(order, book)
+        )
+      %>
     </li>
   <% end %>
 </ul>
