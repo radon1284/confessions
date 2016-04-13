@@ -1,0 +1,43 @@
+<h1>
+  <%= book.title %>
+</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        Slug
+      </td>
+      <td>
+        <%= book.slug %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        View in store
+      </td>
+      <td>
+        <%= link_to "click here", book_path(book.slug) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        PDF content
+      </td>
+      <td>
+        <%=
+          link_to_if(
+            book.content_pdf.present?,
+            "download",
+            download_pdf_admin_book_path(book)
+          )
+        %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= form_for book, url: admin_book_path(book) do |f| %>
+  <%= f.file_field :content_pdf %>
+  <%= f.submit "Replace" %>
+<% end %>

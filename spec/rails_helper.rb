@@ -96,6 +96,10 @@ RSpec.configure do |config|
     reset_email
   end
 
+  config.before(:each) do
+    FileUtils.rm_rf(Dir[Rails.root.join("public", "uploads")])
+  end
+
   config.include FixtureHelpers
   FactoryGirl::SyntaxRunner.send(:include, FixtureHelpers)
   config.include ShowMeTheCookies, type: :feature
