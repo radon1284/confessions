@@ -37,6 +37,10 @@ Rails.application.routes.draw do
 
   resources :customer_support_requests, only: [:new, :create]
 
+  namespace :api do
+    resources :books, only: [:update]
+  end
+
   if Rails.env.development?
     require 'sidekiq/web'
     mount Sidekiq::Web => '/sidekiq'
