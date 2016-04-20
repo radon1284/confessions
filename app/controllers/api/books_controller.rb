@@ -4,8 +4,10 @@ class API::BooksController < ApplicationController
 
   def update
     book = Book.find_by!(slug: params.fetch(:id))
-    file = Base64EncodedFile.parse(params.fetch(:content_pdf), "book.pdf")
-    book.update!(content_pdf: file)
+    pdf = Base64EncodedFile.parse(params.fetch(:content_pdf), "book.pdf")
+    epub = Base64EncodedFile.parse(params.fetch(:content_epub), "book.epub")
+    mobi = Base64EncodedFile.parse(params.fetch(:content_mobi), "book.mobi")
+    book.update!(content_pdf: pdf, content_epub: epub, content_mobi: mobi)
     render json: {}
   end
 

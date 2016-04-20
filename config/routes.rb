@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :books, only: [] do
       member do
         get :download_pdf
+        get :download_epub
+        get :download_mobi
       end
     end
   end
@@ -28,9 +30,11 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/", to: redirect("/admin/orders")
     resources :orders, only: [:index, :show]
-    resources :books, only: [:index, :show, :update] do
+    resources :books, only: [:index, :show] do
       member do
         get :download_pdf
+        get :download_epub
+        get :download_mobi
       end
     end
   end

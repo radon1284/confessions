@@ -18,8 +18,24 @@ class BooksController < ApplicationController
   end
 
   def download_pdf
-    order = Order.find(params.fetch(:order_id))
-    book = order.books.find(params.fetch(:id))
+    book = find_book_by_order
     redirect_to book.content_pdf.download_url
+  end
+
+  def download_epub
+    book = find_book_by_order
+    redirect_to book.content_epub.download_url
+  end
+
+  def download_mobi
+    book = find_book_by_order
+    redirect_to book.content_mobi.download_url
+  end
+
+  private
+
+  def find_book_by_order
+    order = Order.find(params.fetch(:order_id))
+    order.books.find(params.fetch(:id))
   end
 end

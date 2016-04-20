@@ -34,10 +34,33 @@
         %>
       </td>
     </tr>
+    <tr>
+      <td>
+        EPUB content
+      </td>
+      <td>
+        <%=
+          link_to_if(
+            book.content_epub.present?,
+            "download",
+            download_epub_admin_book_path(book)
+          )
+        %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        MOBI content
+      </td>
+      <td>
+        <%=
+          link_to_if(
+            book.content_mobi.present?,
+            "download",
+            download_mobi_admin_book_path(book)
+          )
+        %>
+      </td>
+    </tr>
   </tbody>
 </table>
-
-<%= form_for book, url: admin_book_path(book) do |f| %>
-  <%= f.file_field :content_pdf %>
-  <%= f.submit "Replace" %>
-<% end %>

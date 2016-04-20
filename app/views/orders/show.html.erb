@@ -6,12 +6,32 @@
   <% order.books.each do |book| %>
     <li>
       <%= book.title %>
-      <%=
-        link_to(
-          "Download PDF",
-          download_pdf_order_book_path(order, book)
-        )
-      %>
+      <ul>
+        <li>
+          <%=
+            link_to(
+              "Download PDF",
+              download_pdf_order_book_path(order, book)
+            )
+          %>
+        </li>
+        <li>
+          <%=
+            link_to(
+              "Download EPUB",
+              download_epub_order_book_path(order, book)
+            )
+          %>
+        </li>
+        <li>
+          <%=
+            link_to(
+              "Download MOBI",
+              download_mobi_order_book_path(order, book)
+            )
+          %>
+        </li>
+      </ul>
     </li>
   <% end %>
 </ul>
