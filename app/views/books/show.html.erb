@@ -9,3 +9,18 @@
 <%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
 
 <%= render "books/contents/#{book.slug}" %>
+
+<h2>Free previews</h2>
+
+<ul>
+  <% chapters.each do |chapter| %>
+    <li>
+      <%=
+        link_to(
+          "Chapter #{chapter.number}",
+          book_chapter_path(book.slug, chapter.number)
+        )
+      %>
+    </li>
+  <% end %>
+</ul>

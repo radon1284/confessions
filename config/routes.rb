@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get "privacy_policy" => "static_pages#privacy_policy"
   get "terms" => "static_pages#terms"
 
-  resources :books, only: [:show, :index]
+  resources :books, only: [:show, :index] do
+    resources :chapters, only: [:show]
+  end
 
   get "cart" => "cart#show"
   post "cart/add"
