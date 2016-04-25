@@ -3,19 +3,44 @@ require "rails_helper"
 describe "Upload book content via API" do
   let!(:book) { FactoryGirl.create(:book) }
 
-  it "accepts Base64 encoded file" do
+  def dummy_encoded_file
     dummy_file_content = "123"
-    encoded = Base64.encode64(dummy_file_content)
+    Base64.encode64(dummy_file_content)
+  end
+
+  it "accepts Base64 encoded files" do
     patch(
       api_book_path(book.slug),
-      content_pdf: encoded,
-      content_epub: encoded,
-      content_mobi: encoded,
+      content_pdf: dummy_encoded_file,
+      content_epub: dummy_encoded_file,
+      content_mobi: dummy_encoded_file,
+      previews: [
+        { content: dummy_encoded_file }
+      ],
       token: ENV.fetch("API_TOKEN")
     )
     expect(response.status).to eq 200
     expect(book.reload.content_pdf).to be_present
     expect(book.reload.content_epub).to be_present
     expect(book.reload.content_mobi).to be_present
+  end
+
+  it "saves HTML previews of chapters" do
+    patch(
+      api_book_path(book.slug),
+      content_pdf: dummy_encoded_file,
+      content_epub: dummy_encoded_file,
+      content_mobi: dummy_encoded_file,
+      previews: [
+        { content: dummy_encoded_file }
+      ],
+      token: ENV.fetch("API_TOKEN")
+    )
+
+    book.reload
+    expect(book.chapters.count).to eq 1
+    chapter = book.chapters.last
+    expect(chapter.content_html).to eq "123"
+    expect(chapter.number).to eq 1
   end
 end

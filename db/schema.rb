@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420102837) do
+ActiveRecord::Schema.define(version: 20160425064134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20160420102837) do
   end
 
   add_index "books", ["slug"], name: "index_books_on_slug", unique: true, using: :btree
+
+  create_table "chapters", force: :cascade do |t|
+    t.integer  "book_id",      null: false
+    t.integer  "number",       null: false
+    t.text     "content_html", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "chapters", ["book_id"], name: "index_chapters_on_book_id", using: :btree
 
   create_table "customer_support_requests", force: :cascade do |t|
     t.text     "subject"
@@ -86,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160420102837) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "chapters", "books"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"

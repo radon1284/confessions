@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
   has_one :product, as: :purchasable
+  has_many :chapters, dependent: :destroy
 
   validates_presence_of :slug, :title
 
