@@ -15,6 +15,6 @@ window.TrackingProxy.TwitterTracker = {
   },
 
   track: function(payload) {
-
+    // events are configured in Twitter Ads dashboard
   }
 };

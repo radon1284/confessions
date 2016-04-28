@@ -4,11 +4,31 @@ window.TrackingProxy.GoogleAnalyticsTracker = {
   init: function(configuration) {
     this.runAnalyticsSnippet();
     ga('create', configuration.googleAnalytics, 'auto');
+    ga('require', 'ecommerce');
     ga('send', 'pageview');
   },
 
   track: function(payload) {
+    if (payload.event === 'order_completed') {
+      ga('ecommerce:addTransaction', {
+        id: payload.order_id,
+        revenue: payload.total,
+        currency: payload.currency
+      });
 
+      payload.items.forEach(function (item) {
+        ga('ecommerce:addItem', {
+          id: payload.order_id,
+          name: item.name,
+          price: item.price,
+          quantity: 1,
+          currency: item.currency,
+          sku: item.name
+        });
+      });
+
+      ga('ecommerce:send');
+    }
   },
 
   runAnalyticsSnippet: function() {

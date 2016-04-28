@@ -1,1 +1,16 @@
+<%=
+  TrackingProxyEventSender.new(
+    event: 'order_completed',
+    order_id: order.id,
+    total: order.total.amount,
+    currency: order.total.currency.to_s,
+    items: order.order_items.map do |item|
+      {
+        name: item.product.display_name,
+        price: item.price.amount,
+        currency: item.currency.to_s
+      }
+    end
+  )
+%>
 <%= render "order_content", order: order %>

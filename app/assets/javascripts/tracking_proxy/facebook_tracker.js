@@ -8,7 +8,13 @@ window.TrackingProxy.FacebookTracker = {
   },
 
   track: function(payload) {
-
+    if (payload.event === 'order_completed') {
+      fbq(
+        'track',
+        'Purchase',
+        { currency: payload.currency, value: payload.total }
+      );
+    }
   },
 
   runFacebookSnippet: function() {
