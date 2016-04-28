@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   def pay
     order = pay_for_cart
-    redirect_to order_url(order), notice: t("payment.success")
+    redirect_to completed_order_url(order), notice: t("payment.success")
   rescue MakeStripePayment::PaymentFailedDueToCustomer => ex
     redirect_to cart_url, flash: {
       error: t("payment.failure.customer_error", reason: ex.message)

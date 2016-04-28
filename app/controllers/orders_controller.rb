@@ -17,4 +17,13 @@ class OrdersController < ApplicationController
       }
     )
   end
+
+  def completed
+    order = Order.includes(:books).find(params.fetch(:id))
+    render(
+      locals: {
+        order: order
+      }
+    )
+  end
 end

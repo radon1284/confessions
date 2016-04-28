@@ -23,9 +23,10 @@ describe "Payment", :js do
     expect(page).to have_content("Thank you for paying!")
   end
 
-  it "redirects to the order page" do
+  it "redirects to the special order completed page" do
     visit cart_path
     simulate_user_filling_in_the_form
     expect(page).to have_content("Your order details")
+    expect(current_path).to include("/orders/order_completed/")
   end
 end

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  get "orders/order_completed/:id" => "orders#completed", as: "completed_order"
 
   get "login" => "authentication#login"
   post "authentication/send_token"
