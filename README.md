@@ -4,4 +4,16 @@
 [![Coverage Status](https://coveralls.io/repos/github/jackkinsella/confessions/badge.svg?branch=master)](https://coveralls.io/github/jackkinsella/confessions?branch=master)
 [![Code Climate](https://codeclimate.com/github/jackkinsella/confessions/badges/gpa.svg)](https://codeclimate.com/github/jackkinsella/confessions)
 
-This a repository for the distribution platform of the (coming) book - "Confessions of an Unintentional" by [Jack Kinsella](http://www.jackkinsella.ie/)
+This a repository for the distribution platform of the (coming) book - "Confessions of an Unintentional" by [Jack Kinsella](http://www.jackkinsella.ie/). You can check the current live version of the application here - http://confessions-of.herokuapp.com/
+
+**Warning! This is a work in progress.**
+
+### Running it locally
+
+Please take a look at the ```docs/development_setup.md``` file.
+
+### Why open source?
+
+Our primary business value comes from the book and the application is just a distribution platform for it, so we are not afraid of "someone stealing our ideas". Moreover, we hope that we will get some social media recognition for developing the application in public (so please share it with your friends!)
+
+
