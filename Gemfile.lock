@@ -188,6 +188,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
     rake (11.1.1)
+    redcarpet (3.3.4)
     redis (3.2.2)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -306,6 +307,7 @@ DEPENDENCIES
   puma
   rails (= 4.2.6)
   rails_12factor
+  redcarpet
   rollbar
   rspec-rails
   rubocop

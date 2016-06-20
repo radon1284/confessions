@@ -24,6 +24,7 @@ gem 'sinatra', require: nil
 gem 'jwt'
 gem 'kaminari'
 gem 'carrierwave-aws'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'pry-rails'

@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   root to: "books#index"
 
   get "impressum" => "static_pages#impressum"
+  get "about" => "static_pages#about"
   get "privacy_policy" => "static_pages#privacy_policy"
   get "terms" => "static_pages#terms"
+
+  resources :articles, only: [:show, :index], param: :slug
 
   resources :books, only: [:show, :index] do
     resources :chapters, only: [:show]
@@ -33,6 +36,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/", to: redirect("/admin/orders")
     resources :orders, only: [:index, :show]
+    resources :articles, only: [:new, :edit, :create, :update, :destroy], param: :slug
     resources :books, only: [:index, :show] do
       member do
         get :download_pdf

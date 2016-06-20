@@ -1,0 +1,29 @@
+<% if article.errors.any? %>
+  There were some problems with sending your message:
+  <ul>
+    <% article.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for [:admin, article] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/>
+  <%= f.label :slug %>
+  <%= f.text_field :slug %>
+  <br/>
+  <%= f.label :subtitle %>
+  <%= f.text_field :subtitle %>
+  <br/>
+  <%= f.label :short_description %>
+  <%= f.text_field :short_description %>
+  <br/>
+  <%= f.label :body %>
+  <%= f.text_area :body, rows: 50 %>
+  <br/>
+  <br/>
+  <%= f.submit "Send" %>
+<% end %>
