@@ -19,13 +19,24 @@
     <%= render "layouts/flash" %>
     <%= yield %>
     <footer>
+      <h5>Legal</h5>
+      <p>All rights reserved. All materials on this website are copyrighted by Jack Kinsella unless otherwise stated.</p>
+
       <ul>
         <li><%= link_to "Terms", terms_path %></li>
         <li><%= link_to "Impressum", impressum_path %></li>
         <li><%= link_to "Privacy policy", privacy_policy_path %></li>
+    </ul>
+      <h5>Shopping</h5>
+      <ul>
         <li><%= link_to "Your previous orders", orders_path %></li>
         <li><%= link_to "Cart", cart_path %></li>
-        <li><%= link_to "Contact us", new_customer_support_request_path %></li>
+        <li><%= link_to "Contact", new_customer_support_request_path %></li>
+    </ul>
+      <h5>Follow</h5>
+    <ul>
+        <li><%= link_to "Subscribe to mailing list", orders_path %></li>
+        <li><%= link_to "@jackkinsella", "https://twitter.com/jackkinsella"%></li>
     </ul>
     </footer>
 
