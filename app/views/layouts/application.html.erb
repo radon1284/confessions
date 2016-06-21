@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Confessions</title>
+    <title>Jack Kinsella</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -9,12 +9,16 @@
   <body>
     <%= TrackingProxyConfiguration.new %>
 
-    <p>
-      <%= link_to "Homepage", root_path %>
-      <%= link_to "Articles", articles_path %>
-      <%= link_to "Books", books_path %>
-      <%= link_to "About", about_path %>
-    </p>
+
+    <header>
+      Jack Kinsella, Berlin
+      <p>
+        <%= link_to "Homepage", root_path %>
+        <%= link_to "Articles", articles_path %>
+        <%= link_to "Books", books_path %>
+        <%= link_to "About", about_path %>
+      </p>
+    </header>
 
     <%= render "layouts/flash" %>
     <%= yield %>
@@ -35,8 +39,10 @@
     </ul>
       <h5>Follow</h5>
     <ul>
-        <li><%= link_to "Subscribe to mailing list", orders_path %></li>
         <li><%= link_to "@jackkinsella", "https://twitter.com/jackkinsella"%></li>
+
+        <li><%= render "layouts/mailchimp_signup_form" %></li>
+
     </ul>
     </footer>
 

@@ -1,5 +1,6 @@
-<h1>Jack Kinsella</h1>
-<h2>Featured Articles</h2>
+<h1>(Over-)Analyst</h1>
+<h2>I call myself an analyst because it's suitably nondescript and affords me inconsistency in interests.</h2>
+<h3>Featured Articles</h3>
 <ul>
 <% articles.each do |article| %>
   <li><%= link_to article.title, article_path(article.slug) %>: <%= article.short_description %></li>
