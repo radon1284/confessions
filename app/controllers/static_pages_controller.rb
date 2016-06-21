@@ -1,7 +1,4 @@
 class StaticPagesController < ApplicationController
-  def index
-  end
-
   def impressum
   end
 
@@ -9,6 +6,15 @@ class StaticPagesController < ApplicationController
   end
 
   def privacy_policy
+  end
+
+  def home
+    articles = Article.order(:created_at).last(10)
+    render(
+      locals: {
+        articles: articles
+      }
+    )
   end
 
   def terms

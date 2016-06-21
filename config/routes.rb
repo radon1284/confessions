@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "books#index"
+  root to: "static_pages#home"
 
   get "impressum" => "static_pages#impressum"
   get "about" => "static_pages#about"

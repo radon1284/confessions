@@ -1,0 +1,7 @@
+<h1>Jack Kinsella</h1>
+<h2>Featured Articles</h2>
+<ul>
+<% articles.each do |article| %>
+  <li><%= link_to article.title, article_path(article.slug) %>: <%= article.short_description %></li>
+<% end %>
+</ul>
