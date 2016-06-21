@@ -52,6 +52,11 @@ Rails.application.routes.draw do
     resources :books, only: [:update]
   end
 
+  # redirects from legacy website where we had articles such as "/2014/06/17/awareness-through-jargon.html"
+  get "/:year/:month/:date/:article_name", to: redirect { |path_params, req|
+    "/articles/#{path_params[:article_name].split(".").first}"
+  }
+
   if Rails.env.development?
     require 'sidekiq/web'
     mount Sidekiq::Web => '/sidekiq'
