@@ -8,6 +8,16 @@ class ArticlesController < ApplicationController
     )
   end
 
+  def feed
+    articles = Article.all
+    respond_to do |format|
+      format.rss { render :layout => false,
+                   locals:
+                   { articles: articles }
+      }
+    end
+  end
+
   def show
     article = Article.find_by!(slug: params.fetch(:slug))
     render(

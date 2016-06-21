@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "privacy_policy" => "static_pages#privacy_policy"
   get "terms" => "static_pages#terms"
 
+  get 'feed' => 'articles#feed'
+
   resources :articles, only: [:show, :index], param: :slug
 
   resources :books, only: [:show, :index] do
@@ -52,7 +54,7 @@ Rails.application.routes.draw do
     resources :books, only: [:update]
   end
 
-  # redirects from legacy website where we had articles such as "/2014/06/17/awareness-through-jargon.html"
+  # redirects from legacy website where we had articles such as "http://www.jackinsella/2014/06/17/awareness-through-jargon.html"
   get "/:year/:month/:date/:article_name", to: redirect { |path_params, req|
     "/articles/#{path_params[:article_name].split(".").first}"
   }

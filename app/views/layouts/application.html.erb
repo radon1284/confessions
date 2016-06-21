@@ -5,10 +5,10 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    <link rel="alternate" type="application/rss+xml" title="Jack Kinsella RSS Feed" href="<%= feed_url(format: "rss") %>">
   </head>
   <body>
     <%= TrackingProxyConfiguration.new %>
-
 
     <header>
       Jack Kinsella, Berlin
@@ -40,6 +40,7 @@
       <h5>Follow</h5>
     <ul>
         <li><%= link_to "@jackkinsella", "https://twitter.com/jackkinsella"%></li>
+        <li><%= link_to "RSS", feed_url(format: "rss") %></li>
 
         <li><%= render "layouts/mailchimp_signup_form" %></li>
 
