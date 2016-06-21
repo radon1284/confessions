@@ -11,9 +11,8 @@
 
     <p>
       <%= link_to "Homepage", root_path %>
-      <%= link_to "Cart", cart_path %>
       <%= link_to "Articles", articles_path %>
-      <%= link_to "Your previous orders", orders_path %>
+      <%= link_to "Books", books_path %>
       <%= link_to "About", about_path %>
     </p>
 
@@ -24,6 +23,8 @@
         <li><%= link_to "Terms", terms_path %></li>
         <li><%= link_to "Impressum", impressum_path %></li>
         <li><%= link_to "Privacy policy", privacy_policy_path %></li>
+        <li><%= link_to "Your previous orders", orders_path %></li>
+        <li><%= link_to "Cart", cart_path %></li>
         <li><%= link_to "Contact us", new_customer_support_request_path %></li>
     </ul>
     </footer>
