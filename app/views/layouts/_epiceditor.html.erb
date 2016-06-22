@@ -14,9 +14,9 @@ var opts = {
     autoSave: 100
   },
   theme: {
-    base: '/epiceditor.css',
-    preview: 'preview-dark.css',
-    editor: '/epic-dark.css'
+    base: "<%= asset_path '/epiceditor.css' %>",
+    preview: "<%= asset_path 'preview-dark.css' %>",
+    editor: "<%= asset_path '/epic-dark.css' %>"
   },
   button: {
     preview: true,
