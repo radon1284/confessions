@@ -9,9 +9,15 @@ module SignInHelpers
   end
 
   def sign_in_admin
-    page.driver.browser.authorize(
-      ENV.fetch('ADMIN_NAME'),
-      ENV.fetch('ADMIN_PASSWORD')
-    )
+    username = ENV.fetch('ADMIN_NAME')
+    password = ENV.fetch('ADMIN_PASSWORD')
+    if page.driver.respond_to?(:authorize)
+      page.driver.authorize(username, password)
+    # Javascript driver fallback
+    else
+      basic = ActionController::HttpAuthentication::Basic
+      credentials = basic.encode_credentials(username, password)
+      page.driver.header('Authorization', credentials)
+    end
   end
 end
