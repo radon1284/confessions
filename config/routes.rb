@@ -46,6 +46,7 @@ Rails.application.routes.draw do
         get :download_mobi
       end
     end
+    resources :photos, only: [:index, :create, :destroy, :new]
   end
 
   resources :customer_support_requests, only: [:new, :create]

@@ -1,0 +1,13 @@
+<h1>Browse Uploaded Photos</h1>
+<p>Copy the URL here into your blog posts' markdown</p>
+<p><%= link_to "Add a new photo", new_admin_photo_path %></p>
+<table>
+  <% photos.each do |photo| %>
+  <tr>
+    <td><%= image_tag(photo.file, size: "200") %></td>
+    <td><%= photo.file.url %></td>
+    <td><%= link_to "Destroy", admin_photo_path(photo), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<%= paginate photos %>
