@@ -25,7 +25,6 @@ gem 'jwt'
 gem 'kaminari'
 gem 'carrierwave-aws'
 gem 'redcarpet'
-gem 'epic-editor-rails'
 
 group :development, :test do
   gem 'pry-rails'

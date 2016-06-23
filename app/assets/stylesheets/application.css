@@ -11,7 +11,5 @@
  * file per style scope.
  *
  *= require_tree .
- *= require editor/epiceditor
- *= require editor/github
  *= require_self
  */

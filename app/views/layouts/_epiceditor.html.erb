@@ -1,40 +1,15 @@
 <div id="epiceditor"></div>
 <script>
-var opts = {
-  container: 'epiceditor',
-  textarea: 'article_body',
-  basePath: '/assets/editor',
-  clientSideStorage: true,
-  localStorageName: 'epiceditor',
-  useNativeFullscreen: true,
-  parser: marked,
-  file: {
-    name: 'epiceditor',
-    defaultContent: '',
-    autoSave: 100
-  },
-  theme: {
-    base: "<%= asset_path '/epiceditor.css' %>",
-    preview: "<%= asset_path 'preview-dark.css' %>",
-    editor: "<%= asset_path '/epic-dark.css' %>"
-  },
-  button: {
-    preview: true,
-    fullscreen: true,
-    bar: "auto"
-  },
-  focusOnLoad: false,
-  shortcut: {
-    modifier: 18,
-    fullscreen: 70,
-    preview: 80
-  },
-  string: {
-    togglePreview: 'Toggle Preview Mode',
-    toggleEdit: 'Toggle Edit Mode',
-    toggleFullscreen: 'Enter Fullscreen'
-  },
-  autogrow: true
-}
-var editor = new EpicEditor(opts).load();
+  var opts = {
+    container: 'epiceditor',
+    textarea: 'article_body',
+    basePath: '',
+    theme: {
+      base: "<%= asset_path 'epiceditor/epiceditor.css' %>",
+      preview: "<%= asset_path 'epiceditor/preview-dark.css' %>",
+      editor: "<%= asset_path 'epiceditor/epic-dark.css' %>"
+    },
+    autogrow: true
+  }
+  var editor = new EpicEditor(opts).load();
 </script>
