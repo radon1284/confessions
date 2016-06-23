@@ -1,12 +1,11 @@
 require "rails_helper"
-
 describe "Article Viewing" do
-
-   let!(:article) { FactoryGirl.create(
+  let!(:article) do
+    FactoryGirl.create(
       :article,
       title: "Janki Method"
     )
-   }
+  end
 
   it "lets you view an article" do
     visit article_path(article.slug)

@@ -1,5 +1,4 @@
 class Admin::ArticlesController < Admin::BaseController
-
   def new
     article = Article.new
     render(
@@ -26,9 +25,7 @@ class Admin::ArticlesController < Admin::BaseController
     else
       flash[:alert] = "Errors creating your article"
       render :new,
-        locals: {
-          article: article
-      }
+             locals: { article: article }
     end
   end
 
@@ -39,19 +36,14 @@ class Admin::ArticlesController < Admin::BaseController
       redirect_to article_path(article.slug)
     else
       flash[:alert] = "Could not update article"
-      render(
-        :edit,
-        locals: {
-          article: article
-        }
-      )
+      render(:edit, locals: { article: article })
     end
   end
 
   private
 
   def article_params
-    params.require(:article).permit(:title, :slug, :short_description, :subtitle, :body)
+    params.require(:article)
+          .permit(:title, :slug, :short_description, :subtitle, :body)
   end
-
 end

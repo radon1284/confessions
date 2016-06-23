@@ -1,7 +1,5 @@
 require "rails_helper"
-
 describe "Photo Management" do
-
   before do
     sign_in_admin
   end

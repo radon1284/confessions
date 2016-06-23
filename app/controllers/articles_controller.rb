@@ -11,10 +11,10 @@ class ArticlesController < ApplicationController
   def feed
     articles = Article.all
     respond_to do |format|
-      format.rss { render :layout => false,
-                   locals:
-                   { articles: articles }
-      }
+      format.rss do
+        render layout: false,
+               locals: { articles: articles }
+      end
     end
   end
 
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     article = Article.find_by!(slug: params.fetch(:slug))
     render(
       locals: {
-        article: article,
+        article: article
       }
     )
   end

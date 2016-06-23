@@ -1,17 +1,15 @@
 require "rails_helper"
-
 describe "Article Management" do
-
   before do
     sign_in_admin
   end
 
   it "lets you create a new article", js: true do
     visit new_admin_article_path
-    fill_in_epiceditor_field %Q{
+    fill_in_epiceditor_field "
       ## Use More Images
       One of the problems with original janki was...
-    }
+    "
     fill_in "Title", with: "Janki Method Refined"
     fill_in "Slug", with: "janki-method-refined"
     fill_in "Subtitle", with: "Changes to original janki"
@@ -49,5 +47,4 @@ describe "Article Management" do
       end
     end
   end
-
 end

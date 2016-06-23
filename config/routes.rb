@@ -38,7 +38,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/", to: redirect("/admin/orders")
     resources :orders, only: [:index, :show]
-    resources :articles, only: [:new, :edit, :create, :update, :destroy], param: :slug
+    resources :articles, only:
+      [:new, :edit, :create, :update, :destroy], param: :slug
     resources :books, only: [:index, :show] do
       member do
         get :download_pdf
@@ -55,9 +56,10 @@ Rails.application.routes.draw do
     resources :books, only: [:update]
   end
 
-  # redirects from legacy website where we had articles such as "http://www.jackinsella/2014/06/17/awareness-through-jargon.html"
-  get "/:year/:month/:date/:article_name", to: redirect { |path_params, req|
-    "/articles/#{path_params[:article_name].split(".").first}"
+  # redirects from legacy website where we had articles
+  # such as "http://www.jackinsella/2014/06/17/awareness-through-jargon.html"
+  get "/:year/:month/:date/:article_name", to: redirect { |path_params, _|
+    "/articles/#{path_params[:article_name].split('.').first}"
   }
 
   if Rails.env.development?

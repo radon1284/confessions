@@ -1,5 +1,4 @@
 class Admin::PhotosController < Admin::BaseController
-
   def index
     photos = Photo.order(created_at: :desc).limit(50).page(params[:page])
     render(
@@ -35,5 +34,4 @@ class Admin::PhotosController < Admin::BaseController
   def photo_params
     params.require(:photo).permit(:file)
   end
-
 end
