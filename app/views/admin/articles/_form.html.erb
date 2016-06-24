@@ -22,8 +22,8 @@
   <%= f.text_field :short_description %>
   <br/>
   <%= f.label :body %>
-  <%= f.text_area :body, hidden: true %>
-  <%= render "layouts/epiceditor" %>
+  <%= f.text_area :body %>
+  <%= render "layouts/epiceditor", element_id: "article_body" %>
   <br/>
   <%= f.submit "Send" %>
 <% end %>

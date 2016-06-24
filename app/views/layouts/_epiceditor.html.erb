@@ -2,7 +2,7 @@
 <script>
   var opts = {
     container: 'epiceditor',
-    textarea: 'article_body',
+    textarea: '<%= element_id %>',
     basePath: '',
     theme: {
       base: "<%= asset_path 'epiceditor/epiceditor.css' %>",
@@ -12,4 +12,5 @@
     autogrow: true
   }
   var editor = new EpicEditor(opts).load();
+  $("#<%= element_id %>").prop("hidden", true);
 </script>
