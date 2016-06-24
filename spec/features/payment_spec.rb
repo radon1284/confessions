@@ -12,7 +12,8 @@ describe "Payment", :js do
   end
 
   def simulate_user_filling_in_the_form
-    page.execute_script("$(\"form\").append(\"<input value='token' \
+    page.execute_script("$(\"form#test-stripe-payment\") \
+      .append(\"<input value='token' \
       name='stripeToken'><input value='test@example.com' \
       name='stripeEmail'>\").submit()")
   end
