@@ -4,9 +4,9 @@ describe "Article Management" do
     sign_in_admin
   end
 
-  it "lets you create a new article", js: true do
+  it "lets you create a new article" do
     visit new_admin_article_path
-    fill_in_epiceditor_field "
+    fill_in "Body", with: "
       ## Use More Images
       One of the problems with original janki was...
     "
@@ -28,23 +28,5 @@ describe "Article Management" do
     click_on "Send"
     expect(page).to have_text("Successfully updated article")
     expect(page).to have_text("Hanky")
-  end
-
-  private
-
-  def fill_in_epiceditor_field(text)
-    # Use CSS attribute prefix selector
-    # (^=) to find iframe with id
-    # beginning with 'epiceditor-' to
-    # match first parent iframe in page
-    parent_iframe = find('iframe[id^=epiceditor-]')
-
-    within_frame(parent_iframe) do
-      child_iframe_id = 'epiceditor-editor-frame'
-
-      within_frame(child_iframe_id) do
-        fill_in 'body[contenteditable]', with: text
-      end
-    end
   end
 end
