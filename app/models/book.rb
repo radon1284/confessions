@@ -9,7 +9,6 @@ class Book < ActiveRecord::Base
   mount_uploader :content_mobi, BookContentMOBIUploader
 
   def partial_name
-    slug.gsub("-","_")
+    slug.tr("-", "_")
   end
-
 end
