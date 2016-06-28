@@ -8,7 +8,7 @@
 
 <%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
 
-<%= render "books/contents/#{book.slug}" %>
+<%= render "books/contents/#{book.partial_name}" %>
 
 <h2>Free previews</h2>
 
