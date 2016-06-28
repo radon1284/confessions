@@ -10,9 +10,11 @@ class StaticPagesController < ApplicationController
 
   def home
     articles = Article.order(:created_at).last(10)
+    books = Book.order(:created_at)
     render(
       locals: {
-        articles: articles
+        articles: articles,
+        books: books
       }
     )
   end
