@@ -11,9 +11,6 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
 gem 'puma'
 gem 'money-rails'
 gem 'stripe'
@@ -25,6 +22,9 @@ gem 'jwt'
 gem 'kaminari'
 gem 'carrierwave-aws'
 gem 'redcarpet'
+
+gem 'bourbon'
+gem 'neat'
 
 group :development, :test do
   gem 'pry-rails'
@@ -55,4 +55,11 @@ end
 
 group :production do
   gem 'rails_12factor'
+end
+
+# Uses Bower to auto-update assets
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-jquery-ujs'
+  gem 'rails-assets-normalize.css'
 end
