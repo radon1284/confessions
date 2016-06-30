@@ -1,0 +1,32 @@
+.footer {
+  background-color: gray;
+  @include span-columns(12);
+}
+
+.footer__section {
+  @include span-columns(4);
+  @include media($tablet) {
+    @include span-columns(4);
+  }
+
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+}
+
+.footer__section-title {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer__copyright {
+  margin-top: 30px;
+}
+
+.footer__link-list {
+  list-style: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+

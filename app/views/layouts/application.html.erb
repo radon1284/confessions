@@ -9,44 +9,53 @@
     <link rel="alternate" type="application/rss+xml" title="Jack Kinsella RSS Feed" href="<%= feed_url(format: "rss") %>">
   </head>
   <body>
-    <%= TrackingProxyConfiguration.new %>
+    <div class="layout__main-content">
+      <%= TrackingProxyConfiguration.new %>
 
-    <header>
-      Jack Kinsella, Berlin
-      <p>
-        <%= link_to "Homepage", root_path %>
-        <%= link_to "Articles", articles_path %>
-        <%= link_to "Books", books_path %>
-        <%= link_to "About", about_path %>
-      </p>
-    </header>
+      <header>
+        Jack Kinsella, Berlin
+        <p>
+          <%= link_to "Homepage", root_path %>
+          <%= link_to "Articles", articles_path %>
+          <%= link_to "Books", books_path %>
+          <%= link_to "About", about_path %>
+        </p>
+      </header>
 
-    <%= render "layouts/flash" %>
-    <%= yield %>
-    <footer>
-      <h5>Legal</h5>
-      <p>All rights reserved. All materials on this website are copyrighted by Jack Kinsella unless stated otherwise.</p>
+      <%= render "layouts/flash" %>
+      <%= yield %>
+      <footer class="footer">
+        <div class="footer__section">
+          <h5>Shopping</h5>
+          <ul>
+            <li><%= link_to "Your previous orders", orders_path %></li>
+            <li><%= link_to "Cart", cart_path %></li>
+            <li><%= link_to "Contact", new_customer_support_request_path %></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h5>Follow</h5>
+          <ul class="footer__link-list">
+            <li><%= render "layouts/mailchimp_signup_form" %></li>
+            <li><%= link_to "@jackkinsella", "https://twitter.com/jackkinsella"%></li>
+            <li><%= link_to "RSS", feed_url(format: "rss") %></li>
 
-      <ul>
-        <li><%= link_to "Terms", terms_path %></li>
-        <li><%= link_to "Impressum", impressum_path %></li>
-        <li><%= link_to "Privacy policy", privacy_policy_path %></li>
-    </ul>
-      <h5>Shopping</h5>
-      <ul>
-        <li><%= link_to "Your previous orders", orders_path %></li>
-        <li><%= link_to "Cart", cart_path %></li>
-        <li><%= link_to "Contact", new_customer_support_request_path %></li>
-    </ul>
-      <h5>Follow</h5>
-    <ul>
-        <li><%= link_to "@jackkinsella", "https://twitter.com/jackkinsella"%></li>
-        <li><%= link_to "RSS", feed_url(format: "rss") %></li>
 
-        <li><%= render "layouts/mailchimp_signup_form" %></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h5>Legal</h5>
+          <ul>
+            <li><%= link_to "Terms", terms_path %></li>
+            <li><%= link_to "Impressum", impressum_path %></li>
+            <li><%= link_to "Privacy policy", privacy_policy_path %></li>
+          </ul>
+          <div class="footer__copyright">
+            <p>All rights reserved. All materials on this website are copyrighted by Jack Kinsella unless stated otherwise.</p>
+          </div>
+        </div>
+      </footer>
 
-    </ul>
-    </footer>
-
+    </div>
   </body>
 </html>
