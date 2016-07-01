@@ -9,3 +9,4 @@ en:
       customer_error: "Payment has failed. %{reason}"
       server_error: "Payment has failed. It looks like a temporary issue on our side and we have been notified. Please try again in a couple of minutes or contact the customer support."
     success: "Thank you for paying!"
+  site_name: "Jackkinsella.ie"
