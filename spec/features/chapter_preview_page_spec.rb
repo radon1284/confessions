@@ -18,7 +18,12 @@ describe "Chapter preview page" do
 
   describe "navigation" do
     let!(:other_chapter) do
-      FactoryGirl.create(:chapter, title: "Other chapter", number: 2, book: book)
+      FactoryGirl.create(
+        :chapter,
+        title: "Other chapter",
+        number: 2,
+        book: book
+      )
     end
 
     it "links to other chapters in this book" do
