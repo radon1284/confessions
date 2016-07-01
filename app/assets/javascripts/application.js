@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery-ujs
 //= require_tree .
+
+function showTableOfContents() {
+  $("#table_of_contents").show()
+}

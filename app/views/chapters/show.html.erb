@@ -1,4 +1,17 @@
-<h2>Navigation</h2>
+<h1>Preview of Chapter <%= chapter.number %> of <%= link_to book.title, book_path(book.slug) %> </h1>
+<%= link_to "Show Table Of Contents", "#", onclick: "showTableOfContents()" %>
+<ul id="table_of_contents" style="display:none;">
+  <% all_chapters.each do |chp| %>
+    <li>
+      <%=
+        link_to(
+          "Chapter #{chp.number} - #{chp.title}",
+          book_chapter_path(book.slug, chp.slug)
+        )
+      %>
+    </li>
+  <% end %>
+</ul>
 <%= chapter.content_html.html_safe %>
 
 <hr/>
