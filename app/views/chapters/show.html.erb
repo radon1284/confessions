@@ -5,7 +5,7 @@
       <%=
         link_to(
           "Chapter #{other_chapter.number} - #{other_chapter.title}",
-          book_chapter_path(book.slug, other_chapter.number)
+          book_chapter_path(book.slug, other_chapter.slug)
         )
       %>
     </li>

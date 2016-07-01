@@ -11,7 +11,7 @@ describe "Chapter preview page" do
   end
 
   it "shows chapter content" do
-    visit book_chapter_path(book.slug, chapter.number)
+    visit book_chapter_path(book.slug, chapter.slug)
     expect(page).to have_content("Best chapter")
     expect(page).to have_no_content("<h1>")
   end
@@ -27,7 +27,7 @@ describe "Chapter preview page" do
     end
 
     it "links to other chapters in this book" do
-      visit book_chapter_path(book.slug, chapter.number)
+      visit book_chapter_path(book.slug, chapter.slug)
       expect(page).to have_content("Chapter 2 - Other chapter")
     end
   end

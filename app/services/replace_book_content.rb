@@ -19,8 +19,13 @@ class ReplaceBookContent
       book.chapters.create!(
         number: index + 1,
         content_html: Base64.decode64(preview.fetch(:content)),
-        title: preview.fetch(:title)
+        title: preview.fetch(:title),
+        slug: generate_slug(preview.fetch(:title))
       )
     end
+  end
+
+  def generate_slug(title)
+    title.parameterize
   end
 end

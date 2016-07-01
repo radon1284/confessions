@@ -43,5 +43,6 @@ describe "Upload book content via API" do
     expect(chapter.content_html).to eq "123"
     expect(chapter.title).to eq "This Is A Title"
     expect(chapter.number).to eq 1
+    expect(chapter.slug).to eq "this-is-a-title"
   end
 end
