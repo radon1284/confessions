@@ -15,7 +15,7 @@ describe "Upload book content via API" do
       content_epub: dummy_encoded_file,
       content_mobi: dummy_encoded_file,
       previews: [
-        { content: dummy_encoded_file }
+        { title: "This Is A Title", content: dummy_encoded_file }
       ],
       token: ENV.fetch("API_TOKEN")
     )
@@ -32,7 +32,7 @@ describe "Upload book content via API" do
       content_epub: dummy_encoded_file,
       content_mobi: dummy_encoded_file,
       previews: [
-        { content: dummy_encoded_file }
+        { title: "This Is A Title", content: dummy_encoded_file }
       ],
       token: ENV.fetch("API_TOKEN")
     )
@@ -41,6 +41,7 @@ describe "Upload book content via API" do
     expect(book.chapters.count).to eq 1
     chapter = book.chapters.last
     expect(chapter.content_html).to eq "123"
+    expect(chapter.title).to eq "This Is A Title"
     expect(chapter.number).to eq 1
   end
 end

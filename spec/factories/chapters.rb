@@ -3,5 +3,6 @@ FactoryGirl.define do
     book
     number 1
     content_html "<h1>First chapter</h1><p>Awesome content</p>"
+    title "This Is Amazing Chapter"
   end
 end

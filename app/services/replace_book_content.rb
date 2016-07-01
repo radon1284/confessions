@@ -18,7 +18,8 @@ class ReplaceBookContent
     params.fetch(:previews).each_with_index do |preview, index|
       book.chapters.create!(
         number: index + 1,
-        content_html: Base64.decode64(preview.fetch(:content))
+        content_html: Base64.decode64(preview.fetch(:content)),
+        title: preview.fetch(:title)
       )
     end
   end
