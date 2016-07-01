@@ -1,17 +1,4 @@
 <h2>Navigation</h2>
-<ul>
-  <% all_chapters.each do |other_chapter| %>
-    <li>
-      <%=
-        link_to(
-          "Chapter #{other_chapter.number} - #{other_chapter.title}",
-          book_chapter_path(book.slug, other_chapter.slug)
-        )
-      %>
-    </li>
-  <% end %>
-</ul>
-
 <%= chapter.content_html.html_safe %>
 
 <hr/>
@@ -20,3 +7,17 @@
   This is the end of the free preview.
   Please <%= link_to "buy the book", book_path(book.slug) %>.
 </p>
+<ul>
+  <% if previous_chapter %>
+    <li>
+      <%= link_to "< Previous Chapter: #{previous_chapter.title}",
+        book_chapter_path(book.slug, previous_chapter.slug) %>
+    </li>
+   <% end %>
+  <% if next_chapter %>
+  <li>
+    <%= link_to "Next Chapter: #{next_chapter.title} >",
+        book_chapter_path(book.slug, next_chapter.slug) %>
+  </li>
+ <% end %>
+</ul>
