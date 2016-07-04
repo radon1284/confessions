@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     get "/", to: redirect("/admin/orders")
     resources :orders, only: [:index, :show]
     resources :articles, only:
-      [:new, :edit, :create, :update, :destroy], param: :slug
+      [:index, :new, :edit, :create, :update], param: :slug
     resources :books, only: [:index, :show] do
       member do
         get :download_pdf

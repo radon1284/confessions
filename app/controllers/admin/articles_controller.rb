@@ -1,4 +1,13 @@
 class Admin::ArticlesController < Admin::BaseController
+  def index
+    articles = Article.order(created_at: :desc)
+    render(
+      locals: {
+        articles: articles
+      }
+    )
+  end
+
   def new
     article = Article.new
     render(

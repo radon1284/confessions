@@ -29,4 +29,10 @@ describe "Article Management" do
     expect(page).to have_text("Successfully updated article")
     expect(page).to have_text("Hanky")
   end
+
+  it "shows list of all articles" do
+    FactoryGirl.create(:article, title: "Janki Method")
+    visit admin_articles_path
+    expect(page).to have_content("Janki Method")
+  end
 end
