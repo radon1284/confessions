@@ -26,9 +26,9 @@ describe "Chapter preview page" do
       )
     end
 
-    it "links to other chapters in this book" do
+    it "links to the next chapter in this book" do
       visit book_chapter_path(book.slug, chapter.slug)
-      expect(page).to have_content("Chapter 2 - Other chapter")
+      expect(page).to have_content("Next: Other chapter")
     end
   end
 end
