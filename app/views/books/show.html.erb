@@ -7,7 +7,7 @@
     Price: <%= humanized_money_with_symbol(book.product.price) %>
   </p>
   <%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
-  <p>100% Refund Guarantee. Instant Download. Available in DRM-free MOBI, EPUB, and PDF formats. Tax Deductible Invoices Given.</p>
+  <p>100% Refund Guarantee. Instant Download. Available in DRM-free MOBI, EPUB, and PDF formats. Tax Deductable Invoices Given.</p>
 </div>
 
 <%= render "books/contents/#{book.partial_name}", book: book %>
