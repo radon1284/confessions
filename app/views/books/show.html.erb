@@ -2,38 +2,37 @@
   <%= book.title %>
 </h1>
 
-<p>
-  Price: <%= humanized_money_with_symbol(book.product.price) %>
-</p>
+<div>
+  <p>
+    Price: <%= humanized_money_with_symbol(book.product.price) %> (tax deductable)
+  </p>
+  <p>Internet marketing attracts more competition with every passing second.If you're wise, you'll get started today–before its too late for the little guy to jump in.</p>
+  <%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
+  <p>100% Refund Guarantee. Instant Download. Available in DRM-free MOBI, EPUB, and PDF formats.</p>
+</div>
 
-<%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
+<%= render "books/contents/#{book.partial_name}", book: book %>
 
-<%= render "books/contents/#{book.partial_name}" %>
-
-<h2>Free previews</h2>
-
+<h2>Testimonials</h2>
 <ul>
-  <% chapters.each do |chapter| %>
-    <li>
-      <%=
-        link_to(
-          "Chapter #{chapter.number} - #{chapter.title}",
-          book_chapter_path(book.slug, chapter.slug)
-        )
-      %>
-    </li>
-  <% end %>
+  <li></li>
 </ul>
 
+
+<div>
 <h2>Frequently Asked Questions</h2>
 <ul>
   <li>
-    <span>What is your refund policy?</span>
-    We offer a 100% no-questions-asked refund. <%= link_to "Email customer support", new_customer_support_request_path %> to put your refund through. Please note it may take us a few days to process your request.
+    <span>How Do I Download?</span>
+    You will be emailed a link to download after purchasing. No login required.
   </li>
   <li>
-    <span>What format is the book available in?</span>
-    Purchasers of this book can download it in DRM-free PDF, EPUB, or MOBI formats, meaning you'll be able to read on your Kindle (or equivalent), mobile phone, or laptop. We do not currently offer a print version of the book.
+    <span>I am unhappy. What is your refund policy?</span>
+      We offer a 100% no-questions-asked refund. <%= link_to "Email customer support", new_customer_support_request_path %> to ask to put your refund through. Please note it may take us a few days for us to process your request.
+  </li>
+  <li>
+    <span>What formats is the book available in?</span>
+    DRM-free PDF, EPUB, and MOBI formats. Basically this means you'll be able to read the book on your Kindle (or equivalent), your mobile phone, or your laptop. We do not offer a print version of the book.
   </li>
   <li>
     <span>I am a business. How can I get an invoice?</span>
@@ -41,6 +40,11 @@
   </li>
   <li>
     <span>I found an inaccuracy/typo. Where do I report it?</span>
-    It's hard to catch all errors in our editing phase, so we warmly welcome any feedback. Please send your errata to <%= link_to "customer service", new_customer_support_request_path %>.
+    It's hard to catch all errors in our editing phase, so we warmly welcome any feedback about errors, no matter how small! Please send your errata to <%= link_to "customer service", new_customer_support_request_path %>.
   </li>
 </ul>
+</div>
+<div>
+<%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
+<p>100% Refund Guarantee. Instant Download in MOBI, EPUB, and PDF formats. Payments made through a secure third party provider.</p>
+</div>
