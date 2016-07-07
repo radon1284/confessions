@@ -6,13 +6,13 @@ describe "Add to cart" do
 
   it "redirects to the cart page" do
     visit book_path(book.slug)
-    click_on("Add to cart")
+    first(:button, "Add to cart").click
     expect(current_path).to eq cart_path
   end
 
   it "shows the product in cart" do
     visit book_path(book.slug)
-    click_on("Add to cart")
+    first(:button, "Add to cart").click
     expect(page).to have_content(book.title)
     expect(page).to have_content(product.price)
   end
