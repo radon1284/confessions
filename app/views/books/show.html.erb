@@ -4,11 +4,10 @@
 
 <div>
   <p>
-    Price: <%= humanized_money_with_symbol(book.product.price) %> (tax deductable)
+    Price: <%= humanized_money_with_symbol(book.product.price) %>
   </p>
-  <p>Internet marketing attracts more competition with every passing second.If you're wise, you'll get started today–before its too late for the little guy to jump in.</p>
   <%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
-  <p>100% Refund Guarantee. Instant Download. Available in DRM-free MOBI, EPUB, and PDF formats.</p>
+  <p>100% Refund Guarantee. Instant Download. Available in DRM-free MOBI, EPUB, and PDF formats. Tax Deductible Invoices Given.</p>
 </div>
 
 <%= render "books/contents/#{book.partial_name}", book: book %>
