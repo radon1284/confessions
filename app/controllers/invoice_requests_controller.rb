@@ -22,8 +22,9 @@ class InvoiceRequestsController < ApplicationController
 
   def show
     order = Order.find(params.fetch(:order_id))
-    pdf = Prawn::Document.new
-    pdf.text "Invoice #{order.invoice_number}"
+    invoice_request = order.invoice_requests.find(params.fetch(:id))
+    invoice = Invoice.new(order: order, invoice_request: invoice_request)
+    pdf = InvoicePDF.new(invoice)
     send_data(
       pdf.render,
       filename: "invoice-#{order.invoice_number}.pdf",

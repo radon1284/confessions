@@ -26,6 +26,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'countries'
 gem 'prawn'
+gem 'prawn-table'
 
 group :development, :test do
   gem 'pry-rails'
