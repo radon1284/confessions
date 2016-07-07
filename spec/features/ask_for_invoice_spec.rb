@@ -2,6 +2,7 @@ require "rails_helper"
 
 describe "Ask for invoice" do
   let!(:order) { FactoryGirl.create(:order) }
+  let!(:order_item) { FactoryGirl.create(:order_item, order: order) }
 
   it "creates new entry in the database" do
     visit order_path(order)
