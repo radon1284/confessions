@@ -4,20 +4,15 @@
 @import "neat";
 
 @import './variables';
-@import './components/base_elements';
-@import './components/layout';
-@import './components/links';
-@import './components/typography';
-@import './components/lists';
+@import './components/buttons';
+@import './components/flash';
 @import './components/footer';
 @import './components/forms';
+@import './components/layout';
+@import './components/links';
+@import './components/lists';
+@import './components/images';
 @import './components/header';
-@import './components/flash';
 @import './components/pagination';
 @import './components/tables';
-
-.layout__main-content > div {
-  border: solid black 5px;
-  margin: 10px;
-  padding: 10px;
-}
+@import './components/typography';
