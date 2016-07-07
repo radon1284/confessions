@@ -37,6 +37,14 @@ describe PayForCart do
       .by(1)
   end
 
+  it "generates invoice number for order" do
+    service.call(visitor, stripe_token, email)
+    order = Order.last
+    expect(order.invoice_number).to eq(
+      "BP-#{Time.current.year}-#{Time.current.month}-1"
+    )
+  end
+
   describe "assigning order to user" do
     context "when there is no user with given email address" do
       it "creates a new user" do

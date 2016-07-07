@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         get :download_mobi
       end
     end
+    resources :invoice_requests, only: [:new, :create, :show]
   end
   get "orders/order_completed/:id" => "orders#completed", as: "completed_order"
 

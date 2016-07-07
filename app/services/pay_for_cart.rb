@@ -41,7 +41,8 @@ class PayForCart
   def create_order(user)
     user.orders.create!(
       id: order_id,
-      order_items: build_order_items
+      order_items: build_order_items,
+      invoice_number: generate_invoice_number
     )
   end
 
@@ -53,5 +54,11 @@ class PayForCart
         currency: cart_item.price.currency
       )
     end
+  end
+
+  def generate_invoice_number
+    current_month = Time.current.beginning_of_month..Time.current
+    ordinal_number = Order.where(created_at: current_month).count + 1
+    "BP-#{Time.current.strftime('%Y-%-m')}-#{ordinal_number}"
   end
 end

@@ -8,8 +8,9 @@ class Order < ActiveRecord::Base
     source: :purchasable,
     source_type: "Book"
   )
+  has_many :invoice_requests
 
-  validates_presence_of :user
+  validates_presence_of :user, :invoice_number
 
   def total
     order_items.map(&:price).sum

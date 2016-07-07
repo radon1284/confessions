@@ -22,9 +22,10 @@ gem 'jwt'
 gem 'kaminari'
 gem 'carrierwave-aws'
 gem 'redcarpet'
-
 gem 'bourbon'
 gem 'neat'
+gem 'countries'
+gem 'prawn'
 
 group :development, :test do
   gem 'pry-rails'

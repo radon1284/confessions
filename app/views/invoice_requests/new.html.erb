@@ -1,0 +1,36 @@
+<h1>
+  Ask for invoice
+</h1>
+
+<p>
+  This form is for customers who want to generate an invoice for a company. If you are an individual customer and you want to obtain an invoice with your own details, please contact customer support.
+</p>
+
+<% if invoice_request.errors.any? %>
+  <p>
+    There are some problems with the information which you provided:
+  </p>
+  <ul>
+    <% invoice_request.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [order, invoice_request] do |f| %>
+  <%= f.label :company_name %>
+  <%= f.text_field :company_name %>
+  </br>
+  <%= f.label :address %>
+  <%= f.text_area :address %>
+  </br>
+  <%= f.label :country %>
+  <%= f.select :country, ISO3166::Country.all_translated %>
+  </br>
+  <%= f.label :vat_id, "VAT ID" %>
+  <%= f.text_field :vat_id %>
+  </br>
+  <%= f.submit "Generate" %>
+<% end %>
