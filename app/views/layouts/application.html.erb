@@ -9,22 +9,29 @@
     <link rel="alternate" type="application/rss+xml" title="Jack Kinsella RSS Feed" href="<%= feed_url(format: "rss") %>">
   </head>
   <body>
-    <div class="layout__main-content">
-      <%= TrackingProxyConfiguration.new %>
-
+    <%= TrackingProxyConfiguration.new %>
+    <div class="container">
       <header>
-        Jack Kinsella, Berlin
-        <p>
-          <%= link_to "Homepage", root_path %>
-          <%= link_to "Articles", articles_path %>
-          <%= link_to "Books", books_path %>
-          <%= link_to "About", about_path %>
-        </p>
+        <div class="header__website-name">
+          <p>
+            Jack Kinsella, Berlin
+          </p>
+        </div>
+        <div class="header__navigation">
+          <ul class="horizontal-list">
+            <li><%= link_to "Homepage", root_path %></li>
+            <li><%= link_to "Articles", articles_path %></li>
+            <li><%= link_to "Books", books_path %></li>
+            <li><%= link_to "About", about_path %></li>
+          </ul>
+        </div>
       </header>
 
       <%= render "layouts/flash" %>
-      <%= yield %>
-      <footer class="footer">
+      <div class="layout__main-content">
+        <%= yield %>
+      </div>
+      <footer>
         <div class="footer__section">
           <h5>Shopping</h5>
           <ul>
@@ -42,9 +49,9 @@
             </li>
             <li><%= link_to "RSS", feed_url(format: "rss") %></li>
           </ul>
-            <p><%= render "layouts/mailchimp_signup_form" %></p>
+          <p><%= render "layouts/mailchimp_signup_form" %></p>
         </div>
-        <div class="footer__section">
+        <div class="footer__section footer__final-section">
           <h5>Legal</h5>
           <ul>
             <li><%= link_to "Terms", terms_path %></li>

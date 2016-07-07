@@ -1,14 +1,15 @@
-html {
-  box-sizing: border-box;
-}
-
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
-.layout__main-content {
+.container {
   @include outer-container();
+}
+
+.layout__main-content {
+  @include span-columns(12);
+  @include omega();
 
   @include media($tablet) {
     @include span-columns(8);

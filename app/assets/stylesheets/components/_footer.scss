@@ -1,17 +1,12 @@
-.footer {
-  background-color: $secondary-background-color;
+footer {
   @include span-columns(12);
+  @include browser-width-bar(gray);
 }
-
 .footer__section {
   @include span-columns(4);
-  @include media($tablet) {
-    @include span-columns(4);
-  }
-
-  @include media($mobile) {
-    @include span-columns(4);
-  }
+}
+.footer__final-section {
+  @include omega();
 }
 
 .footer__section-title {
@@ -29,4 +24,3 @@
   margin: 0;
   padding: 0;
 }
-

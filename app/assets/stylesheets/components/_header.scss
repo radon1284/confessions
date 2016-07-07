@@ -1,0 +1,11 @@
+header {
+  @include span-columns(12);
+}
+
+.header__website-name {
+  @include span-columns(4);
+}
+
+.header__navigation {
+  @include span-columns(8);
+}
