@@ -5,10 +5,14 @@ class InvoiceRequest < ActiveRecord::Base
   validate :vat_id_required_in_eu
 
   def vat_id_required_in_eu
-    return if country.blank?
-    country_object = ISO3166::Country.find_country_by_name(country)
-    if country_object.eu_member && vat_id.blank?
+    if eu_country? && vat_id.blank?
       errors.add(:vat_id, "is required for countries in the EU")
     end
+  end
+
+  def eu_country?
+    return false if country.blank?
+    country_object = ISO3166::Country.find_country_by_name(country)
+    country_object.eu_member
   end
 end
