@@ -1,3 +1,9 @@
+.book-image {
+  @include span-columns(5);
+}
+.book-calls-to-action {
+  @include span-columns(7);
+}
 .about-author {
   @include span-columns(12);
 }
@@ -28,8 +34,29 @@
   @include span-columns(6);
 }
 
-.faq, .objections {
+.faq {
   p {
     color: $readable-gray;
   }
+}
+
+.selectable-objections {
+  @include span-columns(5);
+}
+.objections {
+  @include span-columns(12);
+}
+.objection-answers {
+  @include span-columns(6);
+  color: $readable-gray;
+  height: 600px;
+  padding-right: 20px;
+  overflow-y: scroll;
+}
+.hidden {
+  display: none;
+}
+
+.unemphasised-text {
+  color: $readable-gray;
 }

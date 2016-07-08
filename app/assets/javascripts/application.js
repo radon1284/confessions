@@ -17,3 +17,10 @@
 function showTableOfContents() {
   $("#table_of_contents").show()
 }
+
+function showObjection(objectionID) {
+  $objectionToShow = $(objectionID)
+  $objectionToShow.siblings().hide()
+  $objectionToShow.show()
+  return false
+}

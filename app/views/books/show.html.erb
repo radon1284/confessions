@@ -2,23 +2,41 @@
   <%= book.title %>
 </h1>
 
-<div>
-  <p>
-    Price: <%= humanized_money_with_symbol(book.product.price) %>
-  </p>
-  <%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
-  <p>100% Refund Guarantee. Instant Download. Available in DRM-free MOBI, EPUB, and PDF formats. Tax Deductable Invoices Given.</p>
+<div class="row">
+  <div class="book-image">
+    <%= image_tag "moleskin.jpg"%>
+  </div>
+  <div class="book-calls-to-action">
+    <p>
+      Entreprenerd is the internet marketing book written for builders and nerdy types not getting the public attention that their efforts deserve.
+
+      <p>If you've been baffled by the jargon and nonsense that proliferate the online marketing world, this book is exactly what you need: It separates out the good techniques from the hype, the gold from the gunk.
+
+      <p>Entreprenerd is stuffed with easy-to-follow examples from people who are already winning the game of traffic and enjoying its spoils.  </p>
+    <p class="unemphasised-text">
+      <b>Written by Jack Kinsella, an Oxford law graduate turned programmer turned bootstrapped web entrepreneur.</b> After selling his first million dollars worth of digital goods through his own businesses, he's ready to share what he's learned along the way.
+    </p>
+
+    <%= button_to "Kickstart Your Marketing (#{humanized_money_with_symbol(book.product.price)})", cart_add_path(product_id: book.product.id) %>
+  <%= button_to "Read Online", cart_add_path(product_id: book.product.id) %>
+  <ul>
+    <li>100% Refund Guarantee.</li>
+    <li>Instant Download.</li>
+    <li>Available in DRM-free MOBI, EPUB, and PDF formats.</li>
+  </ul>
+  </div>
 </div>
 
 <%= render "books/contents/#{book.partial_name}", book: book %>
 
+<section>
 <h2 class="centered">Testimonials</h2>
-<ul>
-  <li></li>
-</ul>
+<div class="row">
+  <p>TODO</p>
+</div>
+</section>
 
 
-<div>
 <h2 class="centered">Frequently Asked Questions</h2>
 <div class="faq">
      <%= yield :faq %>
@@ -32,7 +50,6 @@
     <p>Invoices are available to existing customers here.</p>
     <h4>I found an inaccuracy/typo. Where do I report it?</h4>
     <p>It's hard to catch all errors in our editing phase, so we warmly welcome any feedback about errors, no matter how small! Please send your errata to <%= link_to "customer service", new_customer_support_request_path %>.</p>
-</div>
 </div>
 <div>
 <%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>
