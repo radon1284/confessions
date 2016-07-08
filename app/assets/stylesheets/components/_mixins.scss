@@ -1,6 +1,7 @@
 @mixin browser-width-bar($color) {
   background-color: $color;
   position: relative;
+  padding: $large-spacing;
 
   &:before {
     content: "";

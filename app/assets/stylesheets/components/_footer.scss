@@ -1,6 +1,5 @@
 footer {
   @include span-columns(12);
-  @include browser-width-bar(gray);
 }
 .footer__section {
   @include span-columns(4);

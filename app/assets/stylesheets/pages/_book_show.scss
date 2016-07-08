@@ -1,3 +1,33 @@
+.built-it-no-one-came h2 {
+  @include browser-width-bar($sch1-main-green);
+}
+.benefits-of-reading h2 {
+  @include browser-width-bar($sch2-light-blue);
+}
+.what-you-learn h2 {
+  @include browser-width-bar($sch3-orange);
+}
+.peek-inside h2 {
+  @include browser-width-bar($sch3-navy);
+  color: white;
+}
+.who-should-read-this h2 {
+  @include browser-width-bar($sch1-darkened-green);
+  color: white;
+}
+.about-author h2 {
+  @include browser-width-bar($sch2-darkened-blue);
+}
+.objections h2 {
+  @include browser-width-bar($medium-gray);
+}
+.testimonials h2 {
+  @include browser-width-bar($sch1-grayed-green);
+}
+.faq h2 {
+  @include browser-width-bar($sch2-orange);
+}
+
 .book-image {
   @include span-columns(5);
 }
@@ -13,6 +43,7 @@
 .about-author__image-side {
   @include span-columns(7);
 }
+
 
 .benefits-of-reading__traffic {
   @include span-columns(6);
