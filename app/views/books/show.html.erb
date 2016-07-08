@@ -20,28 +20,19 @@
 
 <div>
 <h2 class="centered">Frequently Asked Questions</h2>
-<ul>
-  <li>
-    <span>How Do I Download?</span>
-    You will be emailed a link to download after purchasing. No login required.
-  </li>
-  <li>
-    <span>I am unhappy. What is your refund policy?</span>
-      We offer a 100% no-questions-asked refund. <%= link_to "Email customer support", new_customer_support_request_path %> to ask to put your refund through. Please note it may take us a few days for us to process your request.
-  </li>
-  <li>
-    <span>What formats is the book available in?</span>
-    DRM-free PDF, EPUB, and MOBI formats. Basically this means you'll be able to read the book on your Kindle (or equivalent), your mobile phone, or your laptop. We do not offer a print version of the book.
-  </li>
-  <li>
-    <span>I am a business. How can I get an invoice?</span>
-    Invoices are available to existing customers here.
-  </li>
-  <li>
-    <span>I found an inaccuracy/typo. Where do I report it?</span>
-    It's hard to catch all errors in our editing phase, so we warmly welcome any feedback about errors, no matter how small! Please send your errata to <%= link_to "customer service", new_customer_support_request_path %>.
-  </li>
-</ul>
+<div class="faq">
+     <%= yield :faq %>
+    <h4>How Do I Download?</h4>
+    <p>You will be emailed a link to download after purchasing. No login required.</p>
+    <h4>I am unhappy. What is your refund policy?</h4>
+      <p>We offer a 100% no-questions-asked refund. <%= link_to "Email customer support", new_customer_support_request_path %> to ask to put your refund through. Please note it may take us a few days for us to process your request.</p>
+    <h4>What formats is the book available in?</h4>
+    <p>DRM-free PDF, EPUB, and MOBI formats. Basically this means you'll be able to read the book on your Kindle (or equivalent), your mobile phone, or your laptop. We do not offer a print version of the book.</p>
+    <h4>I am a business. How can I get an invoice?</h4>
+    <p>Invoices are available to existing customers here.</p>
+    <h4>I found an inaccuracy/typo. Where do I report it?</h4>
+    <p>It's hard to catch all errors in our editing phase, so we warmly welcome any feedback about errors, no matter how small! Please send your errata to <%= link_to "customer service", new_customer_support_request_path %>.</p>
+</div>
 </div>
 <div>
 <%= button_to "Add to cart", cart_add_path(product_id: book.product.id) %>

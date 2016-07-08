@@ -8,10 +8,6 @@
   @include span-columns(7);
 }
 
-.row {
-  @include span-columns(12);
-  margin-bottom: $large-spacing;
-}
 .benefits-of-reading__traffic {
   @include span-columns(6);
 }
@@ -30,4 +26,10 @@
 .benefits-of-reading__crammed-advice {
   @include shift(1);
   @include span-columns(6);
+}
+
+.faq, .objections {
+  p {
+    color: $readable-gray;
+  }
 }

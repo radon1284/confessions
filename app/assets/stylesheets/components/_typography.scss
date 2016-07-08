@@ -9,7 +9,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4{
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   margin: 0 0 $small-spacing;
@@ -25,6 +26,14 @@ h2 {
 }
 h3 {
   font-size: modular-scale(1);
+}
+h4 {
+  font-size: modular-scale(0);
+  text-transform: uppercase;
+}
+.tiny {
+  font-size: modular-scale(-1);
+  color: $readable-gray;
 }
 
 p {
