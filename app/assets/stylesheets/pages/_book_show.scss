@@ -1,0 +1,33 @@
+.about-author {
+  @include span-columns(12);
+}
+.about-author__text-side {
+  @include span-columns(5);
+}
+.about-author__image-side {
+  @include span-columns(7);
+}
+
+.row {
+  @include span-columns(12);
+  margin-bottom: $large-spacing;
+}
+.benefits-of-reading__traffic {
+  @include span-columns(6);
+}
+.benefits-of-reading__universal-principles {
+  @include shift(7);
+  @include span-columns(5);
+}
+.benefits-of-reading__dangerous {
+  @include shift(1);
+  @include span-columns(4);
+}
+.benefits-of-reading__concrete-examples {
+  @include shift(7);
+  @include span-columns(5);
+}
+.benefits-of-reading__crammed-advice {
+  @include shift(1);
+  @include span-columns(6);
+}

@@ -19,3 +19,15 @@
     @include span-columns(4);
   }
 }
+
+.quarter-page {
+  @include span-columns(3);
+}
+.half-page {
+  @include span-columns(6);
+}
+
+.row {
+  @include span-columns(12);
+  margin-bottom: $large-spacing;
+}

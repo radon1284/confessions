@@ -7,7 +7,6 @@ $base-font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text"
 $base-font-letter-spacing: 0.2px;
 $heading-font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
 
-
 // Font Sizes
 $base-font-size: 1.4em;
 
@@ -18,6 +17,7 @@ $heading-line-height: 1.2;
 // Other Sizes
 $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
+$large-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 

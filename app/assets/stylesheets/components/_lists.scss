@@ -5,6 +5,10 @@ ol {
   padding: 0;
 }
 
+li {
+  margin-bottom: $small-spacing;
+}
+
 dl {
   margin: 0;
 }
@@ -21,8 +25,10 @@ dd {
 .horizontal-list li {
   display: inline;
 }
+
 .benefits-list li {
   list-style-image: image-url("arrow-icon.png");
   list-style-position: inside;
   text-indent: -1em;
+  margin-left: 0.5em;
 }
