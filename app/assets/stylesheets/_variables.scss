@@ -5,7 +5,7 @@ $large-screen: 900px;
 // Typography
 $base-font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 $base-font-letter-spacing: 0.2px;
-$heading-font-family: $base-font-family;
+$heading-font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
 
 
 // Font Sizes
@@ -22,17 +22,27 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$blue: #1565c0;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
+$medium-gray: rgb(211,211,211);
+// Scheme 1
+$sch1-main-green: rgb(77,182,125);
+$sch1-grayed-green: rgb(55,145,97);
+$sch1-darkened-green: rgb(22,128,82);
+$sch1-orange: rgb(248,95,63);
+// Scheme 2
+$sch2-light-blue: rgb(137,167,206);
+$sch2-darkend-blue: rgb(155,158,189);
+$sch2-orange: rgb(246,90,5);
+// Scheme 3
+$sch3-navy: rgb(62,70,89);
+$sch3-lightened-navy: rgb(138,151,199);
+$sch3-orange: rgb(232,118,92);
 
 // Font Colors
-$base-font-color: $dark-gray;
-$action-color: $blue;
+$base-font-color: black;
+$action-color: $sch1-orange;
 
 // Border
-$base-border-color: $light-gray;
+$base-border-color: black;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
