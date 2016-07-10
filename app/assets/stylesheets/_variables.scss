@@ -41,6 +41,7 @@ $sch3-orange: rgb(232,118,92);
 // Font Colors
 $base-font-color: black;
 $action-color: $sch1-orange;
+$active-link-color: shade($action-color, 50%);
 
 // Border
 $base-border-color: black;

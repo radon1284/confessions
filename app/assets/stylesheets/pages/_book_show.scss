@@ -15,11 +15,12 @@
   color: white;
 }
 .who-should-read-this h2 {
-  @include browser-width-bar($sch1-darkened-green);
+  @include browser-width-bar($sch3-lightened-navy);
   color: white;
 }
 .about-author h2 {
-  @include browser-width-bar($sch2-darkened-blue);
+  @include browser-width-bar($sch1-darkened-green);
+  color: white;
 }
 .objections h2 {
   @include browser-width-bar($medium-gray);
@@ -92,14 +93,41 @@
   }
 }
 
-.selectable-objections {
-  @include span-columns(5);
+.objection-pointer-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $base-font-size/2 0 $base-font-size/2 $column;
+  border-color: transparent transparent transparent white;
 }
+.objection-pointer-arrow__active {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: $base-font-size/2 0 $base-font-size/2 $column;
+  border-color: transparent transparent transparent $active-link-color;
+}
+.selectable-objections {
+  @include span-columns(6 of 12);
+}
+.selectable-objection {
+  span {
+    @include span-columns(1 of 6);
+  }
+  h4 {
+    @include span-columns(4 of 6);
+  };
+}
+
 .objections {
   @include span-columns(12);
 }
+.selected-objection {
+  color: $active-link-color;
+}
+
 .objection-answers {
-  @include span-columns(6);
+  @include span-columns(5);
   color: $readable-gray;
   height: 600px;
   padding-right: 20px;

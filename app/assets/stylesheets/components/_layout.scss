@@ -9,7 +9,6 @@
 
 .layout__main-content {
   @include span-columns(12);
-  @include omega();
 
   @include media($tablet) {
     @include span-columns(8);
@@ -21,7 +20,7 @@
 }
 
 .row {
-  @include span-columns(12);
+  @include row();
   margin-bottom: $large-spacing;
 }
 .center-box {

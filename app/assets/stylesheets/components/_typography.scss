@@ -40,18 +40,6 @@ p {
   margin: 0 0 $large-spacing;
 }
 
-a {
-  color: $action-color;
-  text-decoration: none;
-  transition: color $base-duration $base-timing;
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: shade($action-color, 25%);
-  }
-}
-
 hr {
   border-bottom: $base-border;
   border-left: 0;
