@@ -1,11 +1,14 @@
-.built-it-no-one-came h2 {
-  @include browser-width-bar($sch1-main-green);
-}
 .benefits-of-reading h2 {
   @include browser-width-bar($sch2-light-blue);
 }
-.what-you-learn h2 {
-  @include browser-width-bar($sch3-orange);
+.what-you-learn {
+  h2 {
+    @include browser-width-bar($sch3-orange);
+  }
+  li {
+    text-align: justify;
+    margin-bottom: $large-spacing;
+  }
 }
 .peek-inside h2 {
   @include browser-width-bar($sch3-navy);
@@ -28,6 +31,12 @@
   @include browser-width-bar($sch2-orange);
 }
 
+.about-author__social-media-icons {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
 .book-image {
   @include span-columns(5);
 }
@@ -36,12 +45,26 @@
 }
 .about-author {
   @include span-columns(12);
+  position: relative;
 }
 .about-author__text-side {
   @include span-columns(5);
+  p {
+    margin-bottom: 0px;
+  }
 }
 .about-author__image-side {
   @include span-columns(7);
+}
+
+.built-it-no-one-came {
+  h2 {
+    @include browser-width-bar($sch1-main-green);
+  }
+  p {
+    @include shift(3);
+    @include span-columns(7);
+  }
 }
 
 
@@ -53,15 +76,13 @@
   @include span-columns(5);
 }
 .benefits-of-reading__dangerous {
-  @include shift(1);
-  @include span-columns(4);
+  @include span-columns(5);
 }
 .benefits-of-reading__concrete-examples {
   @include shift(7);
   @include span-columns(5);
 }
 .benefits-of-reading__crammed-advice {
-  @include shift(1);
   @include span-columns(6);
 }
 

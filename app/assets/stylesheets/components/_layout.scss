@@ -20,6 +20,15 @@
   }
 }
 
+.row {
+  @include span-columns(12);
+  margin-bottom: $large-spacing;
+}
+.center-box {
+  @include shift(3);
+  @include span-columns(7);
+  text-align:center;
+}
 .quarter-page {
   @include span-columns(3);
 }
@@ -27,7 +36,3 @@
   @include span-columns(6);
 }
 
-.row {
-  @include span-columns(12);
-  margin-bottom: $large-spacing;
-}
