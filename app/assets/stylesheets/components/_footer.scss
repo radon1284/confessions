@@ -12,6 +12,9 @@ footer {
 .footer__section {
   @include span-columns(4);
 }
+.footer__section-content {
+  @include span-columns(10);
+}
 .footer__final-section {
   @include omega();
 }
@@ -30,4 +33,11 @@ footer {
   list-style-position: inside;
   margin: 0;
   padding: 0;
+}
+.mailinglist-signup {
+  font-size: modular-scale(-1);
+  input[type="submit"] {
+    display: block;
+    margin: auto;
+  }
 }

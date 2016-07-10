@@ -4,6 +4,7 @@
   padding: $large-spacing;
 
   &:before {
+    z-index: -1;
     content: "";
     position: absolute;
     top: 0;
