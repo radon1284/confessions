@@ -20,7 +20,7 @@
 }
 
 .row {
-  @include row();
+  @include span-columns(12);
   margin-bottom: $large-spacing;
 }
 .center-box {
