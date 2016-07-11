@@ -16,11 +16,6 @@ describe "Book details page" do
     expect(page).to have_content("CTO")
   end
 
-  it "shows the price of the product" do
-    visit book_path("cto")
-    expect(page).to have_content("$15.99")
-  end
-
   describe "previews" do
     before do
       FactoryGirl.create(:chapter, book: book, number: 1, title: "First")
