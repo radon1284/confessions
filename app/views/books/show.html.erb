@@ -17,7 +17,7 @@
       <b>Written by Jack Kinsella, an Oxford law graduate turned programmer turned bootstrapped web entrepreneur.</b> After selling his first million dollars worth of digital goods through his own businesses, he's ready to share what he's learned along the way.
     </p>
 
-    <%= button_to "Kickstart Your Marketing (#{humanized_money_with_symbol(book.product.price)})", cart_add_path(product_id: book.product.id) %>
+    <%= button_to "Kickstart Your Marketing (#{humanized_money_with_symbol(book.product.price)})", cart_add_path(product_id: book.product.id), id: "add-to-cart-button" %>
   <%= button_to "Read Online", cart_add_path(product_id: book.product.id) %>
   <ul>
     <li>100% Refund Guarantee.</li>
