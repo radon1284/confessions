@@ -5,9 +5,6 @@ footer {
   a,p {
     color: $readable-gray;
   }
-  li {
-    margin-bottom: 0px;
-  }
 }
 .footer__section {
   @include span-columns(4);
