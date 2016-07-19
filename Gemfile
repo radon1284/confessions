@@ -21,7 +21,7 @@ gem 'sinatra', require: nil
 gem 'jwt'
 gem 'kaminari'
 gem 'carrierwave-aws'
-gem 'redcarpet'
+gem "kramdown"
 gem 'bourbon'
 gem 'neat'
 gem 'countries'
