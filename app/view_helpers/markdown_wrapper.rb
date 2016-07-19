@@ -16,6 +16,7 @@ class MarkdownWrapper
   def display_options
     {
       filter_html:     true,
+      tables: true,
       hard_wrap:       false,
       link_attributes: { target: "_blank" },
       space_after_headers: true,
