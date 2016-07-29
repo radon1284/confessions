@@ -24,6 +24,7 @@ $base-z-index: 0;
 // Colors
 $medium-gray: rgb(211,211,211);
 $readable-gray: rgb(155,155,155);
+$warm-black: #333;
 // Scheme 1
 $sch1-main-green: rgb(77,182,125);
 $sch1-grayed-green: rgb(55,145,97);
@@ -37,14 +38,15 @@ $sch2-orange: rgb(246,90,5);
 $sch3-navy: rgb(62,70,89);
 $sch3-lightened-navy: rgb(138,151,199);
 $sch3-orange: rgb(232,118,92);
+$sch3-complement: #c7a68a;
 
 // Font Colors
-$base-font-color: black;
+$base-font-color: $warm-black;
 $action-color: $sch1-orange;
 $active-link-color: shade($action-color, 50%);
 
 // Border
-$base-border-color: black;
+$base-border-color: $warm-black;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
@@ -52,7 +54,7 @@ $base-background-color: #fff;
 $secondary-background-color: tint($base-border-color, 15%);
 
 // Forms
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow: inset 0 1px 3px rgba($warm-black, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
 
 // Animations

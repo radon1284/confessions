@@ -10,20 +10,24 @@
   </head>
   <body>
     <%= TrackingProxyConfiguration.new %>
+    <a href=<%= books_path %>>
+      <div class="left-sidebar">
+        <p>
+          Books
+        </p>
+      </div>
+    </a>
+    <a href=<%= articles_path %> class="right-sidebar">
+      <p>
+        Articles
+      </p>
+    </a>
     <div class="container">
       <header>
         <div class="header__website-name">
           <p>
-            Jack Kinsella, Berlin
+            <%= link_to "Jack Kinsella", root_path %>
           </p>
-        </div>
-        <div class="header__navigation">
-          <ul class="horizontal-list">
-            <li><%= link_to "Homepage", root_path %></li>
-            <li><%= link_to "Articles", articles_path %></li>
-            <li><%= link_to "Books", books_path %></li>
-            <li><%= link_to "About", about_path %></li>
-          </ul>
         </div>
       </header>
 

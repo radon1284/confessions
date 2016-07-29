@@ -1,12 +1,14 @@
 a {
+  @include link-color-scheme($action-color, $active-link-color);
   color: $action-color;
   text-decoration: none;
   transition: color $base-duration $base-timing;
+}
 
-  &:active,
-  &:focus,
-  &:hover {
-    color: $active-link-color;
-  }
+.left-sidebar {
+  @include link-color-scheme($medium-gray,$medium-gray);
+}
+.right-sidebar {
+  @include link-color-scheme($warm-black, $warm-black);
 }
 

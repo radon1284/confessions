@@ -31,4 +31,9 @@ $border-box-sizing: true;
 .half-page {
   @include span-columns(6);
 }
-
+.right-sidebar {
+  @include fixed-side-bar($sch3-complement,'right');
+}
+.left-sidebar {
+  @include fixed-side-bar($sch3-lightened-navy,'left');
+}

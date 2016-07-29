@@ -1,6 +1,7 @@
 footer {
   @include span-columns(12);
   @include browser-width-bar(black);
+  z-index: -1;
   color: white;
   a,p {
     color: $readable-gray;

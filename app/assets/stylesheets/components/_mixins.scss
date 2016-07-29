@@ -15,3 +15,55 @@
     box-shadow: 9999px 0 0 $color;
   }
 }
+
+@mixin fixed-side-bar($color, $side) {
+  background-color: $color;
+  position: fixed;
+  top: 0;
+  @if $side == 'left' {
+    left: 0;
+  }
+  @else {
+    right: 0;
+  }
+  width: 5%;
+  min-width: 60px;
+  height: 100%;
+  text-align: center;
+  p {
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    position: relative;
+
+    @if $side == 'left' {
+      @include transform(rotate(-90deg));
+    }
+    @else {
+      @include transform(rotate(90deg) translateX(-100%));
+    }
+    font-size: modular-scale(1);
+    font-weight: bold;
+    top: 40%;
+    z-index: 5;
+    backface-visibility: hidden;
+    // transform() comes from bourbon framework
+  }
+
+  @include media($tablet) {
+    display: none;
+  }
+
+  @include media($mobile) {
+    display: none;
+  }
+}
+
+@mixin link-color-scheme($base-link-color, $active-link-color) {
+   color: $base-link-color;
+   &:active,
+   &:focus,
+   &:hover {
+     color: $active-link-color;
+ }
+}
