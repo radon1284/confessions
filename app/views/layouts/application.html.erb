@@ -9,19 +9,23 @@
     <link rel="alternate" type="application/rss+xml" title="Jack Kinsella RSS Feed" href="<%= feed_url(format: "rss") %>">
   </head>
   <body>
-    <%= TrackingProxyConfiguration.new %>
-    <a href=<%= books_path %>>
-      <div class="left-sidebar">
-        <p>
-          Books
-        </p>
-      </div>
-    </a>
-    <a href=<%= articles_path %> class="right-sidebar">
-      <p>
-        Articles
-      </p>
-    </a>
+    <div class="sidebar-navigation">
+      <%= TrackingProxyConfiguration.new %>
+      <a href=<%= books_path %> class="unstyled">
+        <div class="left-sidebar">
+          <h2>
+            Books
+          </h2>
+        </div>
+      </a>
+      <a href=<%= articles_path %> class="unstyled">
+        <div class="right-sidebar">
+          <h2>
+            Articles
+          </h2>
+        </div>
+      </a>
+    </div>
       <ul id="mobile-only-menu" class="slideout-menu">
         <li><a href="#" id="slideout-close">X</a></li>
         <li><%= link_to "Home", root_path %></li>
@@ -42,7 +46,7 @@
             <h2><%= link_to "Jack Kinsella", root_path, class: "unstyled" %></h2>
           </div>
           <div class="header__right">
-            <%= image_tag "fractal.jpg" %>
+            <%= link_to image_tag("fractal.jpg"), "https://www.youtube.com/watch?v=KC5h_TZRK9E" %>
           </div>
         </div>
       </header>

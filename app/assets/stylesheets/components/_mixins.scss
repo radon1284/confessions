@@ -18,6 +18,7 @@
 
 @mixin fixed-side-bar($color, $side) {
   background-color: $color;
+  z-index: 10;
   position: fixed;
   top: 0;
   @if $side == 'left' {
@@ -29,25 +30,23 @@
   width: 5%;
   min-width: 60px;
   height: 100%;
-  text-align: center;
-  p {
+  h2 {
     white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: .5em;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    letter-spacing: $base-font-letter-spacing * 30;
     position: relative;
 
     @if $side == 'left' {
+      // transform() comes from bourbon framework
       @include transform(rotate(-90deg));
     }
     @else {
       @include transform(rotate(90deg) translateX(-100%));
     }
-    font-size: modular-scale(1);
-    font-weight: bold;
     top: 40%;
     z-index: 5;
     backface-visibility: hidden;
-    // transform() comes from bourbon framework
   }
 
   @include media($tablet) {

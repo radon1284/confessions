@@ -8,11 +8,3 @@ a {
 .unstyled {
   @include link-color-scheme($warm-black, $warm-black);
 }
-
-.left-sidebar {
-  @include link-color-scheme($medium-gray,$medium-gray);
-}
-.right-sidebar {
-  @include link-color-scheme($warm-black, $warm-black);
-}
-
