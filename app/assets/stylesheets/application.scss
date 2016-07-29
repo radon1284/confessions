@@ -1,5 +1,5 @@
 /*section:*/
-/*plugins and frameworks*/
+/*Plugins and frameworks*/
 @import "normalize.css/normalize";
 @import "bourbon";
 @import "./grid_settings";
@@ -8,9 +8,10 @@
 @import "highlightjs";
 
 /*section:*/
-/*our own stuff*/
+/*Our own stuff*/
 @import './variables';
 @import './components/mixins';
+
 @import './components/blockquotes';
 @import './components/buttons';
 @import './components/flash';
@@ -23,6 +24,7 @@
 @import './components/header';
 @import './components/pagination';
 @import './components/slideout_menu';
+@import './components/spinner';
 @import './components/tables';
 @import './components/typography';
 @import './components/vertical_scroll_bar';
