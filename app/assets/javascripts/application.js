@@ -12,7 +12,11 @@
 //
 //= require jquery
 //= require jquery-ujs
+//= require highlightjs
 //= require_tree .
+
+// Syntax highlighting with highlight.js
+hljs.initHighlightingOnLoad();
 
 function showTableOfContents() {
   $("#table_of_contents").show();
