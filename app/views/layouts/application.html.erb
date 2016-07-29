@@ -22,15 +22,30 @@
         Articles
       </p>
     </a>
-    <div class="container">
+      <ul id="mobile-only-menu" class="slideout-menu">
+        <li><a href="#" id="slideout-close">X</a></li>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Articles", articles_path %></li>
+        <li><%= link_to "Books", books_path %></li>
+        <li><%= link_to "Cart", cart_path %></li>
+        <li><%= link_to "Orders", orders_path %></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Contact", new_customer_support_request_path %></li>
+      </ul>
+    <div class="container" id="main-container">
       <header>
-        <div class="header__website-name">
-          <p>
-            <%= link_to "Jack Kinsella", root_path %>
-          </p>
+        <div class="header__website-name" id="header__website-name">
+          <div class="header__left">
+            <p class="toggle-button slideout-panel">☰</button></p>
+          </div>
+          <div class="header__mid">
+            <h2><%= link_to "Jack Kinsella", root_path, class: "unstyled" %></h2>
+          </div>
+          <div class="header__right">
+            <%= image_tag "fractal.jpg" %>
+          </div>
         </div>
       </header>
-
       <%= render "layouts/flash" %>
       <div class="layout__main-content">
         <%= yield %>

@@ -5,6 +5,10 @@ a {
   transition: color $base-duration $base-timing;
 }
 
+.unstyled {
+  @include link-color-scheme($warm-black, $warm-black);
+}
+
 .left-sidebar {
   @include link-color-scheme($medium-gray,$medium-gray);
 }

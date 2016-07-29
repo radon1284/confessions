@@ -66,4 +66,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ujs'
   gem 'rails-assets-normalize.css'
   gem 'rails-assets-highlightjs'
+  gem 'rails-assets-slideout.js'
 end

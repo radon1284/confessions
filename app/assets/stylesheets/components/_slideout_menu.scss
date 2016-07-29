@@ -1,0 +1,39 @@
+.slideout-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  background-color: $sch3-lightened-navy;
+  z-index: 0;
+  padding: $base-spacing;
+  width: 256px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+  text-transform: uppercase;
+  font-family: $heading-font-family;
+  a {
+    @include link-color-scheme($warm-black, $warm-black);
+  }
+  li {
+    margin-bottom: $base-spacing;
+  }
+}
+
+.slideout-panel {
+  position:relative;
+  z-index: 1;
+  will-change: transform;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
+}

@@ -1,11 +1,52 @@
 header {
   @include span-columns(12);
+  @include media($tablet) {
+    @include span-columns(8);
+  }
+
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+  padding-top: $small-spacing;
+  border-bottom: 1px solid $light-gray;
 }
 
-.header__website-name {
-  @include span-columns(4);
+.header__left {
+  @include span-columns(4 of 12);
+  @include media($tablet) {
+    @include span-columns(2 of 8);
+  }
+
+  @include media($mobile) {
+    @include span-columns(0.5 of 4);
+  }
 }
 
-.header__navigation {
-  @include span-columns(8);
+.header__mid {
+  @include span-columns(4 of 12);
+  text-align: center;
+  h2 {
+    text-transform: uppercase;
+  }
+  @include media($tablet) {
+    @include span-columns(4 of 8);
+  }
+
+  @include media($mobile) {
+    @include span-columns(3 of 4);
+  }
+}
+.header__right {
+  @include span-columns(4 of 12);
+  text-align: right;
+  img {
+   max-height: $large-spacing;
+  }
+  @include media($tablet) {
+    @include span-columns(2 of 8);
+  }
+
+  @include media($mobile) {
+    @include span-columns(0.5 of 4);
+  }
 }

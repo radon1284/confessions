@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ujs
 //= require highlightjs
+//= require slideout.js/slideout.js
 //= require_tree .
 
 // Syntax highlighting with highlight.js
