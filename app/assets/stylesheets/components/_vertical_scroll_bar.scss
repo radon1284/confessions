@@ -1,4 +1,10 @@
-// http://stackoverflow.com/questions/7492062/css-overflow-scroll-always-show-vertical-scroll-bar
+// Problem: "I am using a Mac, and in Chrome and
+// Safari the vertical scroll bar will only show
+// when the mouse is over the Div and you actively
+// scroll. Is there a way to always have it
+// displaying?"
+
+// // http://stackoverflow.com/questions/7492062/css-overflow-scroll-always-show-vertical-scroll-bar
 
 ::-webkit-scrollbar {
     -webkit-appearance: none;
