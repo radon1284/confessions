@@ -1,10 +1,14 @@
+/*section:*/
+/*plugins and frameworks*/
 @import "normalize.css/normalize";
 @import "bourbon";
 @import "./grid_settings";
 @import "neat";
-
+/*syntax highlighting*/
 @import "highlightjs";
 
+/*section:*/
+/*our own stuff*/
 @import './variables';
 @import './components/mixins';
 @import './components/blockquotes';
@@ -23,3 +27,6 @@
 @import './components/vertical_scroll_bar';
 
 @import './pages/book_show';
+
+/*section*/
+/*our overrides*/
