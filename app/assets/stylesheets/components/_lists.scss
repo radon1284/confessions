@@ -2,11 +2,25 @@ ul,
 ol {
   list-style-type: none;
   margin: 0;
+  margin-bottom: $base-spacing;
   padding: 0;
 }
 
-li {
+.article ul {
+  padding-left: $base-spacing;
+}
+
+.article li {
   margin-bottom: 0px;
+  @include icon-list('\f135');
+  /*innermost list items have another style*/
+  ul li {
+    @include icon-list('\f206');
+  }
+}
+
+li p {
+  display: inline;
 }
 
 .horizontal-list li {

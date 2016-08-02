@@ -66,3 +66,13 @@
      color: $active-link-color;
  }
 }
+
+/*uses font-awesome*/
+@mixin icon-list($icon) {
+  &:before {
+    /*Rockets as list items!*/
+    font-family: 'FontAwesome';
+    content: $icon;
+    margin:0 5px 0 -15px;
+  }
+}

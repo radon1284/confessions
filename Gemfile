@@ -27,6 +27,7 @@ gem 'neat'
 gem 'countries'
 gem 'prawn'
 gem 'prawn-table'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'pry-rails'
@@ -67,4 +68,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-normalize.css'
   gem 'rails-assets-highlightjs'
   gem 'rails-assets-slideout.js'
+  gem 'rails-assets-fontawesome'
 end

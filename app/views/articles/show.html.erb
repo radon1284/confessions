@@ -1,9 +1,11 @@
-<h1><%= article.title %></h1>
-<h2><%= article.subtitle %></h2>
+<div class="article">
+  <h1><%= article.title %></h1>
+  <h2><%= article.subtitle %></h2>
 
-<%= render "layouts/sharing_buttons" %>
-<%= MarkdownWrapper.new.display(article.body) %>
+  <%= render "layouts/sharing_buttons" %>
+  <%= MarkdownWrapper.new.display(article.body) %>
 
-<p>
-  <%= link_to "Browse Other Articles", articles_path %>
-</p>
+  <p>
+    <%= link_to "Browse Other Articles", articles_path %>
+  </p>
+</div>
