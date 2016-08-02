@@ -6,7 +6,7 @@ class MarkdownWrapper
   private
 
   def kramdown_options
-    {syntax_highlighter: nil,
-     input: "GFM"}
+    { syntax_highlighter: nil,
+      input: "GFM" }
   end
 end
