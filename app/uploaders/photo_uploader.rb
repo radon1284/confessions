@@ -1,5 +1,5 @@
 class PhotoUploader < CarrierWave::Uploader::Base
-  aws_acl 'public'
+  aws_acl 'public-read'
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
