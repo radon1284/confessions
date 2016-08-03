@@ -1,20 +1,22 @@
-<div class="article">
-  <h1><%= article.title %></h1>
-  <h2><%= article.subtitle %></h2>
+<div class="inner-frame">
+  <div class="article">
+    <h1><%= article.title %></h1>
+    <h2><%= article.subtitle %></h2>
 
-  <%= render "layouts/sharing_buttons" %>
-  <%= MarkdownWrapper.new.display(article.body) %>
+    <%= render "layouts/sharing_buttons" %>
+    <%= MarkdownWrapper.new.display(article.body) %>
 
-  <h2> More Articles:</h2>
-<div class="article__list">
-  <% random_articles.each.with_index do |article, index| %>
-  <div class="article__item">
-    <h3><%= link_to article.title, article_path(article.slug) %></h3>
-    <p><%= article.subtitle %> </p>
-    <% unless random_articles.last == article %>
-      <hr>
-   <% end %>
+    <h2> More Articles:</h2>
+    <div class="article__list">
+      <% random_articles.each.with_index do |article, index| %>
+        <div class="article__item">
+          <h3><%= link_to article.title, article_path(article.slug) %></h3>
+          <p><%= article.subtitle %> </p>
+          <% unless random_articles.last == article %>
+            <hr>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-</div>
 </div>

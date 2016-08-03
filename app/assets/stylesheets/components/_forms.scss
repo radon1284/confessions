@@ -5,6 +5,10 @@ fieldset {
   padding: 0;
 }
 
+form {
+  text-align: center;
+}
+
 legend {
   font-weight: 600;
   margin-bottom: $small-spacing / 2;
@@ -32,7 +36,6 @@ textarea {
   border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
   box-sizing: border-box;
-  margin-bottom: $small-spacing;
   padding: $base-spacing / 3;
   transition: border-color $base-duration $base-timing;
   width: 100%;

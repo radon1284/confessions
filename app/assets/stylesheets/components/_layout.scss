@@ -1,6 +1,8 @@
 $border-box-sizing: true;
 
 .container {
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
   @include outer-container();
 }
 
@@ -37,3 +39,8 @@ $border-box-sizing: true;
 .left-sidebar {
   @include fixed-side-bar($sch3-lightened-navy,'left');
 }
+.inner-frame {
+  @include shift(1);
+  @include span-columns(10);
+}
+
