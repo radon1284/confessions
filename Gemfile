@@ -68,5 +68,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-normalize.css'
   gem 'rails-assets-highlightjs'
   gem 'rails-assets-slideout.js'
+  gem 'rails-assets-social-share-kit'
   gem 'rails-assets-fontawesome'
 end

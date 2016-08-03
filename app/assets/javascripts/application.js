@@ -14,6 +14,7 @@
 //= require jquery-ujs
 //= require highlightjs
 //= require slideout.js/slideout.js
+//= require social-share-kit
 //= require_tree .
 
 // Syntax highlighting with highlight.js

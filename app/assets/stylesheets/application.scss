@@ -6,34 +6,17 @@
 @import "neat";
 /*syntax highlighting*/
 @import "highlightjs/tomorrow-night-eighties";
+@import 'social-share-kit';
 /*customisation icons*/
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 /*section:*/
 /*Our own stuff*/
+
+/*general items to load first*/
 @import './variables';
 @import './components/mixins';
 
-@import './components/blockquotes';
-@import './components/buttons';
-@import './components/code_blocks';
-@import './components/flash';
-@import './components/footer';
-@import './components/forms';
-@import './components/layout';
-@import './components/links';
-@import './components/lists';
-@import './components/images';
-@import './components/header';
-@import './components/pagination';
-@import './components/slideout_menu';
-@import './components/spinner';
-@import './components/tables';
-@import './components/typography';
-@import './components/vertical_scroll_bar';
-
-@import './pages/book_show';
-
-/*section*/
-/*our overrides*/
+@import './components/*';
+@import './pages/*';
