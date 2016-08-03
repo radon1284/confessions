@@ -20,9 +20,11 @@ class ArticlesController < ApplicationController
 
   def show
     article = Article.find_by!(slug: params.fetch(:slug))
+    random_articles = Article.random_selection
     render(
       locals: {
-        article: article
+        article: article,
+        random_articles: random_articles
       }
     )
   end
