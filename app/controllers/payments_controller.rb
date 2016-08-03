@@ -14,9 +14,10 @@ class PaymentsController < ApplicationController
 
   def pay_for_cart
     DI.get(PayForCart).call(
-      current_visitor,
-      stripe_token,
-      email_provided_by_stripe
+      visitor: current_visitor,
+      stripe_token: stripe_token,
+      email: email_provided_by_stripe,
+      ip_address: request.remote_ip
     )
   end
 

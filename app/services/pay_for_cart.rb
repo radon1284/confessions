@@ -11,11 +11,11 @@ class PayForCart
     self.make_stripe_payment = make_stripe_payment
   end
 
-  def call(visitor, stripe_token, email)
+  def call(visitor:, stripe_token:, email:, ip_address:)
     self.cart = restore_cart.call(visitor, Time.current)
     self.order_id = generate_order_id
     make_stripe_payment.call(cart, stripe_token, order_id)
-    handle_successful_payment(visitor, email)
+    handle_successful_payment(visitor, email, ip_address)
     order
   end
 
@@ -31,18 +31,19 @@ class PayForCart
     SecureRandom.uuid
   end
 
-  def handle_successful_payment(visitor, email)
+  def handle_successful_payment(visitor, email, ip_address)
     user = User.where(email: email).first_or_create!
-    self.order = create_order(user)
+    self.order = create_order(user, ip_address)
     EventPublisher.publish(CartCleared.new(visitor))
     EventPublisher.publish(OrderCompleted.new(visitor, order))
   end
 
-  def create_order(user)
+  def create_order(user, ip_address)
     user.orders.create!(
       id: order_id,
       order_items: build_order_items,
-      invoice_number: generate_invoice_number
+      invoice_number: generate_invoice_number,
+      ip_address: ip_address
     )
   end
 
