@@ -69,10 +69,14 @@
 
 /*uses font-awesome*/
 @mixin icon-list($icon) {
+  position: relative;
+  padding-left: $large-spacing;
+  margin-bottom: $base-spacing;
   &:before {
-    /*Rockets as list items!*/
+    position: absolute;
+    top: 0;
+    left: 0;
     font-family: 'FontAwesome';
     content: $icon;
-    margin:0 5px 0 -15px;
   }
 }
