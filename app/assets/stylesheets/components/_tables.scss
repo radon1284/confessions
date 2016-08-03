@@ -6,15 +6,19 @@ table {
 }
 
 th {
-  border-bottom: 1px solid shade($base-border-color, 25%);
+  border-bottom: 1px solid $light-gray;
   font-weight: 600;
-  padding: $small-spacing 0;
+  padding: $small-spacing;
   text-align: left;
 }
 
+tbody tr:nth-child(odd) {
+  background-color: $light-gray;
+}
+
 td {
-  border-bottom: $base-border;
-  padding: $small-spacing 0;
+  border-bottom: $light-gray;
+  padding: $small-spacing $small-spacing;
 }
 
 tr,
