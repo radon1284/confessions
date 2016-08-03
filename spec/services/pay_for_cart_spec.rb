@@ -12,15 +12,14 @@ describe PayForCart do
   let!(:email) { "test@example.com" }
 
   it "creates a new order" do
-    expect {
+    expect do
       service.call(
         visitor: visitor,
         stripe_token: stripe_token,
         email: email,
         ip_address: "8.8.8.8"
       )
-    }
-      .to change { Order.count }.by(1)
+    end.to change { Order.count }.by(1)
   end
 
   it "creates order items" do
@@ -36,26 +35,26 @@ describe PayForCart do
   end
 
   it "clears the cart" do
-    expect {
+    expect do
       service.call(
         visitor: visitor,
         stripe_token: stripe_token,
         email: email,
         ip_address: "8.8.8.8"
       )
-    }.to change { PersistedEvent.where(event_type: "cart_cleared").count }
+    end.to change { PersistedEvent.where(event_type: "cart_cleared").count }
       .by(1)
   end
 
   it "publishes the order completed event" do
-    expect {
+    expect do
       service.call(
         visitor: visitor,
         stripe_token: stripe_token,
         email: email,
         ip_address: "8.8.8.8"
       )
-    }.to change {
+    end.to change {
       PersistedEvent.where(event_type: "order_completed").count
     }.by(1)
   end
@@ -87,14 +86,14 @@ describe PayForCart do
   describe "assigning order to user" do
     context "when there is no user with given email address" do
       it "creates a new user" do
-        expect {
+        expect do
           service.call(
             visitor: visitor,
             stripe_token: stripe_token,
             email: email,
             ip_address: "8.8.8.8"
           )
-        }.to change { User.count }
+        end.to change { User.count }
           .by(1)
       end
 
