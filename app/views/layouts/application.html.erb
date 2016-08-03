@@ -12,10 +12,10 @@
     <%= render "shared/spinner" %>
     <div class="sidebar-navigation">
       <%= TrackingProxyConfiguration.new %>
-      <a href=<%= books_path %> class="unstyled">
+      <a href=<%= book_path("entreprenerd-seo-paid-advertising-and-conversion-optimisation") %> class="unstyled">
         <div class="left-sidebar">
           <h2>
-            Books
+            Book
           </h2>
         </div>
       </a>
@@ -51,8 +51,8 @@
           </div>
         </div>
       </header>
-      <%= render "layouts/flash" %>
       <div class="layout__main-content">
+        <%= render "layouts/flash" %>
         <%= yield %>
       </div>
       <%= render "shared/footer" %>
