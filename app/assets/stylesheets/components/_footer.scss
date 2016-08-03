@@ -1,17 +1,40 @@
 footer {
   @include span-columns(12);
-  @include browser-width-bar(black);
+  border-top: $base-border;
+  padding-top: $large-spacing;
+  padding-left: 0px;
+  padding-right: 0px;
   z-index: -1;
-  color: white;
+  border-right: 1px solid white;
+  color: $warm-black;
   a,p {
     color: $readable-gray;
   }
 }
 .footer__section {
-  @include span-columns(4);
+  @include span-columns(4 of 12);
 }
-.footer__section-content {
-  @include span-columns(10);
+.footer__bottom-row {
+  @include span-columns(12);
+  background: $sch3-navy;
+  color: white;
+  display: inline;
+
+  h4, input, form, label {
+    display: inline;
+    font-family: $heading-font-family;
+  }
+  h4 {
+    padding-left: $base-spacing;
+  }
+  input {
+    font-size: modular-scale(0);
+    margin-top: -10px;
+  }
+  input[type="submit"] {
+    margin-right: $base-spacing;
+  }
+  margin-bottom: $large-spacing;
 }
 
 .footer__section-title {
@@ -20,7 +43,15 @@ footer {
 }
 
 .footer__copyright {
-  margin-top: 30px;
+  margin-top: $large-spacing;
+}
+
+.footer__mid {
+  text-align: center;
+}
+
+.footer__right {
+  text-align: right;
 }
 
 .footer__link-list {
@@ -28,11 +59,4 @@ footer {
   list-style-position: inside;
   margin: 0;
   padding: 0;
-}
-.mailinglist-signup {
-  font-size: modular-scale(-1);
-  input[type="submit"] {
-    display: block;
-    margin: auto;
-  }
 }

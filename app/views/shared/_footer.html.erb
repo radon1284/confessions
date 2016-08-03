@@ -1,34 +1,37 @@
 <footer>
-  <div class="footer__section footer_left">
-    <h4>Shopping</h4>
-    <ul>
-      <li><%= link_to "Your previous orders", orders_path %></li>
-      <li><%= link_to "Cart", cart_path %></li>
-      <li><%= link_to "Contact", new_customer_support_request_path %></li>
-    </ul>
-  </div>
-  <div class="footer__section footer__mid">
-    <h4>Follow</h4>
-    <ul class="footer__link-list">
-      <li><%= link_to "@jackkinsella", "https://twitter.com/jackkinsella" %></li>
-      <li>
-        <%= link_to "Facebook", "https://www.facebook.com/jackkinsellawrites" %>
-      </li>
-      <li><%= link_to "RSS", feed_url(format: "rss") %></li>
-    </ul>
-  </div>
-  <div class="footer__section footer__right">
-    <h4>Legal</h4>
-    <ul>
-      <li><%= link_to "Terms", terms_path %></li>
-      <li><%= link_to "Impressum", impressum_path %></li>
-      <li><%= link_to "Privacy policy", privacy_policy_path %></li>
-    </ul>
-    <div class="footer__copyright">
-      <p>© Jack Kinsella</p>
+  <div class="footer__top_row">
+    <div class="footer__section footer__left">
+      <h4>Shopping</h4>
+      <ul>
+        <li><%= link_to "Your previous orders", orders_path %></li>
+        <li><%= link_to "Cart", cart_path %></li>
+        <li><%= link_to "Contact", new_customer_support_request_path %></li>
+      </ul>
+    </div>
+    <div class="footer__section footer__mid">
+      <h4>Follow</h4>
+      <ul class="footer__link-list">
+        <li><%= link_to "@jackkinsella", "https://twitter.com/jackkinsella" %></li>
+        <li>
+          <%= link_to "Facebook", "https://www.facebook.com/jackkinsellawrites" %>
+        </li>
+        <li><%= link_to "RSS", feed_url(format: "rss") %></li>
+      </ul>
+    </div>
+    <div class="footer__section footer__right">
+      <h4>Legal</h4>
+      <ul>
+        <li><%= link_to "Terms", terms_path %></li>
+        <li><%= link_to "Impressum", impressum_path %></li>
+        <li><%= link_to "Privacy policy", privacy_policy_path %></li>
+      </ul>
+      <div class="footer__copyright">
+        <p>© Jack Kinsella</p>
+      </div>
     </div>
   </div>
-  <div id="subscribe-to-mailing-list">
+
+  <div class="footer__bottom-row" id="subscribe-to-mailing-list">
     <p><%= render "layouts/mailchimp_signup_form" %></p>
   </div>
 </footer>
