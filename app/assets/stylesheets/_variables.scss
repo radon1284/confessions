@@ -15,12 +15,14 @@ $base-font-size: 1.4em;
 // Line height
 $base-line-height: 1.5;
 $heading-line-height: 1.2;
+$small-line-height: 0.9;
 
 // Other Sizes
 $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
 $large-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
+$tiny-spacing: $base-spacing / 4;
 $base-z-index: 0;
 
 // Colors

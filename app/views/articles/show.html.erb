@@ -6,6 +6,7 @@
     <%= render "layouts/sharing_buttons" %>
     <%= MarkdownWrapper.new.display(article.body) %>
 
+    <hr>
     <h2> More Articles:</h2>
     <div class="article__list">
       <% random_articles.each.with_index do |article, index| %>
