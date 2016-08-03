@@ -163,13 +163,9 @@
     <div class="about-author__image-side">
       <%= image_tag("jack-kinsella-portrait.jpg") %>
       <ul class="horizontal-list about-author__social-media-icons">
-        <li> <%= link_to image_tag("social-media-icons/email.ico", alt: "Subscribe to Mailing List"), "#subscribe-to-mailing-list" %></li>
-        <li> <%= link_to image_tag("social-media-icons/twitter.ico", alt: "Connect on Twitter"), "https://www.twitter.com/jackkinsella" %></li>
-        <li> <%= link_to image_tag("social-media-icons/goodreads.ico", alt: "Connect on Goodreads"), "https://www.goodreads.com/user/show/45837349-jack-kinsella" %></li>
-        <li> <%= link_to image_tag("social-media-icons/linked-in.ico", alt: "Connect on LinkedIn"), "https://www.linkedin.com/in/jackkinsella" %></li>
-        <li> <%= link_to image_tag("social-media-icons/facebook.ico", alt: "Connect on Facebook"), "https://www.facebook.com/jackkinsellawrites" %></li>
-        <li> <%= link_to image_tag("social-media-icons/google-plus.ico", alt: "Connect on Google Plus"), "https://plus.google.com/u/0/+JackKinsella" %></li>
+        <%= render "/shared/social_media_icon_list" %>
       </ul>
+
     </div>
   </section>
 </div>
@@ -177,7 +173,6 @@
 <div class=row>
   <section class="objections">
     <h2 class="centered">But but... worries and objections</h2>
-
     <div class="selectable-objections">
     <div class="selectable-objection">
       <span class="objection-pointer-arrow__active">&nbsp</span>
