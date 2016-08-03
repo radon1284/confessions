@@ -1,0 +1,15 @@
+.article__list {
+  text-align: center;
+  @include shift(3);
+  @include span-columns(6);
+}
+
+.article__list h3 {
+  letter-spacing: $tiny-font-letter-spacing
+}
+
+
+.article__list p {
+  letter-spacing: $large-font-letter-spacing;
+  color: $readable-gray;
+}

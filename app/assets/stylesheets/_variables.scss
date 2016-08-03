@@ -5,6 +5,8 @@ $large-screen: 900px;
 // Typography
 $base-font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 $base-font-letter-spacing: 0.2px;
+$large-font-letter-spacing: $base-font-letter-spacing * 3;
+$tiny-font-letter-spacing: $base-font-letter-spacing * -3;
 $heading-font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
 
 // Font Sizes
@@ -47,7 +49,7 @@ $action-color: $sch1-orange;
 $active-link-color: shade($action-color, 50%);
 
 // Border
-$base-border-color: $warm-black;
+$base-border-color: $medium-gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
