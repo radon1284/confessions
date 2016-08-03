@@ -1,0 +1,18 @@
+.article {
+  @include shift(1);
+  @include span-columns(10);
+}
+
+.article h1, .article .social-share-kit {
+  text-align: center;
+}
+
+.article h2 {
+  text-align: center;
+  color: $readable-gray;
+  font-variant: small-caps;
+}
+
+.article p {
+  text-align: justify;
+}

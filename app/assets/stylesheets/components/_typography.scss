@@ -17,29 +17,35 @@ h4{
 }
 
 h1 {
-  font-size: modular-scale(3); // (Bourbon) uses the Golden Ratio. Number of steps larger than base (0)
+  text-align: center;
+  font-family: $base-font-family;
+  font-weight: 100;
+  margin-top: $small-spacing;
+  color: $sch3-complement;
+  font-size: modular-scale(2); // (Bourbon) uses the Golden Ratio. Number of steps larger than base (0)
+  text-transform: uppercase;
 }
 h2 {
-  font-size: modular-scale(2);
+  font-size: modular-scale(1);
 }
 section h2 {
   margin-top: $large-spacing;
   margin-bottom: $large-spacing;
 }
 h3 {
-  font-size: modular-scale(1);
+  font-size: modular-scale(0);
 }
 h4 {
   font-size: modular-scale(0);
   text-transform: uppercase;
 }
 .tiny {
-  font-size: modular-scale(-1);
+  font-size: modular-scale(-2);
   color: $readable-gray;
 }
 
 p {
-  margin: 0 0 $large-spacing;
+  margin: 0 0 $base-spacing;
 }
 
 hr {
@@ -47,7 +53,7 @@ hr {
   border-left: 0;
   border-right: 0;
   border-top: 0;
-  margin: $base-spacing 0;
+  margin: $base-spacing $large-spacing;
 }
 
 b {
