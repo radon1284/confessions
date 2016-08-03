@@ -1,14 +1,18 @@
-<h1>(Over-)Analyst</h1>
-<h2>I call myself an analyst because it's suitably nondescript and affords me inconsistency in interests.</h2>
-<h3>Featured Books</h3>
-<ul>
-<% books.each do |book| %>
-  <li><%= link_to book.title, book_path(book.slug) %></li>
-<% end %>
-</ul>
-<h3>Featured Articles</h3>
-<ul>
-<% articles.each do |article| %>
-  <li><%= link_to article.title, article_path(article.slug) %>: <%= article.short_description %></li>
-<% end %>
-</ul>
+<div class="inner-frame">
+  <h1>(Over-)Analyst</h1>
+  <p>Although I write books, software, and music, I mostly just enjoy analysing things, sometimes to an extreme and unhealthy degree.</p>
+  <p>I obsessively learn and I live for the excitement of new projects. </p>
+  <div id="boids-canvas" class="boids-canvas"></div>
+  <script>
+    var canvasDiv = document.getElementById('boids-canvas');
+    var options = {
+      background: '#fff',
+      density: 'medium',
+      speed: 'medium',
+      interactive: true,
+      mixedSizes: true,
+      boidColours: ["#3E4662","#9B9B9B", "#333333", "#F85F3F", "#8A97C7"]
+    };
+var boidsCanvas = new BoidsCanvas(canvasDiv, options);
+  </script>
+</div>
