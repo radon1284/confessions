@@ -172,22 +172,22 @@
 
 <div class=row>
   <section class="objections">
-    <h2 class="centered">But but... worries and objections</h2>
+    <h2 class="centered">But But... Worries and Objections</h2>
     <div class="selectable-objections">
     <div class="selectable-objection">
       <span class="objection-pointer-arrow__active">&nbsp</span>
       <h4>
-        <%= link_to "I'm Not The 'Marketer Type'...", "", onclick: "showObjection('#objection-not-marketer'); return false;", class: "selected-objection" %></h4>
+        <%= link_to "I'm Not The 'Marketer Type...", "", class: "selected-objection", data: {objection_id: '#objection-not-marketer'} %></h4>
     </div>
     <div class="selectable-objection">
       <span class="objection-pointer-arrow">&nbsp</span>
       <h4>
-        <%= link_to "The Book Is Too Expensive...", "", onclick: "showObjection('#objection-too-expensive'); return false;" %></h4>
+        <%= link_to "The Book Is Too Expensive...", "", data: {objection_id: '#objection-too-expensive'} %></h4>
     </div>
     <div class="selectable-objection">
       <span class="objection-pointer-arrow">&nbsp</span>
       <h4>
-        <%= link_to "Can't I Learn The Same Things From Free Blog Posts?", "", onclick: "showObjection('#objection-free-blog'); return false;" %></h4>
+        <%= link_to "Can't I Learn The Same Things From Free Blog Posts?", "", data: {objection_id: "#objection-free-blog"} %></h4>
     </div>
     </div>
 
