@@ -41,3 +41,9 @@
 .input[type="submit"].add-to-cart-button {
   border-radius: 200px;
 }
+
+#test-stripe-payment .stripe-button-el span {
+  line-height: normal;
+  height: auto;
+  font-size: modular-scale(1);
+}

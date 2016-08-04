@@ -1,8 +1,8 @@
 table {
   border-collapse: collapse; // otherwise adjacent cells double up on borders
   margin: $small-spacing 0;
-  table-layout: fixed;
   width: 100%;
+  border-bottom: 1px solid $light-gray;
 }
 
 th {

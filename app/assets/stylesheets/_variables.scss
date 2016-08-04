@@ -19,6 +19,7 @@ $small-line-height: 0.9;
 
 // Other Sizes
 $base-border-radius: 3px;
+$round-border-radius: $base-border-radius * 10;
 $base-spacing: $base-line-height * 1em;
 $large-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;

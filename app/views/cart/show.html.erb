@@ -3,24 +3,39 @@
   Your cart
 </h1>
 
+<div class="inner-frame">
 <% if cart.items.present? %>
-  <ul>
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+
+
     <% cart.items.each do |item| %>
-      <li>
-        <%= item.display_name %> <%= humanized_money_with_symbol(item.price) %>
-        <%=
-          button_to(
-            "Remove",
-            cart_remove_path(product_id: item.product_id),
-            method: :delete
-          )
-        %>
-      </li>
-    <% end %>
-  </ul>
+      <tr>
+        <td>
+          <%= item.display_name %>
+        </td>
+        <td>
+          <%= humanized_money_with_symbol(item.price) %>
+        </td>
+        <td class="tiny">
+          <%=
+            link_to(
+              "remove",
+              cart_remove_path(product_id: item.product_id),
+              method: :delete
+            )
+          %>
+      </td>
+      </tr>
+  </table>
+<% end %>
 
   <p>
-    Total: <%= humanized_money_with_symbol(cart.total) %>
+    <b>Total:</b> <%= humanized_money_with_symbol(cart.total) %>
   </p>
 
   <%= form_tag(payments_pay_path, method: :post, id: "test-stripe-payment") do %>
@@ -38,3 +53,8 @@
     Your cart is empty.
   </p>
 <% end %>
+<p class="small-caps">
+  No risk. 100% Money Back Guarantee
+</p>
+
+</div>
