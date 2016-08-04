@@ -44,5 +44,8 @@ $border-box-sizing: true;
   @include shift(1);
   text-align: center;
   @include span-columns(10);
+  ul,ol {
+    text-align: left;
+  }
 }
 

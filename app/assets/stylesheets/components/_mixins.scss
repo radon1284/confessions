@@ -71,7 +71,7 @@
 @mixin icon-list($icon) {
   position: relative;
   padding-left: $large-spacing;
-  margin-bottom: $base-spacing;
+  margin-bottom: $small-spacing;
   &:before {
     position: absolute;
     top: 0;
