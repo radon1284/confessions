@@ -23,4 +23,3 @@ hljs.initHighlightingOnLoad();
 function showTableOfContents() {
   $("#table_of_contents").show();
 }
-
