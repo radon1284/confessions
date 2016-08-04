@@ -28,6 +28,7 @@ gem 'countries'
 gem 'prawn'
 gem 'prawn-table'
 gem 'font-awesome-sass'
+gem 'combine_pdf'
 
 group :development, :test do
   gem 'pry-rails'
