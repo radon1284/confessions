@@ -3,7 +3,7 @@
 </h1>
 
 <p>
-  This form is for customers who want to generate an invoice for a company. If you are an individual customer and you want to obtain an invoice with your own details, please contact customer support.
+This form is for customers with VAT/sales tax IDs. If you are an individual customer without a VAT ID and you want to obtain an invoice with your private details, please contact customer support.
 </p>
 
 <% if invoice_request.errors.any? %>
@@ -29,7 +29,7 @@
   <%= f.label :country %>
   <%= f.select :country, ISO3166::Country.all_translated %>
   </br>
-  <%= f.label :vat_id, "VAT ID" %>
+  <%= f.label :vat_id, "VAT/sales tax ID" %>
   <%= f.text_field :vat_id %>
   </br>
   <%= f.submit "Generate" %>

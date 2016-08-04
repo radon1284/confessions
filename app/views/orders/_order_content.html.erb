@@ -5,7 +5,7 @@
 <ul>
   <% order.books.each do |book| %>
     <li>
-      <%= book.title %>
+      <b><%= book.title %></b>:
       <ul>
         <li>
           <%=
@@ -36,6 +36,7 @@
   <% end %>
 </ul>
 
+<hr>
 <p>
-  <%= link_to "Ask for invoice", new_order_invoice_request_path(order) %>
+  <%= button_to "Ask for invoice", new_order_invoice_request_path(order), method: :get %>
 </p>
