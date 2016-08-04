@@ -10,7 +10,7 @@ describe "Ask for invoice" do
     fill_in "Company name", with: "Sunday Coding Adam Niedzielski"
     fill_in "Address", with: "Kościuszki 18/5 95-200 Pabianice"
     select "Poland", from: "Country"
-    fill_in "VAT ID", with: "PL7312047877"
+    fill_in "VAT/sales tax ID", with: "PL7312047877"
 
     expect { click_on "Generate" }.to change { InvoiceRequest.count }.by(1)
   end
