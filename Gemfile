@@ -29,6 +29,7 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'font-awesome-sass'
 gem 'coffee-rails'
+gem 'combine_pdf'
 
 group :development, :test do
   gem 'pry-rails'

@@ -20,24 +20,32 @@ class BooksController < ApplicationController
   end
 
   def download_pdf
-    book = find_book_by_order
-    redirect_to book.content_pdf.download_url
+    order = Order.find(params.fetch(:order_id))
+    book = order.books.find(params.fetch(:id))
+
+    send_data(
+      watermarked_pdf_content(book, order),
+      filename: "book.pdf",
+      type: "application/pdf"
+    )
   end
 
   def download_epub
-    book = find_book_by_order
+    order = Order.find(params.fetch(:order_id))
+    book = order.books.find(params.fetch(:id))
     redirect_to book.content_epub.download_url
   end
 
   def download_mobi
-    book = find_book_by_order
+    order = Order.find(params.fetch(:order_id))
+    book = order.books.find(params.fetch(:id))
     redirect_to book.content_mobi.download_url
   end
 
   private
 
-  def find_book_by_order
-    order = Order.find(params.fetch(:order_id))
-    order.books.find(params.fetch(:id))
+  def watermarked_pdf_content(book, order)
+    DI.get(GenerateWatermarkedPDF)
+      .call(book.content_pdf, order.user.email)
   end
 end

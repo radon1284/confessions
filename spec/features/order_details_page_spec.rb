@@ -21,4 +21,24 @@ describe "Order details page" do
     expect(page.response_headers["Content-Type"])
       .to eq "application/pdf"
   end
+
+  it "allows to download the EPUB content" do
+    product.purchasable.update!(
+      content_epub: File.open(file_fixture_path("book1.epub"))
+    )
+    visit order_path(order)
+    click_on "Download EPUB"
+    expect(page.response_headers["Content-Type"])
+      .to eq "text/plain"
+  end
+
+  it "allows to download the MOBI content" do
+    product.purchasable.update!(
+      content_mobi: File.open(file_fixture_path("book1.mobi"))
+    )
+    visit order_path(order)
+    click_on "Download MOBI"
+    expect(page.response_headers["Content-Type"])
+      .to eq "text/plain"
+  end
 end
