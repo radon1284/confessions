@@ -22,3 +22,10 @@
   @include shift(2);
   @include span-columns(8);
 }
+
+.janki-rule {
+    background: #FFF9D8;
+    border: 1px solid #FFE972;
+    padding: $base-spacing;
+    margin-bottom: $base-spacing;
+}
