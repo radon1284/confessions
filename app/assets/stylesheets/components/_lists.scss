@@ -1,9 +1,17 @@
 ul,
 ol {
-  list-style-type: none;
   margin: 0;
   margin-bottom: $base-spacing;
   padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+
+li ol {
+  margin-left: $base-spacing;
+  margin-bottom: 0px;
+  list-style-type: lower-alpha;
 }
 
 .article ul {
