@@ -8,16 +8,18 @@
   </head>
   <body>
 
-    <p>
-      <%= link_to "Store", root_path %>
-      <%= link_to "Orders", admin_orders_path %>
-      <%= link_to "Books", admin_books_path %>
-      <%= link_to "Photos", admin_photos_path %>
-      <%= link_to "Articles", admin_articles_path %>
-    </p>
+    <div class="container" id="main-container">
+      <p>
+        <%= link_to "Store", root_path %>
+        <%= link_to "Orders", admin_orders_path %>
+        <%= link_to "Books", admin_books_path %>
+        <%= link_to "Photos", admin_photos_path %>
+        <%= link_to "Articles", admin_articles_path %>
+      </p>
 
-    <%= render "layouts/flash" %>
-    <%= yield %>
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </div>
 
   </body>
 </html>
