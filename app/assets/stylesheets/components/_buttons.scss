@@ -2,7 +2,8 @@
   appearance: none; // remove default platform-specific styling otherwise forced on certain buttons
   background-color: $action-color;
   border: 0;
-  border-radius: $base-border-radius;
+  border-radius: $base-border-radius * 10;
+  box-shadow: 0 -1px 10px $readable-gray;
   color: #fff;
   cursor: pointer; // change the cursor style!
   display: inline-block;
@@ -24,6 +25,7 @@
   &:focus {
     background-color: shade($action-color, 20%);
     color: #fff;
+    transform: scale(1.2);
   }
 
   &:disabled {
@@ -34,4 +36,8 @@
       background-color: $action-color;
     }
   }
+}
+
+.input[type="submit"].add-to-cart-button {
+  border-radius: 200px;
 }

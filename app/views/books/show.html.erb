@@ -18,12 +18,11 @@
       <b>Written by Jack Kinsella, an Oxford law graduate turned programmer turned bootstrapped web entrepreneur.</b> After selling his first million dollars worth of digital goods through his own businesses, he's ready to share what he's learned along the way.
     </p>
 
-    <%= button_to "Kickstart Your Marketing (#{humanized_money_with_symbol(book.product.price)})", cart_add_path(product_id: book.product.id), id: "add-to-cart-button" %>
-  <%= button_to "Read Online", cart_add_path(product_id: book.product.id) %>
+    <%= button_to "Buy and Kickstart Your Marketing | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %>
   <ul>
-    <li>100% Refund Guarantee.</li>
-    <li>Instant Download.</li>
-    <li>Available in DRM-free MOBI, EPUB, and PDF formats.</li>
+    <li class="rocket-list-item">100% Refund Guarantee.</li>
+    <li class="rocket-list-item">Instant Download.</li>
+    <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats.</li>
   </ul>
   </div>
 </div>
