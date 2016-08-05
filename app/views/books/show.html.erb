@@ -19,7 +19,7 @@
     </p>
 
     <div class="checkout-button-container">
-      <div class="pulse"></div>
+      <%= link_to "<div class='pulse'></div>".html_safe, cart_add_path(product_id: book.product.id), method: :post %>
       <%= button_to "Buy and Kickstart Your Marketing | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %>
     </div>
   <ul>
