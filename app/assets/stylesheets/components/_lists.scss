@@ -19,7 +19,6 @@ li ol {
 }
 
 .article li, .rocket-list-item {
-  margin-bottom: 0px;
   @include icon-list('\f135');
   /*innermost list items have another style*/
   ul li {

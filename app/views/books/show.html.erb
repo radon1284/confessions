@@ -7,38 +7,40 @@
   <div class="book-image">
     <%= image_tag "entreprenerd/moleskin.jpg"%>
   </div>
-  <div class="book-calls-to-action">
+  <div class="book__description">
     <p>
       Entreprenerd is the internet marketing book written for builders and nerdy types not getting the public attention that their efforts deserve.
+    </p>
 
-      <p>If you've been baffled by the jargon and nonsense that proliferate the online marketing world, this book is exactly what you need: It separates out the good techniques from the hype, the gold from the gunk.
+    <p>If you've been baffled by the jargon and nonsense that proliferate the online marketing world, this book is exactly what you need: It separates out the good techniques from the hype, the gold from the gunk.</p>
 
-      <p>Entreprenerd is stuffed with easy-to-follow examples from people who are already winning the game of traffic and enjoying its spoils.  </p>
+    <p>Entreprenerd is stuffed with easy-to-follow examples from people who are already winning the game of traffic and enjoying its spoils.  </p>
     <p class="unemphasised-text">
       <b>Written by Jack Kinsella, an Oxford law graduate turned programmer turned bootstrapped web entrepreneur.</b> After selling his first million dollars worth of digital goods through his own businesses, he's ready to share what he's learned along the way.
     </p>
-
+  </div>
+  <div class="book__call-to-action-container">
     <div class="checkout-button-container">
       <%= link_to "<div class='pulse'></div>".html_safe, cart_add_path(product_id: book.product.id), method: :post %>
       <%= button_to "Buy and Kickstart Your Marketing | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %>
     </div>
-  <ul>
-    <li class="rocket-list-item">100% Refund Guarantee.</li>
-    <li class="rocket-list-item">Instant Download.</li>
-    <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats.</li>
-  </ul>
+    <ul>
+      <li class="rocket-list-item">100% Refund Guarantee.</li>
+      <li class="rocket-list-item">Instant Download.</li>
+      <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats.</li>
+    </ul>
   </div>
 </div>
 
 <%= render "books/contents/#{book.partial_name}", book: book %>
 
 <div class=row>
-<section class="testimonials">
-<h2 class="centered">Testimonials</h2>
-<div class="row">
-  <p>TODO</p>
-</div>
-</section>
+  <section class="testimonials">
+    <h2 class="centered">Testimonials</h2>
+    <div class="row">
+      <p>TODO</p>
+    </div>
+  </section>
 </div>
 
 
@@ -58,4 +60,4 @@
     <p>It's hard to catch all errors in our editing phase, so we warmly welcome any feedback about errors, no matter how small! Please send your errata to <%= link_to "customer service", new_customer_support_request_path %>.</p>
 </div>
   </section>
-<div>
+  <div>

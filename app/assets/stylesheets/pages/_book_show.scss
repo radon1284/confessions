@@ -35,13 +35,46 @@
 .about-author__social-media-icons {
   position: absolute;
   right: 30px;
+  @include media($small-laptop) {
+    right: 0px;
+  }
 }
 
 .book-image {
   @include span-columns(5);
 }
-.book-calls-to-action {
+.book__description {
   @include span-columns(7);
+  @include omega();
+}
+.book__call-to-action-container {
+  @include span-columns(7);
+  @include omega();
+
+  input {
+    white-space: normal;
+  }
+
+  ul {
+    padding-top: $small-spacing;
+    margin-top: $large-spacing;
+  }
+
+  li {
+    margin-bottom: 0px;
+    font-variant: small-caps;
+    font-size: modular-scale(-1);
+  }
+
+  @include media($small-laptop) {
+    @include shift(2);
+    @include span-columns(6);
+  }
+  @include media($tablet) {
+    @include shift(0);
+    @include span-columns(8);
+  }
+
 }
 .about-author {
   @include span-columns(12);
@@ -64,6 +97,10 @@
   p {
     @include shift(3);
     @include span-columns(7);
+    @include media($tablet) {
+      @include shift(1);
+      @include span-columns(7);
+    }
   }
 }
 
