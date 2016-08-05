@@ -2,6 +2,11 @@
   text-align: center;
   @include shift(3);
   @include span-columns(6);
+
+  @include media($tablet) {
+    @include shift(0);
+    @include span-columns(8);
+  }
 }
 
 .article__list h3 {
