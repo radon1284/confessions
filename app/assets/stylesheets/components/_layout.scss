@@ -4,6 +4,11 @@ $border-box-sizing: true;
   padding-left: $small-spacing;
   padding-right: $small-spacing;
   @include outer-container();
+
+  @include media($small-laptop) {
+    @include outer-container(90%);
+  }
+
 }
 
 .layout__main-content {
