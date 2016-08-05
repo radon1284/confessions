@@ -23,7 +23,7 @@
   background: tint($sch3-lightened-navy, 85%);
   font-weight: bold;
   border-radius: $base-border-radius;
-  @include shift(2);
+  @include shift(1);
   @include span-columns(8);
 }
 

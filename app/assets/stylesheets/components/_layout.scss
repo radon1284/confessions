@@ -47,10 +47,14 @@ $border-box-sizing: true;
 }
 .inner-frame {
   @include shift(1);
-  text-align: center;
   @include span-columns(10);
+  text-align: center;
   ul,ol {
     text-align: left;
+  }
+  @include media($tablet) {
+    @include span-columns(8);
+    @include shift(0);
   }
 }
 
