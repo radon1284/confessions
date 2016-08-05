@@ -16,9 +16,13 @@
   font-family: $heading-font-family;
   a {
     @include link-color-scheme($warm-black, $warm-black);
+    padding: $large-spacing;
+    padding-right: 100px;
   }
   li {
-    margin-bottom: $base-spacing;
+    margin-bottom: $large-spacing;
+    border-bottom: 1px solid $sch3-complement;
+    width: 80%;
   }
 }
 
