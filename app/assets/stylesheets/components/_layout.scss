@@ -6,7 +6,7 @@ $border-box-sizing: true;
   @include outer-container();
 
   @include media($small-laptop) {
-    @include outer-container(90%);
+    @include outer-container(87%);
   }
 
 }
