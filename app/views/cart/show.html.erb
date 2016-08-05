@@ -26,7 +26,8 @@
             link_to(
               "remove",
               cart_remove_path(product_id: item.product_id),
-              method: :delete
+              method: :delete,
+              id: "test-remove-from-cart-#{item.product_id}"
             )
           %>
       </td>
