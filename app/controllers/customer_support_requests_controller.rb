@@ -15,7 +15,7 @@ class CustomerSupportRequestsController < ApplicationController
 
     if customer_support_request.save
       notify_customer_support(customer_support_request)
-      redirect_to root_url, notice: "You message has been sent."
+      redirect_to root_url, notice: "Your message has been sent."
     else
       handle_error(customer_support_request)
     end
