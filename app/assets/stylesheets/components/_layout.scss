@@ -34,6 +34,17 @@ $border-box-sizing: true;
 }
 .quarter-page {
   @include span-columns(3);
+  /*not really quarter anymore...*/
+  @include media($tablet) {
+    h3 {
+      text-align: center;
+    }
+    p {
+      text-align: justify;
+    }
+    @include shift(1);
+    @include span-columns(7);
+  }
 }
 .half-page {
   @include span-columns(6);
