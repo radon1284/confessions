@@ -139,3 +139,44 @@
 .unemphasised-text {
   color: $readable-gray;
 }
+
+@keyframes pulse {
+  0% {
+    padding: 0.2em;
+    box-shadow: 0 0 0 0 $sch3-complement;
+  }
+
+  50% {
+    padding: 0.4em;
+  }
+
+  99% {
+    padding: 0.2em;
+    box-shadow: 0 0 0 0.5em transparent;
+  }
+}
+
+.pulse {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 8px;
+  animation: out 2s infinite linear;
+  background: $sch3-orange;
+  margin: 0 9px -2px 1px;
+  animation-name: pulse;
+  cursor: pointer;
+}
+
+.checkout-button-container {
+  position: relative;
+  margin-bottom: $base-spacing;
+}
+
+.checkout-button-container form {
+  position: absolute;
+  right: $large-spacing;
+  top: -14px;
+  display: inline-block;
+}
