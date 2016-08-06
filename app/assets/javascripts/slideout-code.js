@@ -7,12 +7,13 @@ function initializeSlideout() {
   });
 
   // Toggle button
-  document.querySelector('.toggle-button').addEventListener('click', function() {
+  $('.toggle-button').click(function() {
     slideout.toggle();
-  });
-
-  document.getElementById('slideout-close').addEventListener('click', function() {
-    slideout.close();
+    // Events get removed after toggle so we must
+    // set this within this function
+    $("#slideout-close").click(function() {
+      slideout.close();
+    });
   });
 }
 $(document).ready(initializeSlideout)
