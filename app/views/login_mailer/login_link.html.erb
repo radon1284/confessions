@@ -1,6 +1,15 @@
+<p>
+  Hi pal,
+</p>
+<p> We use a passwordless system for logging in. Simply click the link below and you're in.
+</p>
 <%=
   link_to(
     "Click this link to log in",
     authentication_authenticate_by_token_url(token: @token)
   )
 %>
+<p> Have a great day!
+</p>
+<p>–Jack's Team
+</p>
