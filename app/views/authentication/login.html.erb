@@ -1,12 +1,14 @@
-<h1>
-  Please login
-</h1>
+<div class="inner-frame">
+  <h1>
+    Please login
+  </h1>
 
-<p>
-  Just provide your email address and we will send the magic link straight to your inbox.
-</p>
+  <p>
+    Passwords suck so we use a passwordless login system. Just enter your email address below and we will send a magic link straight to your inbox. By clicking that link, you'll be logged in and can download your purchases or print your invoices.
+  </p>
 
-<%= form_tag authentication_send_token_path do %>
-  <%= text_field_tag :email %>
-  <%= submit_tag "Send" %>
-<% end %>
+  <%= form_tag authentication_send_token_path do %>
+    <%= text_field_tag :email %>
+    <%= submit_tag "Send" %>
+  <% end %>
+</div>
