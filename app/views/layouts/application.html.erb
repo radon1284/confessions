@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title><%= yield(:title) %> | Jack Kinsella</title>
+    <title><%= yield(:title) %> | Jack Kinsella</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -11,23 +11,24 @@
   </head>
   <body>
     <%= render "shared/spinner" %>
-    <div class="sidebar-navigation">
-      <%= TrackingProxyConfiguration.new %>
-      <a href=<%= book_path("entreprenerd-seo-paid-advertising-and-conversion-optimisation") %> class="unstyled">
-        <div class="left-sidebar">
-          <h2>
-            Book
-          </h2>
-        </div>
-      </a>
-      <a href=<%= articles_path %> class="unstyled">
-        <div class="right-sidebar">
-          <h2>
-            Articles
-          </h2>
-        </div>
-      </a>
-    </div>
+    <div class="layout__main-content">
+      <div class="sidebar-navigation">
+        <%= TrackingProxyConfiguration.new %>
+        <a href=<%= book_path("entreprenerd-seo-paid-advertising-and-conversion-optimisation") %> class="unstyled">
+          <div class="left-sidebar">
+            <h2>
+              Book
+            </h2>
+          </div>
+        </a>
+        <a href=<%= articles_path %> class="unstyled">
+          <div class="right-sidebar">
+            <h2>
+              Articles
+            </h2>
+          </div>
+        </a>
+      </div>
       <ul id="mobile-only-menu" class="slideout-menu">
         <li><a href="#" id="slideout-close" class="slideout-close-link">X</a></li>
         <li><%= link_to "Home", root_path %></li>
@@ -38,25 +39,24 @@
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Contact", new_customer_support_request_path %></li>
       </ul>
-    <div class="container" id="main-container">
-      <header>
-        <div class="header__website-name" id="header__website-name">
-          <div class="header__left">
-            <p class="toggle-button slideout-panel">☰</button></p>
+      <div class="container" id="main-container">
+        <header>
+          <div class="header__website-name" id="header__website-name">
+            <div class="header__left">
+              <p class="toggle-button slideout-panel">☰</button></p>
+            </div>
+            <div class="header__mid">
+              <h2><%= link_to "Jack Kinsella", root_path, class: "unstyled" %></h2>
+            </div>
+            <div class="header__right">
+              <%= link_to image_tag("fractal.jpg"), "https://www.youtube.com/watch?v=KC5h_TZRK9E" %>
+            </div>
           </div>
-          <div class="header__mid">
-            <h2><%= link_to "Jack Kinsella", root_path, class: "unstyled" %></h2>
-          </div>
-          <div class="header__right">
-            <%= link_to image_tag("fractal.jpg"), "https://www.youtube.com/watch?v=KC5h_TZRK9E" %>
-          </div>
-        </div>
-      </header>
-      <div class="layout__main-content">
+        </header>
         <%= render "layouts/flash" %>
         <%= yield %>
+        <%= render "shared/footer" %>
       </div>
-      <%= render "shared/footer" %>
     </div>
   </body>
 </html>

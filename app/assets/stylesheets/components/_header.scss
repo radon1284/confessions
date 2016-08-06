@@ -33,7 +33,7 @@ header {
   }
 
   @include media($mobile) {
-    @include span-columns(3 of 4);
+    @include span-columns(2.5 of 4);
   }
 }
 .header__right {
@@ -47,6 +47,6 @@ header {
   }
 
   @include media($mobile) {
-    @include span-columns(0.5 of 4);
+    @include span-columns(1 of 4);
   }
 }

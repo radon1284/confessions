@@ -1,6 +1,6 @@
 .article__list {
   text-align: center;
-  @include shift(3);
+  @include shift(2);
   @include span-columns(6);
 
   @include media($tablet) {
