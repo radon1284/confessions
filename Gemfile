@@ -29,6 +29,7 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'font-awesome-sass'
 gem 'combine_pdf'
+gem 'epub-maker'
 
 group :development, :test do
   gem 'pry-rails'

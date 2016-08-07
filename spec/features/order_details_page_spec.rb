@@ -29,7 +29,7 @@ describe "Order details page" do
     visit order_path(order)
     click_on "Download EPUB"
     expect(page.response_headers["Content-Type"])
-      .to eq "text/plain"
+      .to eq "application/epub+zip"
   end
 
   it "allows to download the MOBI content" do
