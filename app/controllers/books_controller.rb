@@ -44,7 +44,12 @@ class BooksController < ApplicationController
   def download_mobi
     order = Order.find(params.fetch(:order_id))
     book = order.books.find(params.fetch(:id))
-    redirect_to book.content_mobi.download_url
+
+    send_data(
+      watermarked_mobi_content(book, order),
+      filename: "book.mobi",
+      type: "application/x-mobipocket-ebook"
+    )
   end
 
   private
@@ -56,6 +61,11 @@ class BooksController < ApplicationController
 
   def watermarked_epub_content(book, order)
     DI.get(GenerateWatermarkedEPUB)
+      .call(book.content_epub, order.user.email)
+  end
+
+  def watermarked_mobi_content(book, order)
+    DI.get(GenerateWatermarkedMOBI)
       .call(book.content_epub, order.user.email)
   end
 end

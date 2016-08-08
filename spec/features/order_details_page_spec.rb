@@ -34,11 +34,11 @@ describe "Order details page" do
 
   it "allows to download the MOBI content" do
     product.purchasable.update!(
-      content_mobi: File.open(file_fixture_path("book1.mobi"))
+      content_epub: File.open(file_fixture_path("book1.epub"))
     )
     visit order_path(order)
     click_on "Download MOBI"
     expect(page.response_headers["Content-Type"])
-      .to eq "text/plain"
+      .to eq "application/x-mobipocket-ebook"
   end
 end
