@@ -28,7 +28,8 @@ class GenerateWatermarkedMOBI
   attr_accessor :generate_watermarked_epub
 
   def convert_epub_to_mobi(input, output)
-    command_output = `#{ebook_convert_executable} #{input.path} #{output.path} 2>&1`
+    command_output = `#{ebook_convert_executable} #{input.path} #{output.path} \
+                      2>&1`
     raise(EBookConvertFailed, command_output) unless $CHILD_STATUS.success?
   end
 
