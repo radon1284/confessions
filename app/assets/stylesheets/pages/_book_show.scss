@@ -47,10 +47,16 @@
 
 .book-image {
   @include span-columns(5);
+  @include media($tablet) {
+    @include span-columns(12 of 12);
+  }
 }
 .book__description {
   @include span-columns(7);
   @include omega();
+  @include media($tablet) {
+    @include span-columns(12 of 12);
+  }
 }
 .book__call-to-action-container {
   @include span-columns(7);
@@ -63,6 +69,10 @@
   ul {
     padding-top: $small-spacing;
     margin-top: $large-spacing;
+  @include media($tablet) {
+    padding-top: 0px;
+    margin-top: 0px;
+  }
   }
 
   li {
@@ -88,6 +98,9 @@
 .about-author__text-side {
   @include span-columns(5);
   @include media($tablet) {
+    h3 {
+      text-align: center;
+    }
     @include span-columns(12 of 12);
   }
   p {
@@ -244,4 +257,7 @@
   left: $large-spacing;
   top: -14px;
   display: inline-block;
+  @include media($tablet) {
+    @include shift(1 of 6);
+  }
 }
