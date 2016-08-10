@@ -8,6 +8,11 @@ $border-box-sizing: true;
 $default-feature: min-width;
 $default-layout-direction: LTR;
 
+$visual-grid: false;
+$visual-grid-color: red;
+$visual-grid-index: front;
+$visual-grid-opacity: 0.1;
+
 $small-laptop: new-breakpoint(max-width 1300px 12);
 $tablet: new-breakpoint(max-width 1000px 8);
 $mobile: new-breakpoint(max-width 600px 4);

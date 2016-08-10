@@ -14,11 +14,16 @@ li ol {
   list-style-type: lower-alpha;
 }
 
+ol li {
+  margin-bottom: $small-spacing;
+  margin-left: $base-spacing
+}
+
 .article ul {
   padding-left: $base-spacing;
 }
 
-.article li, .rocket-list-item {
+.article ul li, .rocket-list-item {
   @include icon-list('\f135');
   /*innermost list items have another style*/
   ul li {

@@ -1,8 +1,8 @@
 .ssk-dark-gray {
   background: $warm-black;
 
-  @include media($mobile) {
-    margin-left: $large-spacing;
+  @include media($tablet) {
+    margin-right: $large-spacing;
     /*increase size of buttons so thumbs can click on them*/
     &:after {
       content: '';

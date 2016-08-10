@@ -13,6 +13,20 @@ footer {
 }
 .footer__section {
   @include span-columns(4 of 12);
+  @include media($tablet) {
+    width: 100%;
+    font-size: 1.33rem;
+    > * {
+      margin: 0 auto;
+      text-align: center
+    }
+    h4 {
+      padding-top: $small-spacing;
+    }
+    background-color: $light-gray;
+    margin-bottom: $base-spacing;
+    border-bottom: $base-border;
+  }
 }
 
 .footer__section-title {
@@ -21,8 +35,8 @@ footer {
 }
 
 .footer__copyright {
-  margin-top: $large-spacing;
-  text-align: center;
+  font-size: 0.75em;
+  font-variant: small-caps;
 }
 
 .footer__mid {
@@ -45,7 +59,7 @@ footer {
   border-radius: $round-border-radius;
   background: $sch3-navy;
   color: white;
-  padding-left: $large-spacing;
+  padding: 0 $large-spacing;
   position: relative;
 
   h4, input, form, label {
@@ -62,11 +76,26 @@ footer {
 .footer__mailing-list-text {
   @include span-columns(3 of 10);
   margin-top: $small-spacing;
+  @include media($tablet) {
+    @include span-columns(5 of 10);
+  }
 }
 .footer__mailing-list-text-input{
   @include span-columns(5 of 10);
+  @include media($tablet) {
+    @include omega();
+  }
 }
 .footer__mailing-list-submit {
   @include span-columns(2 of 10);
   margin-top: $small-spacing;
+  @include media($tablet) {
+    @include span-columns(10 of 10);
+    clear: both;
+    text-align: center;
+    input {
+      width: 100%;
+      padding-right: $small-spacing;
+    }
+  }
 }

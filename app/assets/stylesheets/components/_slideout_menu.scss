@@ -9,6 +9,12 @@
   z-index: 100;
   padding: $base-spacing;
   width: 256px;
+  @include media($small-laptop) {
+    width: 40%;
+  }
+  @include media($tablet) {
+    width: 70%;
+  }
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   display: none;
@@ -22,6 +28,10 @@
   li {
     margin-bottom: $large-spacing;
     border-bottom: 1px solid $sch3-complement;
+    padding: 0.2em;
+    @include media($tablet) {
+      font-size: 1.77rem;
+    }
     width: 80%;
   }
 }
