@@ -1,6 +1,7 @@
 <h1><%= chapter.title %> (Extract)</h1>
-<h2>Chapter <%= chapter.number %> of <%= link_to book.title, book_path(book.slug) %> </h2>
-<%= link_to "Show Table Of Contents", "#", onclick: "showTableOfContents()" %>
+<div class="chapter__upsell">
+  <h2>Chapter <%= chapter.number %> of <%= link_to book.title, book_path(book.slug) %> </h2>
+</div>
 <ul id="table_of_contents" style="display:none;">
   <% navigation.all_chapters.each do |chp| %>
     <li>
@@ -10,27 +11,33 @@
           book_chapter_path(book.slug, chp.slug)
         )
       %>
-    </li>
-  <% end %>
+  </li>
+<% end %>
 </ul>
+<div class="chapter__contents">
 <%= chapter.content_html.html_safe %>
+</div>
 
 <hr/>
 
-<p>
+<div class='chapter__upsell'>
+  <p>
   You've reached end of the free preview for this chapter. To keep reading, you can <%= link_to "buy the book", book_path(book.slug) %> and enjoy it in MOBI, EPUB, and PDF formats.
 </p>
+</div>
+<hr/>
+
 <ul>
   <% if navigation.previous_chapter %>
-    <li>
+    <li class="chapter__previous-link">
       <%= link_to "< Previous: #{navigation.previous_chapter.title}",
         book_chapter_path(book.slug, navigation.previous_chapter.slug) %>
-    </li>
-   <% end %>
-  <% if navigation.next_chapter %>
-  <li>
-    <%= link_to "Next: #{navigation.next_chapter.title} >",
-        book_chapter_path(book.slug, navigation.next_chapter.slug) %>
   </li>
+<% end %>
+<% if navigation.next_chapter %>
+  <li class="chapter__next-link">
+    <%= link_to "Next: #{navigation.next_chapter.title} >",
+      book_chapter_path(book.slug, navigation.next_chapter.slug) %>
+</li>
  <% end %>
 </ul>

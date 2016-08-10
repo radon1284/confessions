@@ -38,6 +38,10 @@ $border-box-sizing: true;
   @include shift(3);
   @include span-columns(7);
   text-align:center;
+  @include media($tablet) {
+    @include shift(1);
+    @include span-columns(10 of 12);
+  }
 }
 .quarter-page {
   @include span-columns(3);
@@ -55,6 +59,16 @@ $border-box-sizing: true;
 }
 .half-page {
   @include span-columns(6);
+  @include media($tablet) {
+    @include span-columns(12 of 12);
+    h3 {
+      text-align: center;
+      font-variant: small-caps;
+      text-transform: lowercase;
+      font-size: 1.35rem;
+      text-decoration: underline;
+    }
+  }
 }
 .right-sidebar {
   @include fixed-side-bar($sch3-complement,'right');

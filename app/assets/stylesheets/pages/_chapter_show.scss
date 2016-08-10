@@ -1,0 +1,28 @@
+.chapter__upsell {
+  background: tint($sch3-lightened-navy, 85%);
+  @include shift(1);
+  @include span-columns(10);
+  font-weight: bold;
+  border-radius: $base-border-radius;
+  h2,p {
+    padding: 0 $large-spacing;
+  }
+  p {
+    margin-bottom: 0px;
+  }
+  margin-bottom: $large-spacing;
+}
+.chapter__contents {
+  @include span-columns(12);
+}
+.chapter__contents h1 {
+  display: none;
+}
+.chapter__previous-link {
+  @include span-columns(6);
+  text-align: left;
+}
+.chapter__next-link {
+  @include span-columns(6);
+  text-align: right;
+}

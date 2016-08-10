@@ -38,6 +38,11 @@
   @include media($small-laptop) {
     right: 0px;
   }
+  @include media($tablet) {
+    position: inherit;
+    text-align: center;
+    margin-bottom: 0px;
+  }
 }
 
 .book-image {
@@ -82,12 +87,18 @@
 }
 .about-author__text-side {
   @include span-columns(5);
+  @include media($tablet) {
+    @include span-columns(12 of 12);
+  }
   p {
     margin-bottom: 0px;
   }
 }
 .about-author__image-side {
   @include span-columns(7);
+  @include media($tablet) {
+    @include span-columns(12 of 12);
+  }
 }
 
 .built-it-no-one-came {
@@ -107,20 +118,37 @@
 
 .benefits-of-reading__traffic {
   @include span-columns(6);
+  @include media($tablet) {
+    @include span-columns(10 of 12);
+  }
 }
 .benefits-of-reading__universal-principles {
   @include shift(7);
   @include span-columns(5);
+  @include media($tablet) {
+    @include shift(2);
+    @include span-columns(10 of 12);
+  }
 }
 .benefits-of-reading__dangerous {
   @include span-columns(5);
+  @include media($tablet) {
+    @include span-columns(10 of 12);
+  }
 }
 .benefits-of-reading__concrete-examples {
   @include shift(7);
   @include span-columns(5);
+  @include media($tablet) {
+    @include shift(2);
+    @include span-columns(10 of 12);
+  }
 }
 .benefits-of-reading__crammed-advice {
   @include span-columns(6);
+  @include media($tablet) {
+    @include span-columns(10 of 12);
+  }
 }
 
 .faq {

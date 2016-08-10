@@ -15,7 +15,7 @@ footer {
   @include span-columns(4 of 12);
   @include media($tablet) {
     width: 100%;
-    font-size: 1.33rem;
+    font-size: 1.50rem;
     > * {
       margin: 0 auto;
       text-align: center
@@ -23,9 +23,9 @@ footer {
     h4 {
       padding-top: $small-spacing;
     }
-    background-color: $light-gray;
-    margin-bottom: $base-spacing;
-    border-bottom: $base-border;
+    a {
+      padding: $base-spacing $large-spacing;
+    }
   }
 }
 
@@ -47,6 +47,14 @@ footer {
   text-align: right;
 }
 
+.footer__top_row {
+  @include media($tablet) {
+    background-color: $light-gray;
+    display: table;
+    border-radius: $round-border-radius;
+  }
+}
+
 .footer__link-list {
   list-style: none;
   list-style-position: inside;
@@ -61,6 +69,9 @@ footer {
   color: white;
   padding: 0 $large-spacing;
   position: relative;
+  @include media($tablet) {
+    margin-top: $base-spacing;
+  }
 
   h4, input, form, label {
     font-family: $heading-font-family;
