@@ -14,7 +14,7 @@ describe "Order details page" do
 
   it "allows to download the PDF content" do
     product.purchasable.update!(
-      content_pdf: File.open(file_fixture_path("book1.pdf"))
+      content_pdf: File.open(file_fixture("book1.pdf"))
     )
     visit order_path(order)
     click_on "Download PDF"
@@ -24,7 +24,7 @@ describe "Order details page" do
 
   it "allows to download the EPUB content" do
     product.purchasable.update!(
-      content_epub: File.open(file_fixture_path("book1.epub"))
+      content_epub: File.open(file_fixture("book1.epub"))
     )
     visit order_path(order)
     click_on "Download EPUB"
@@ -34,7 +34,7 @@ describe "Order details page" do
 
   it "allows to download the MOBI content" do
     product.purchasable.update!(
-      content_epub: File.open(file_fixture_path("book1.epub"))
+      content_epub: File.open(file_fixture("book1.epub"))
     )
     visit order_path(order)
     click_on "Download MOBI"

@@ -4,7 +4,7 @@ describe "Download book content" do
   let!(:book) do
     FactoryGirl.create(
       :book,
-      content_pdf: File.open(file_fixture_path("book1.pdf"))
+      content_pdf: File.open(file_fixture("book1.pdf"))
     )
   end
 

@@ -6,7 +6,7 @@ describe "Photo Management" do
 
   it "lets you create a new photo " do
     visit new_admin_photo_path
-    attach_file :photo_file, file_fixture_path("checkmark.png")
+    attach_file :photo_file, file_fixture("checkmark.png")
     click_on "Create Photo"
     expect(page).to have_text(Photo.last.file.url)
   end

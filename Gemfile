@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.3.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '~> 5.0.0'
 
 gem 'pg'
 
@@ -17,7 +17,8 @@ gem 'stripe'
 gem 'rollbar'
 gem 'equalizer'
 gem 'sidekiq'
-gem 'sinatra', require: nil
+gem 'rack-protection', github: 'sinatra/rack-protection'
+gem 'sinatra', github: 'sinatra/sinatra'
 gem 'jwt'
 gem 'kaminari'
 gem 'carrierwave-aws'
