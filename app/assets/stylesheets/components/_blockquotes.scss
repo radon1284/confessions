@@ -1,18 +1,24 @@
 blockquote {
   background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
+  border-left: $base-border;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 }
 blockquote:before {
-  color: #ccc;
+  color: $light-gray;
   content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+  font-size: 4rem;
+  line-height: 0.1rem;
+  margin-right: 0.25rem;
+  display: inline-block;
+  vertical-align: -2rem;
 }
 blockquote p {
-  display: inline;
+  text-align: left;
+  display: inline-block;
+  line-height: 1rem;
+  color: $readable-gray;
+  width: 80%;
+  vertical-align: text-top;
+  text-decoration: italic;
 }
