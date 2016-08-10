@@ -10,7 +10,7 @@ $tiny-font-letter-spacing: $base-font-letter-spacing * -3;
 $heading-font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
 
 // Font Sizes
-$base-font-size: 1.4em;
+$base-font-size: 140%;
 
 // Line height
 $base-line-height: 1.5;
@@ -20,8 +20,8 @@ $small-line-height: 0.9;
 // Other Sizes
 $base-border-radius: 3px;
 $round-border-radius: $base-border-radius * 10;
-$base-spacing: $base-line-height * 1em;
-$large-spacing: $base-line-height * 1em;
+$base-spacing: $base-line-height * 1rem;
+$large-spacing: $base-line-height * 1rem;
 $small-spacing: $base-spacing / 2;
 $tiny-spacing: $base-spacing / 4;
 $base-z-index: 0;

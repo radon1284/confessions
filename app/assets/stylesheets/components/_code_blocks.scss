@@ -1,13 +1,13 @@
 .hljs {
   padding: $base-spacing;
   margin-right: $base-spacing;
-  font-size: modular-scale(-1);
+  font-size: 0.75rem;
 }
 /*I am just matching the color scheme of the highlightjs code blocks theme*/
 /*for the inline codeblocks*/
 code {
   color: #cccccc;
   background: #2d2d2d;
-  font-size: modular-scale(-1);
+  font-size: 0.75rem;
   text-align: left;
 }

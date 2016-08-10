@@ -63,7 +63,7 @@
   li {
     margin-bottom: 0px;
     font-variant: small-caps;
-    font-size: modular-scale(-1);
+    font-size: 0.75rem;
   }
 
   @include media($small-laptop) {
