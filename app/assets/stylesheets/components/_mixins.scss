@@ -49,10 +49,6 @@
     backface-visibility: hidden;
   }
 
-  @include media($tablet) {
-    display: none;
-  }
-
   @include media($mobile) {
     display: none;
   }

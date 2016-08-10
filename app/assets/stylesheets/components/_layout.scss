@@ -5,8 +5,15 @@ $border-box-sizing: true;
   padding-right: $small-spacing;
   @include outer-container();
 
+  /*progressively decrease to accommodate sidebars*/
   @include media($small-laptop) {
     @include outer-container(87%);
+  }
+  @include media($tablet) {
+    @include outer-container(82%);
+  }
+  @include media($mobile) {
+    @include outer-container(95%);
   }
 }
 

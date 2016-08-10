@@ -26,6 +26,7 @@ h1 {
   text-transform: uppercase;
 }
 h2 {
+  margin-top: $small-spacing;
   font-size: modular-scale(1);
 }
 section h2 {

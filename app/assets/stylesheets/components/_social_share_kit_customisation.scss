@@ -1,5 +1,18 @@
 .ssk-dark-gray {
   background: $warm-black;
+
+  @include media($mobile) {
+    margin-left: $large-spacing;
+    /*increase size of buttons so thumbs can click on them*/
+    &:after {
+      content: '';
+      position: absolute;
+      top: -14px;
+      bottom: -14px;
+      left: -14px;
+      right: -14px;
+    }
+  }
 }
 
 .social-share-kit {

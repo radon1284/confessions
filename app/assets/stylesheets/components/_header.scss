@@ -26,6 +26,7 @@ header {
   @include span-columns(4 of 12);
   text-align: center;
   h2 {
+    margin-top: 0px;
     text-transform: uppercase;
   }
   @include media($tablet) {
@@ -33,7 +34,9 @@ header {
   }
 
   @include media($mobile) {
-    @include span-columns(2.5 of 4);
+    text-align: center;
+    @include shift(1);
+    @include span-columns(2 of 4);
   }
 }
 .header__right {
