@@ -15,10 +15,17 @@
 //= require highlightjs
 //= require slideout.js/slideout.js
 //= require social-share-kit
+//= require widow-tamer.js
 //= require_tree .
 
 // Syntax highlighting with highlight.js
 hljs.initHighlightingOnLoad();
+
+$(document).ready(function() {
+  wt.fix({elements: 'h1,h2,h3,h4,p,li',
+          method: 'nbsp'
+  })
+});
 
 function showTableOfContents() {
   $("#table_of_contents").show();
