@@ -118,7 +118,9 @@
   <section class="peek-inside" id="peek-inside">
     <h2 class="centered">Take A Peek Inside</h2>
     <p>The fairest way to sell a book is to give away lots of it for free. You can decide for yourself if it's worth buying to read in full. Without further ado, here's the first half of each chapter in HTML:</p>
-    <%= render "chapter_list", book: book %>
+    <div class="book__preview">
+      <%= render "chapter_list", book: book %>
+    </div>
   </section>
 </div>
 

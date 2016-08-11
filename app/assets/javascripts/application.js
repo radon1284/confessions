@@ -21,10 +21,17 @@
 // Syntax highlighting with highlight.js
 hljs.initHighlightingOnLoad();
 
+// Widow Tamer script
 $(document).ready(function() {
   wt.fix({elements: 'h1,h2,h3,h4,p,li',
           method: 'nbsp'
   })
+});
+
+$(document).ready(function($) {
+  $(".clickable-row").click(function() {
+    window.document.location = $(this).data("href");
+  });
 });
 
 function showTableOfContents() {

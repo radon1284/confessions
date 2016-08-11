@@ -12,8 +12,12 @@ th {
   text-align: left;
 }
 
-tbody tr:nth-child(odd) {
+.article tbody tr:nth-child(odd) {
   background-color: $light-gray;
+}
+
+.clickable-row {
+  cursor: pointer;
 }
 
 td {

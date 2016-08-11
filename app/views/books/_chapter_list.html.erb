@@ -1,12 +1,30 @@
-<ul>
-  <% book.chapters.each do |chapter| %>
-    <li>
-      <%=
-        link_to(
-          "Chapter #{chapter.number} - #{chapter.title}",
-          book_chapter_path(book.slug, chapter.slug)
-        )
-      %>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Free Previews</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% book.chapters.each do |chapter| %>
+      <tr class="clickable-row", data-href="<%= book_chapter_path(book.slug, chapter.slug) %>">
+        <td>
+          <%=
+            link_to(
+              chapter.title,
+              book_chapter_path(book.slug, chapter.slug)
+            )
+          %>
+
+      </td>
+      <td>
+        <%=
+          link_to(
+            chapter.number, book_chapter_path(book.slug, chapter.slug)
+          )
+        %>
+    </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

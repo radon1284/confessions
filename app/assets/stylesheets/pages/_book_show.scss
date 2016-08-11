@@ -69,10 +69,10 @@
   ul {
     padding-top: $small-spacing;
     margin-top: $large-spacing;
-  @include media($tablet) {
-    padding-top: 0px;
-    margin-top: 0px;
-  }
+    @include media($tablet) {
+      padding-top: 0px;
+      margin-top: 0px;
+    }
   }
 
   li {
@@ -272,5 +272,49 @@
   display: inline-block;
   @include media($tablet) {
     @include shift(1 of 6);
+  }
+}
+
+.book__preview {
+  background-color: tint(#dcdace, 60%);
+  padding-bottom: $small-spacing;
+  table {
+    text-transform: uppercase;
+    a {
+      color: $warm-black;
+    }
+  }
+  td {
+    padding-bottom: 0;
+    padding-top: 0;
+    border-bottom: 1px dotted $readable-gray;
+  }
+  tbody tr:hover {
+    background-color: shade(#dcdace, 20%);
+    a {
+      color: white;
+    }
+  }
+  td:nth-child(2) {
+    text-align: right;
+  }
+
+  tr:first-of-type td {
+    padding-top: $base-spacing;
+  }
+  td {
+    padding-left: $column;
+    padding-right: $column;
+  }
+  th {
+    padding-right: $column;
+    text-align: right;
+  }
+  tbody {
+    top: $column;
+  }
+  thead {
+    margin-bottom: $column;
+    border-bottom: 2px solid $warm-black;
   }
 }
