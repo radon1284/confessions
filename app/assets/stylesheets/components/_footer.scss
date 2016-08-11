@@ -37,6 +37,7 @@ footer {
 .footer__copyright {
   font-size: 0.75em;
   font-variant: small-caps;
+  border-bottom: $base-border;
 }
 
 .footer__mid {
@@ -67,8 +68,7 @@ footer {
   border-radius: $round-border-radius;
   background: $sch3-navy;
   color: white;
-  padding: 0 $large-spacing;
-  position: relative;
+  padding: $small-spacing $large-spacing;
   @include media($tablet) {
     margin-top: $base-spacing;
   }
@@ -77,17 +77,20 @@ footer {
     font-family: $heading-font-family;
   }
   h4 {
+    @include transform(translateY(50%));
+  }
+  input[type="submit"]{
+    @include transform(translateY(25%));
   }
   input {
     font-size: 1rem;
-    padding: 0px;
+    padding: $tiny-spacing $small-spacing;
+    margin-bottom: 0;
   }
-  margin-bottom: $large-spacing;
 }
 
 .footer__mailing-list-text {
   @include span-columns(3 of 10);
-  margin-top: $small-spacing;
   @include media($tablet) {
     @include span-columns(5 of 10);
   }
@@ -100,7 +103,6 @@ footer {
 }
 .footer__mailing-list-submit {
   @include span-columns(2 of 10);
-  margin-top: $small-spacing;
   @include media($tablet) {
     @include span-columns(10 of 10);
     clear: both;

@@ -17,6 +17,9 @@ header {
   @include media($tablet) {
     @include span-columns(2 of 8);
     font-size: 1.77rem;
+    p {
+      @include transform(translateY(-$tiny-spacing));
+    }
   }
 
   @include media($mobile) {

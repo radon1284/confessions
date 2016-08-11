@@ -25,8 +25,8 @@
         <li><%= link_to "Terms", terms_path %></li>
         <li><%= link_to "Impressum", impressum_path %></li>
         <li><%= link_to "Privacy Policy", privacy_policy_path %></li>
-        <li><%= link_to "© Jack Kinsella", about_path, class: "footer__copyright" %></li>
       </ul>
+      <p><%= link_to "© Jack Kinsella", about_path, class: "footer__copyright" %></p>
     </div>
   </div>
 
@@ -36,8 +36,6 @@
         <h4>Stay In Touch?</h4>
       </div>
       <div class="footer__mailing-list-text-input">
-        <label for="mce-EMAIL">
-        </label>
         <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required>
         <%#real people should not fill this in and expect good things - do not remove this or risk form bot signups%>
         <div style="position: absolute; left: -5000px;" aria-hidden="true">
