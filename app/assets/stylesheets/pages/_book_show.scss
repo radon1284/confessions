@@ -34,7 +34,7 @@
 
 .about-author__social-media-icons {
   position: absolute;
-  right: 30px;
+  right: 0px;
   @include media($small-laptop) {
     right: 0px;
   }
@@ -112,6 +112,9 @@
   @include media($tablet) {
     @include span-columns(12 of 12);
   }
+  img.book__author-portrait {
+    width: 100%;
+  }
 }
 
 .built-it-no-one-came {
@@ -172,6 +175,7 @@
 
 .selectable-objections {
   @include span-columns(6 of 12);
+  padding-top: $large-spacing;
 }
 .selectable-objection {
   span {
@@ -204,11 +208,12 @@
 }
 
 .objection-answers {
-  @include span-columns(5);
+  @include span-columns(6);
   color: $readable-gray;
   height: 600px;
-  padding-right: 20px;
+  padding: $small-spacing;
   overflow-y: scroll;
+  background: tint($light-gray, 48%);
 }
 .hidden {
   display: none;
