@@ -2,8 +2,19 @@
   Your order details
 </h1>
 
+<% if order.watermarked_books.size < order.books.size %>
+  <p>
+    We are processing your order. Your files will be available for download shortly.
+  </p>
+  <script type="text/javascript">
+    setTimeout(function(){
+       window.location.replace("<%= order_path(order) %>");
+    }, 10000);
+  </script>
+<% end %>
+
 <ul>
-  <% order.books.each do |book| %>
+  <% order.watermarked_books.each do |book| %>
     <li>
       <b><%= book.title %></b>:
       <ul>
@@ -11,7 +22,7 @@
           <%=
             link_to(
               "Download PDF",
-              download_pdf_order_book_path(order, book)
+              download_pdf_order_watermarked_book_path(order, book)
             )
           %>
         </li>
@@ -19,7 +30,7 @@
           <%=
             link_to(
               "Download EPUB",
-              download_epub_order_book_path(order, book)
+              download_epub_order_watermarked_book_path(order, book)
             )
           %>
         </li>
@@ -27,7 +38,7 @@
           <%=
             link_to(
               "Download MOBI",
-              download_mobi_order_book_path(order, book)
+              download_mobi_order_watermarked_book_path(order, book)
             )
           %>
         </li>
