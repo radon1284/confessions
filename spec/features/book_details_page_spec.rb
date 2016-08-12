@@ -18,14 +18,24 @@ describe "Book details page" do
 
   describe "previews" do
     before do
-      FactoryGirl.create(:chapter, book: book, number: 1, title: "First")
-      FactoryGirl.create(:chapter, book: book, number: 2, title: "Second")
+      FactoryGirl.create(
+        :chapter,
+        book: book,
+        number: 1,
+        title: "Crazy interesting chapter"
+      )
+      FactoryGirl.create(
+        :chapter,
+        book: book,
+        number: 2,
+        title: "Best chapter in the book"
+      )
     end
 
     it "displays chapters" do
       visit book_path("cto")
-      expect(page).to have_content("Chapter 1 - First")
-      expect(page).to have_content("Chapter 2 - Second")
+      expect(page).to have_content("Crazy interesting chapter")
+      expect(page).to have_content("Best chapter in the book")
     end
   end
 end
