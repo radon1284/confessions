@@ -2,8 +2,8 @@
   text-align: center;
   color: white;
   background: tint($sch1-main-green, 30%);
-  margin-top: $large-spacing;
+  margin-top: $base-spacing !important;
   border-radius: $base-border-radius;
-  @include shift(3);
   @include span-columns(7);
+  margin: 0 auto;
 }

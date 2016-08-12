@@ -1,7 +1,8 @@
 .article__list {
   text-align: center;
-  @include shift(2);
-  @include span-columns(6);
+  width: 8 * $column;
+  margin-left: auto;
+  margin-right: auto;
 
   @include media($tablet) {
     @include shift(0);

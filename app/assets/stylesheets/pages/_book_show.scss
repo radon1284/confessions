@@ -278,6 +278,13 @@
 .book__preview {
   background-color: tint(#dcdace, 60%);
   padding-bottom: $small-spacing;
+  padding-left: $large-spacing * 2;
+  padding-right: $large-spacing * 2;
+  width: 83.333%;
+  margin: 0 auto;
+  @include media($tablet) {
+    width: 100%;
+  }
   table {
     text-transform: uppercase;
     a {
@@ -295,20 +302,15 @@
       color: white;
     }
   }
-  td:nth-child(2) {
+  td:nth-child(2), th {
     text-align: right;
+    @include media($tablet) {
+      text-align: left;
+    }
   }
 
   tr:first-of-type td {
     padding-top: $base-spacing;
-  }
-  td {
-    padding-left: $column;
-    padding-right: $column;
-  }
-  th {
-    padding-right: $column;
-    text-align: right;
   }
   tbody {
     top: $column;
