@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "Book details page" do
-  let!(:book) { FactoryGirl.create(:book, slug: "cto", title: "CTO") }
+  let!(:book) { FactoryGirl.create(:book) }
   let!(:product) do
     FactoryGirl.create(
       :product,
@@ -12,8 +12,8 @@ describe "Book details page" do
   end
 
   it "contains the book title" do
-    visit book_path("cto")
-    expect(page).to have_content("CTO")
+    visit book_path(book.slug)
+    expect(page).to have_content(book.title)
   end
 
   describe "previews" do
@@ -33,7 +33,7 @@ describe "Book details page" do
     end
 
     it "displays chapters" do
-      visit book_path("cto")
+      visit book_path(book.slug)
       expect(page).to have_content("Crazy interesting chapter")
       expect(page).to have_content("Best chapter in the book")
     end
