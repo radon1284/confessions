@@ -4,11 +4,20 @@
   @include span-columns(10);
   font-weight: bold;
   border-radius: $base-border-radius;
+  position: relative;
+   box-shadow: 0 8px 6px -6px $warm-black;
   h2,p {
     padding: 0 $large-spacing;
   }
   p {
     margin-bottom: 0px;
+  }
+  img {
+    width: $column/2;
+    height: auto;
+    position: absolute;
+    @include transform(translateY(33%));
+    margin-left: -($column/1.8);
   }
   margin-bottom: $large-spacing;
 }

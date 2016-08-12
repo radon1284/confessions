@@ -1,3 +1,4 @@
+<% content_for(:title, chapter.title) %>
 <h1><%= chapter.title %> (Extract)</h1>
 <div class="chapter__upsell">
   <h2>Chapter <%= chapter.number %> of <%= link_to book.title, book_path(book.slug) %> </h2>
@@ -22,6 +23,7 @@
 
 <div class='chapter__upsell'>
   <p>
+  <%= image_tag "fractal.jpg" %>
   You've reached end of the free preview for this chapter. To keep reading, you can <%= link_to "buy the book", book_path(book.slug) %> and enjoy it in MOBI, EPUB, and PDF formats.
 </p>
 </div>
