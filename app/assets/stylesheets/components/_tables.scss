@@ -25,6 +25,10 @@ td {
   padding: $small-spacing;
 }
 
+td:first-of-type {
+  text-align: left;
+}
+
 tr,
 td,
 th {
