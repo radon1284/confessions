@@ -197,6 +197,7 @@
   border-style: solid;
   border-width: 14px 0 14px $column;
   border-color: transparent;
+  clear: both;
 }
 
 .selectable-objection--selected {
@@ -219,6 +220,7 @@
   padding: $small-spacing;
   overflow-y: scroll;
   background: tint($light-gray, 48%);
+  box-shadow: 0px 7px 10px;
 
   @include media($tablet) {
     @include span-columns(12 of 12);
