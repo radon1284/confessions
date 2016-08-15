@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803121636) do
+ActiveRecord::Schema.define(version: 20160811175415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +34,8 @@ ActiveRecord::Schema.define(version: 20160803121636) do
     t.text     "content_pdf"
     t.text     "content_epub"
     t.text     "content_mobi"
+    t.index ["slug"], name: "index_books_on_slug", unique: true, using: :btree
   end
-
-  add_index "books", ["slug"], name: "index_books_on_slug", unique: true, using: :btree
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "book_id",      null: false
@@ -47,10 +45,9 @@ ActiveRecord::Schema.define(version: 20160803121636) do
     t.datetime "updated_at",   null: false
     t.text     "title"
     t.text     "slug"
+    t.index ["book_id", "number"], name: "index_chapters_on_book_id_and_number", unique: true, using: :btree
+    t.index ["book_id"], name: "index_chapters_on_book_id", using: :btree
   end
-
-  add_index "chapters", ["book_id", "number"], name: "index_chapters_on_book_id_and_number", unique: true, using: :btree
-  add_index "chapters", ["book_id"], name: "index_chapters_on_book_id", using: :btree
 
   create_table "customer_support_requests", force: :cascade do |t|
     t.text     "subject"
@@ -68,9 +65,8 @@ ActiveRecord::Schema.define(version: 20160803121636) do
     t.text     "vat_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["order_id"], name: "index_invoice_requests_on_order_id", using: :btree
   end
-
-  add_index "invoice_requests", ["order_id"], name: "index_invoice_requests_on_order_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
@@ -79,21 +75,19 @@ ActiveRecord::Schema.define(version: 20160803121636) do
     t.string   "currency"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
   end
 
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
-  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
-
-  create_table "orders", id: :uuid, default: "gen_random_uuid()", force: :cascade do |t|
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "user_id"
     t.text     "invoice_number"
     t.inet     "ip_address"
+    t.index ["invoice_number"], name: "index_orders_on_invoice_number", unique: true, using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
-
-  add_index "orders", ["invoice_number"], name: "index_orders_on_invoice_number", unique: true, using: :btree
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "persisted_events", force: :cascade do |t|
     t.string   "event_type",         null: false
@@ -101,9 +95,8 @@ ActiveRecord::Schema.define(version: 20160803121636) do
     t.json     "payload"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["visitor_identifier"], name: "index_persisted_events_on_visitor_identifier", using: :btree
   end
-
-  add_index "persisted_events", ["visitor_identifier"], name: "index_persisted_events_on_visitor_identifier", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "file"
@@ -118,21 +111,33 @@ ActiveRecord::Schema.define(version: 20160803121636) do
     t.integer  "price_in_cents"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.index ["purchasable_type", "purchasable_id"], name: "index_products_on_purchasable_type_and_purchasable_id", using: :btree
   end
-
-  add_index "products", ["purchasable_type", "purchasable_id"], name: "index_products_on_purchasable_type_and_purchasable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  create_table "watermarked_books", force: :cascade do |t|
+    t.uuid     "order_id"
+    t.integer  "book_id"
+    t.text     "content_pdf"
+    t.text     "content_epub"
+    t.text     "content_mobi"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["book_id"], name: "index_watermarked_books_on_book_id", using: :btree
+    t.index ["order_id"], name: "index_watermarked_books_on_order_id", using: :btree
+  end
 
   add_foreign_key "chapters", "books"
   add_foreign_key "invoice_requests", "orders"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "watermarked_books", "books"
+  add_foreign_key "watermarked_books", "orders"
 end
