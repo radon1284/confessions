@@ -12,6 +12,9 @@
 
 .article p {
   text-align: justify;
+  @include media($tablet) {
+    text-align: left;
+  }
 }
 
 .article img {
