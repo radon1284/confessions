@@ -59,20 +59,21 @@
   }
 }
 .book__call-to-action-container {
-  @include span-columns(7);
-  @include omega();
+  width: 80%;
+  margin-right: auto;
+  padding-left: $large-spacing;
+  padding-top: $large-spacing;
+  background: tint($light-gray, 30%);
+  box-shadow: 0 8px 6px 0px $readable-gray;
 
   input {
     white-space: normal;
+    margin-bottom: $small-spacing;
   }
 
   ul {
-    padding-top: $small-spacing;
-    margin-top: $large-spacing;
-    @include media($tablet) {
-      padding-top: 0px;
-      margin-top: 0px;
-    }
+    margin-top: $small-spacing;
+    padding-bottom: $small-spacing;
   }
 
   li {
@@ -80,16 +81,6 @@
     font-variant: small-caps;
     font-size: 0.75rem;
   }
-
-  @include media($small-laptop) {
-    @include shift(2);
-    @include span-columns(6);
-  }
-  @include media($tablet) {
-    @include shift(0);
-    @include span-columns(8);
-  }
-
 }
 .about-author {
   @include span-columns(12);
@@ -262,7 +253,6 @@
 
 .checkout-button-container {
   position: relative;
-  margin-bottom: $base-spacing;
 }
 
 .checkout-button-container form {
