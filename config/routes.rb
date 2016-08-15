@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   post "payments/pay"
 
   resources :orders, only: [:show, :index] do
-    resources :books, only: [] do
+    resources :watermarked_books, only: [] do
       member do
         get :download_pdf
         get :download_epub

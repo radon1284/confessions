@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def show
-    order = Order.includes(:books).find(params.fetch(:id))
+    order = find_order
     render(
       locals: {
         order: order
@@ -19,11 +19,19 @@ class OrdersController < ApplicationController
   end
 
   def completed
-    order = Order.includes(:books).find(params.fetch(:id))
+    order = find_order
     render(
       locals: {
         order: order
       }
     )
+  end
+
+  private
+
+  def find_order
+    Order
+      .includes(:books, watermarked_books: :book)
+      .find(params.fetch(:id))
   end
 end
