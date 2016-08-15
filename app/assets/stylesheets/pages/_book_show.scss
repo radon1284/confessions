@@ -50,6 +50,9 @@
   @include media($tablet) {
     @include span-columns(12 of 12);
   }
+  img {
+    box-shadow: 0px 5px 5px 3px $readable-gray;
+  }
 }
 .book__description {
   @include span-columns(7);
