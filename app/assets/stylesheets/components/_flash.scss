@@ -4,6 +4,7 @@
   background: tint($sch1-main-green, 30%);
   margin-top: $base-spacing !important;
   border-radius: $base-border-radius;
-  @include span-columns(7);
+  box-shadow: 0 8px 10px $readable-gray;
+  width: 60%;
   margin: 0 auto;
 }

@@ -71,6 +71,9 @@
 .book__call-to-action-container {
   width: 80%;
   margin-right: auto;
+  @include media($tablet) {
+    margin-left: auto;
+  }
   padding-left: $large-spacing;
   padding-top: $large-spacing;
   background: tint($light-gray, 30%);

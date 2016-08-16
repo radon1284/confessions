@@ -2,10 +2,13 @@
   Your order details
 </h1>
 
+<%= render "tweet_button" %>
+
 <% if order.watermarked_books.size < order.books.size %>
   <p>
-    We are processing your order. Your files will be available for download shortly.
+    Our software is preparing the very latest version of the files for you "fresh off the press". This process usually takes about one minute. Once done, this page will automatically refresh. While you are waiting, tweet about us, check Facebook, or grab a coffee.
   </p>
+  <p>You can download your files again at any time through the link we sent you over email.</p>
   <script type="text/javascript">
     setTimeout(function(){
        window.location.replace("<%= order_path(order) %>");
