@@ -31,6 +31,9 @@
 .testimonials h2 {
   @include browser-width-bar($sch1-grayed-green);
 }
+.testimonials p:last-of-type {
+  margin-bottom: -$base-spacing;
+}
 .faq h2 {
   @include browser-width-bar($sch2-orange);
 }
