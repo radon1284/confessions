@@ -45,7 +45,7 @@
       data-key=<%= ENV.fetch("STRIPE_PUBLISHABLE_KEY") %>
       data-amount=<%= cart.total.cents %>
       data-currency=<%= cart.total.currency %>
-      data-name="Confessions"
+      data-name=<%= ENV.fetch("NAME_OF_BUSINESS") %>
       data-locale="auto">
     </script>
   <% end %>
