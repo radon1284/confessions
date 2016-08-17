@@ -46,6 +46,7 @@
       data-amount=<%= cart.total.cents %>
       data-currency=<%= cart.total.currency %>
       data-name=<%= ENV.fetch("NAME_OF_BUSINESS") %>
+      data-description="<%= cart.display_description %>"
       data-locale="auto">
     </script>
   <% end %>

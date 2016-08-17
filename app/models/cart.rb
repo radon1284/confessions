@@ -5,6 +5,10 @@ class Cart
     self.items = items
   end
 
+  def display_description
+    items.map(&:display_name).join(", ")
+  end
+
   def total
     items.map(&:price).sum
   end
