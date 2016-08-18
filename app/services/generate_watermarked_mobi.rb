@@ -29,7 +29,7 @@ class GenerateWatermarkedMOBI
 
   def convert_epub_to_mobi(input, output)
     command_output = `#{ebook_convert_executable} #{input.path} #{output.path} \
-                      2>&1`
+                      --output-profile kindle 2>&1`
     raise(EBookConvertFailed, command_output) unless $CHILD_STATUS.success?
   end
 
