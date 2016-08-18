@@ -10,9 +10,7 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:show, :index], param: :slug
 
-  resources :books, only: [:show, :index] do
-    resources :chapters, only: [:show]
-  end
+  resources :books, only: [:show, :index]
 
   get "cart" => "cart#show"
   post "cart/add"
