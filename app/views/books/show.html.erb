@@ -1,7 +1,10 @@
-<% content_for :title, book.title %>
+<% content_for :title, "Buy #{book.title}" %>
 <h1>
   <%= book.title %>
 </h1>
+<% content_for :head do %>
+<meta name="description" content="Buy EntrepreNERD here to get PDF, Kindle, and EPUB versions all in one go.">
+<% end %>
 
 <div class="row">
   <div class="book-image">
