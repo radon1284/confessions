@@ -2,28 +2,14 @@
   <thead>
     <tr>
       <th></th>
-      <th>Free Previews</th>
+      <th>Chapter</th>
     </tr>
   </thead>
   <tbody>
     <% book.chapters.each do |chapter| %>
-      <tr class="clickable-row", data-href="<%= book_chapter_path(book.slug, chapter.slug) %>">
-        <td>
-          <%=
-            link_to(
-              chapter.title,
-              book_chapter_path(book.slug, chapter.slug)
-            )
-          %>
-
-      </td>
-      <td>
-        <%=
-          link_to(
-            chapter.number, book_chapter_path(book.slug, chapter.slug)
-          )
-        %>
-    </td>
+      <tr>
+        <td> <%= chapter.title %> </td>
+        <td> <%= chapter.number %> </td>
       </tr>
     <% end %>
   </tbody>

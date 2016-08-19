@@ -20,12 +20,6 @@
 // Syntax highlighting with highlight.js
 hljs.initHighlightingOnLoad();
 
-$(document).ready(function($) {
-  $(".clickable-row").click(function() {
-    window.document.location = $(this).data("href");
-  });
-});
-
 function showTableOfContents() {
   $("#table_of_contents").show();
 }
