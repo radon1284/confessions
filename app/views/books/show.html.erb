@@ -35,7 +35,7 @@
         <%= button_to "Download Free 27 Page Preview", download_pdf_preview_book_path(book), method: :get, target: "_blank",
           onclick: "event.preventDefault(); TrackingProxy.Proxy.track({
                 event: 'pdf_preview_downloaded',
-                book_title: '#{book.title}'
+                book_title: '#{book.slug}'
               });
             document.location = '#{download_pdf_preview_book_path(book)}';".html_safe
           %>
