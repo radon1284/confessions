@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:show, :index], param: :slug
 
-  resources :books, only: [:show, :index]
+  resources :books, only: [:show, :index] do
+    member do
+      get :download_pdf_preview
+    end
+  end
 
   get "cart" => "cart#show"
   post "cart/add"
@@ -39,7 +43,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
     resources :articles, only:
       [:index, :new, :edit, :create, :update], param: :slug
-    resources :books, only: [:index, :show] do
+    resources :books, only: [:index, :show, :edit, :update] do
       member do
         get :download_pdf
         get :download_epub

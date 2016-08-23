@@ -7,6 +7,7 @@ class Book < ActiveRecord::Base
   mount_uploader :content_pdf, BookContentPDFUploader
   mount_uploader :content_epub, BookContentEPUBUploader
   mount_uploader :content_mobi, BookContentMOBIUploader
+  mount_uploader :content_pdf_preview, BookContentPDFPreviewUploader
 
   def partial_name
     slug.tr("-", "_")

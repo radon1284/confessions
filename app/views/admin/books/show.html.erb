@@ -62,5 +62,20 @@
         %>
       </td>
     </tr>
+    <tr>
+      <td>
+        PDF Preview content
+      </td>
+      <td>
+        <%=
+          link_to_if(
+            book.content_pdf_preview.present?,
+            "download",
+            download_pdf_preview_book_path(book)
+          )
+        %>
+      </td>
+    </tr>
   </tbody>
 </table>
+<%= link_to "edit", edit_admin_book_path(book) %>

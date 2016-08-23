@@ -18,4 +18,9 @@ class BooksController < ApplicationController
       }
     )
   end
+
+  def download_pdf_preview
+    book = Book.find(params.fetch(:id))
+    redirect_to book.content_pdf_preview.download_url
+  end
 end

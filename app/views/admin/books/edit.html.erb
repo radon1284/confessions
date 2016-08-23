@@ -1,0 +1,21 @@
+<h1>
+  Edit <%= book.title %>
+</h1>
+<% if book.errors.any? %>
+  There were some problems with saving this book
+  <ul>
+    <% book.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for [:admin, book] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/>
+  <%= f.label :content_pdf_preview %>
+  <%= f.file_field :content_pdf_preview %>
+  <%= f.submit "Send" %>
+<% end %>

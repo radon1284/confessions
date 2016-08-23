@@ -328,3 +328,12 @@
     border-bottom: 2px solid $warm-black;
   }
 }
+
+.book__pdf_preview_download {
+  input {
+    background-color: $sch3-complement;
+    color: $light-gray;
+    padding: 20px;
+    box-shadow: 0px 7px 10px $warm-black;
+  }
+}
