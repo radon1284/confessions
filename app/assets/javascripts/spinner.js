@@ -5,6 +5,7 @@ $(document).ready(function() {
   function hidePreloader() {
     var preloader = $('.spinner-wrapper');
     preloader.fadeOut(preloaderFadeOutTime);
+    preloader.hide();
   }
 
   $(window).on('load', (function() {
