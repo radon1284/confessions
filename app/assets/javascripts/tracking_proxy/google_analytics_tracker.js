@@ -9,6 +9,15 @@ window.TrackingProxy.GoogleAnalyticsTracker = {
   },
 
   track: function(payload) {
+    if (payload.event === 'pdf_preview_downloaded') {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'PDFPreview',
+        eventAction: 'download',
+        eventLabel: payload.book_title
+      });
+    }
+
     if (payload.event === 'order_completed') {
       ga('ecommerce:addTransaction', {
         id: payload.order_id,
