@@ -31,8 +31,19 @@
 }
 
 .janki-rule {
-    background: #FFF9D8;
-    border: 1px solid #FFE972;
-    padding: $base-spacing;
-    margin-bottom: $base-spacing;
+  background: #FFF9D8;
+  border: 1px solid #FFE972;
+  padding: $base-spacing;
+  margin-bottom: $base-spacing;
+}
+
+.in-page-navigation {
+  padding-bottom: $large-spacing;
+  border-bottom: $base-border;
+  li:after {
+    font-family: FontAwesome;
+    font-size: 0.77rem;
+    color: $action-color;
+    content: " \f0a4"; // hand
+  }
 }
