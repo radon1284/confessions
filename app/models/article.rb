@@ -20,21 +20,24 @@ class Article < ActiveRecord::Base
     includes(:tags).where(tags: { id: tags }).uniq
   end
 
-  def self.random_selection(preferred_tags: nil)
+  def self.related_selection(article)
     num_of_articles = 3
-    if !preferred_tags
-      order("RANDOM()").limit(num_of_articles)
+    tagged_articles = tagged_with(article.tags) - [article]
+    number_tagged_articles_found = tagged_articles.count
+    if number_tagged_articles_found >= 3
+      tagged_articles.limit(num_of_articles)
     else
-      tagged_articles = tagged_with(preferred_tags)
-      number_tagged_articles_found = tagged_articles.count
-      if number_tagged_articles_found >= 3
-        articles.limit(num_of_articles)
-      else
-        extra_articles = order("RANDOM()").limit(num_of_articles -
-                                                number_tagged_articles_found) -
-                         tagged_articles
-        tagged_articles + extra_articles
-      end
+       tagged_articles + random_selection(num_of_articles - number_tagged_articles_found,
+        ([article] + tagged_articles))
     end
+  end
+
+  private
+
+  def self.random_selection(num, excluded_articles)
+    order("RANDOM()").
+      where.
+      not(id: excluded_articles).
+      limit(num)
   end
 end
