@@ -24,6 +24,9 @@
   <%= f.label :main_image %>
   <%= f.text_field :main_image %>
   <br/>
+  <%= f.label :all_tags %>
+  <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
+  <br/>
   <%= f.label :body %>
   <%= f.text_area :body %>
   <%= render "layouts/epiceditor", element_id: "article_body" %>
