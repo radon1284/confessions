@@ -5,6 +5,9 @@
     <h2><%= article.subtitle %></h2>
 
     <%= render "layouts/sharing_buttons" %>
+
+    <%= render "rich_snippets", article: article %>
+
     <%= MarkdownWrapper.new.display(article.body) %>
 
     <hr>

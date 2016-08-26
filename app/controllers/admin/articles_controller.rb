@@ -54,7 +54,8 @@ module Admin
 
     def article_params
       params.require(:article)
-            .permit(:title, :slug, :short_description, :subtitle, :body)
+            .permit(:title, :slug, :short_description,
+                    :subtitle, :body, :main_image)
     end
   end
 end
