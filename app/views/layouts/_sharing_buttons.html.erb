@@ -4,8 +4,8 @@
   <div class="ssk-group ssk-count ssk-lg">
     <a href="" class="ssk ssk-email ssk-dark-gray"></a>
     <a href="" class="ssk ssk-twitter ssk-dark-gray"></a>
-    <a href="" class="ssk ssk-whatsapp ssk-dark-gray"></a>
-    <a href="" class="ssk ssk-reddit ssk-dark-gray"></a>
+    <a href="whatsapp://send?text=<%= request.original_url %>" class="ssk ssk-whatsapp ssk-dark-gray" data-action="share/whatsapp/share"></a>
+    <a href="http://www.reddit.com/submit?url=<%= request.original_url %>" class="ssk ssk-reddit ssk-dark-gray"></a>
     <a href="" class="ssk ssk-facebook ssk-dark-gray"></a>
   </div>
 </div>
