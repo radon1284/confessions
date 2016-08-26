@@ -1,9 +1,15 @@
 class ArticlesController < ApplicationController
   def index
-    articles = Article.order(created_at: :desc)
+    tags = Tag.all
+    articles = if params[:tag_name]
+                 Tag.where(name: params[:tag_name]).take.articles
+               else
+                 Article.order(created_at: :desc)
+               end
     render(
       locals: {
-        articles: articles
+        articles: articles,
+        tags: tags
       }
     )
   end
@@ -13,7 +19,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.rss do
         render layout: false,
-               locals: { articles: articles }
+          locals: { articles: articles }
       end
     end
   end
