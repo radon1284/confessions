@@ -1,11 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     tags = Tag.all
-    articles = if params[:tag_name]
-                 Tag.where(name: params[:tag_name]).take.articles
-               else
-                 Article.order(created_at: :desc)
-               end
+    articles = articles_scope.order(created_at: :desc)
     render(
       locals: {
         articles: articles,
@@ -18,8 +14,10 @@ class ArticlesController < ApplicationController
     articles = Article.all
     respond_to do |format|
       format.rss do
-        render layout: false,
+        render(
+          layout: false,
           locals: { articles: articles }
+        )
       end
     end
   end
@@ -33,5 +31,15 @@ class ArticlesController < ApplicationController
         random_articles: random_articles
       }
     )
+  end
+
+  private
+
+  def articles_scope
+    if params[:tag_name]
+      Tag.find_by!(name: params[:tag_name]).articles
+    else
+      Article.all
+    end
   end
 end
