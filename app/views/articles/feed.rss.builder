@@ -14,7 +14,7 @@ xml.rss :version => "2.0" do
         xml.title article.title
         xml.author "Jack Kinsella"
         xml.pubDate article.created_at.to_s(:rfc822)
-        xml.link articles_url(article.slug)
+        xml.link article_url(article.slug)
         xml.guid article.id
         xml.description "<p>" +  MarkdownWrapper.new.display(article.body)  + "</p>"
 
