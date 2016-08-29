@@ -12,14 +12,9 @@ class ArticlesController < ApplicationController
 
   def feed
     articles = Article.all
-    respond_to do |format|
-      format.rss do
-        render(
-          layout: false,
-          locals: { articles: articles }
-        )
-      end
-    end
+    render(
+      locals: { articles: articles }
+    )
   end
 
   def show

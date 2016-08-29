@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "privacy_policy" => "static_pages#privacy_policy"
   get "terms" => "static_pages#terms"
 
-  get 'feed' => 'articles#feed'
+  get 'feed' => 'articles#feed', constraints: { format: "rss" }, format: true
 
   resources :articles, only: [:show, :index], param: :slug
 
