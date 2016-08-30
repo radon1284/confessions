@@ -2,96 +2,48 @@
 <h1>
   <%= book.title %>
 </h1>
-<% content_for :head do %>
-<meta name="description" content="Buy EntrepreNERD here to get PDF, Kindle, and EPUB versions all in one go.">
-<% end %>
-
-<div class="row">
-  <div class="book-image">
-    <%= image_tag "entreprenerd/entreprenerd-cover.jpg"%>
-  </div>
-  <div class="book__description">
-    <p>
-      Entreprenerd is the internet marketing book written for builders and nerdy types not getting the public attention that their efforts deserve.
-    </p>
-
-    <p>If you've been baffled by the jargon and nonsense that proliferate the online marketing world, this book is exactly what you need: it separates out the good techniques from the hype, the gold from the gunk.</p>
-
-    <p>Entreprenerd is stuffed with easy-to-follow examples from people who are already winning the game of traffic and enjoying its spoils.  </p>
-    <p class="unemphasised-text">
-      <b>Written by Jack Kinsella, an Oxford law graduate turned programmer turned bootstrapped web entrepreneur.</b> After selling his first million dollars worth of digital goods through his own businesses, he's ready to share what he's learned along the way.
-    </p>
-    <div class="book__call-to-action-container">
-      <div class="checkout-button-container">
-        <%= link_to "<div class='pulse'></div>".html_safe, cart_add_path(product_id: book.product.id), method: :post %>
-        <%= button_to "Add To Cart | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %>
-      </div>
-      <ul>
-        <li class="rocket-list-item">Normally $35, reduced this week</li>
-        <li class="rocket-list-item">100% Refund Guarantee.</li>
-        <li class="rocket-list-item">Instant Download.</li>
-        <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats.</li>
-      </ul>
-      <div class="book__pdf_preview_download">
-        <%= button_to "Download Free 27 Page Preview", download_pdf_preview_book_path(book), method: :get, target: "_blank",
-          onclick: "event.preventDefault(); TrackingProxy.Proxy.track({
-                event: 'pdf_preview_downloaded',
-                book_title: '#{book.slug}'
-              });
-            document.location = '#{download_pdf_preview_book_path(book)}';".html_safe
-          %>
-    </div>
-    </div>
-  </div>
-</div>
 
 <%= render "books/contents/#{book.partial_name}", book: book %>
 
-<div class=row>
-  <section class="testimonials">
-    <h2 class="centered">Testimonials</h2>
-    <div class="row">
-      <blockquote>What I loved about the book is that it covers the basics so well, but still has plenty of pearls for experienced marketers. Entreprenerd is a must read for anyone in online marketing today - A classic in the making.</blockquote>
-      <p><b><%= link_to "Daan Löning", "https://twitter.com/daan_kinderfee" %> Founder of Putzfee, acquired by Helpling (Rocket Internet)</b></p>
-      <blockquote>
-        Immaculately researched and extremely detailed, this book delivers. Let it take your online projects to a whole new success level.
-      </blockquote>
-      <p>
-        <b><%= link_to "Adam Fletcher", "https://twitter.com/adamfletcher" %> 3x Spiegel Best-Selling Author</b>
-      </p>
-      <blockquote>
-        Jack is the growth hacker people like me would hire on the spot - alas, he doesn't need a job! I'm thrilled to see him finally sharing his enviable online marketing experience and insight in a full-blown book.
-      </blockquote>
-      <p>
-        <b><%= link_to "Fabian Stelzer", "https://twitter.com/fabianstelzer" %> CEO EyeQuant</b>
-      </p>
-      <blockquote>
-This book has so much actionable advice that I practically highlighted the whole thing.
-      </blockquote>
-      <p>
-        <b><%= link_to "Sascha Konietzke", "https://twitter.com/s2o?lang=en" %> CEO Contentful</b>
-      </p>
-    </div>
-
-
-
-  </section>
-</div>
-
-
-<div class=row>
+<div class="row">
   <section class="faq">
-    <h2 class="centered">Frequently Asked Questions</h2>
-    <%= yield :faq %>
-    <h4>How Do I Download?</h4>
-    <p>Immediately after purchase, you will be redirected to a page which contains your downloads. You will also receive an email with a link to this same downloads page.</p>
-    <h4>I am unhappy. What is your refund policy?</h4>
-    <p>We offer a 100% no-questions-asked refund. <%= link_to "Email customer support", new_customer_support_request_path %> to ask to put your refund through. Please note it may take us a few days for us to process your request.</p>
-    <h4>What formats is the book available in?</h4>
-    <p>DRM-free PDF, EPUB, and MOBI formats. Basically this means you'll be able to read the book on your Kindle (or equivalent), your mobile phone, or your laptop. We do not offer a print version of the book.</p>
-    <h4>I am a business. How can I get an invoice?</h4>
-    <p>Invoices are available to existing customers <%= link_to "here", orders_path %>.</p>
-    <h4>I found an inaccuracy/typo. Where do I report it?</h4>
-    <p>It's hard to catch all errors in our editing phase, so we warmly welcome any feedback about errors, no matter how small! Please send your errata to <%= link_to "customer service", new_customer_support_request_path %>.</p>
+    <h2 class="centered">
+      Frequently Asked Questions
+    </h2>
+
+    <h4>
+      How Do I Download?
+    </h4>
+    <p>
+      Immediately after purchase, you will be redirected to a page which contains your downloads. You will also receive an email with a link to this same downloads page.
+    </p>
+
+    <h4>
+      I am unhappy. What is your refund policy?
+    </h4>
+    <p>
+      We offer a 100% no-questions-asked refund. <%= link_to "Email customer support", new_customer_support_request_path %> to ask to put your refund through. Please note it may take us a few days for us to process your request.
+    </p>
+
+    <h4>
+      What formats is the book available in?
+    </h4>
+    <p>
+      DRM-free PDF, EPUB, and MOBI formats. Basically this means you'll be able to read the book on your Kindle (or equivalent), your mobile phone, or your laptop. We do not offer a print version of the book.
+    </p>
+
+    <h4>
+      I am a business. How can I get an invoice?
+    </h4>
+    <p>
+      Invoices are available to existing customers <%= link_to "here", orders_path %>.
+    </p>
+
+    <h4>
+      I found an inaccuracy/typo. Where do I report it?
+    </h4>
+    <p>
+      It's hard to catch all errors in our editing phase, so we warmly welcome any feedback about errors, no matter how small! Please send your errata to <%= link_to "customer service", new_customer_support_request_path %>.
+    </p>
   </section>
 </div>

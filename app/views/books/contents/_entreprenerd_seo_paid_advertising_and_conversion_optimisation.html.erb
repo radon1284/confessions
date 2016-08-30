@@ -1,30 +1,93 @@
+<% content_for :head do %>
+  <meta name="description" content="Buy EntrepreNERD here to get PDF, Kindle, and EPUB versions all in one go.">
+<% end %>
+
+<div class="row">
+  <div class="book-image">
+    <%= image_tag "entreprenerd/entreprenerd-cover.jpg" %>
+  </div>
+  <div class="book__description">
+    <p>
+      Entreprenerd is the internet marketing book written for builders and nerdy types not getting the public attention that their efforts deserve.
+    </p>
+
+    <p>
+      If you've been baffled by the jargon and nonsense that proliferate the online marketing world, this book is exactly what you need: it separates out the good techniques from the hype, the gold from the gunk.
+    </p>
+
+    <p>
+      Entreprenerd is stuffed with easy-to-follow examples from people who are already winning the game of traffic and enjoying its spoils.
+    </p>
+
+    <p class="unemphasised-text">
+      <b>Written by Jack Kinsella, an Oxford law graduate turned programmer turned bootstrapped web entrepreneur.</b> After selling his first million dollars worth of digital goods through his own businesses, he's ready to share what he's learned along the way.
+    </p>
+
+    <div class="book__call-to-action-container">
+      <div class="checkout-button-container">
+        <%= link_to "<div class='pulse'></div>".html_safe, cart_add_path(product_id: book.product.id), method: :post %>
+        <%= button_to "Add To Cart | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %>
+      </div>
+      <ul>
+        <li class="rocket-list-item">Normally $35, reduced this week</li>
+        <li class="rocket-list-item">100% Refund Guarantee.</li>
+        <li class="rocket-list-item">Instant Download.</li>
+        <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats.</li>
+      </ul>
+      <div class="book__pdf_preview_download">
+        <%= button_to "Download Free 27 Page Preview", download_pdf_preview_book_path(book), method: :get, target: "_blank",
+          onclick: "event.preventDefault(); TrackingProxy.Proxy.track({
+                event: 'pdf_preview_downloaded',
+                book_title: '#{book.slug}'
+              });
+            document.location = '#{download_pdf_preview_book_path(book)}';".html_safe
+          %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class=row>
   <section class="built-it-no-one-came">
     <div>
-      <h2 class="centered">Built It But No-one Came?</h2>
+      <h2 class="centered">
+        Built It But No-one Came?
+      </h2>
       <p>
-        <b>Online marketing is the killer skill in today's world, </b>yet it is seldom taught. Indeed, many find it distasteful. Just as elite universities shun teaching it, smart students avoid learning it, eager to believe that their own brilliance will carry the day; that if they build themselves up, success will inevitably come.</p>
-
-      <p><b>But this is a fairy tale: mediocre people and mediocre products often out-compete and out-sell their superiors thanks to marketing chops.</b> (Ahem, Microsoft.) If you want success in today's attention starved world, you need to know how to reach people. It's not enough to sit back in your safe space and hope things will work out...
+        <b>Online marketing is the killer skill in today's world, </b>yet it is seldom taught. Indeed, many find it distasteful. Just as elite universities shun teaching it, smart students avoid learning it, eager to believe that their own brilliance will carry the day; that if they build themselves up, success will inevitably come.
       </p>
 
-      <p><b>This book doesn't cover all online marketing activities: it focuses on building scalable, automatable "marketing assets", bits and pieces that continue to bring traffic dividends long into the future.</b> If we're going to throw around keywords, this book is about search engine optimisation, paid advertising, conversion optimisation, auto-email marketing, and copywriting. Anything requiring continuous attention didn't make the cut. Sorry, social media marketing.</p>
+      <p>
+        <b>But this is a fairy tale: mediocre people and mediocre products often out-compete and out-sell their superiors thanks to marketing chops.</b> (Ahem, Microsoft.) If you want success in today's attention starved world, you need to know how to reach people. It's not enough to sit back in your safe space and hope things will work out...
+      </p>
+
+      <p>
+        <b>This book doesn't cover all online marketing activities: it focuses on building scalable, automatable "marketing assets", bits and pieces that continue to bring traffic dividends long into the future.</b> If we're going to throw around keywords, this book is about search engine optimisation, paid advertising, conversion optimisation, auto-email marketing, and copywriting. Anything requiring continuous attention didn't make the cut. Sorry, social media marketing.
+      </p>
     </div>
   </section>
 </div>
 
-<div class=row>
+<div class="row">
   <section class="benefits-of-reading">
-    <h2 class="centered">The Key Benefits</h2>
+    <h2 class="centered">
+      The Key Benefits
+    </h2>
     <div class="row">
       <div class="benefits-of-reading__traffic">
-        <h3>Get More Traffic, Money, Recognition, and Even Free Time</h3>
-        <p>Let's not beat around the bush here: the main reason to read this book is increase traffic. Whether you are seeking riches, recognition, reform, or repose, traffic is the crucial first step in today's internet-addicted world. Now that the ability to get published has been fully democratised through Web 2.0 technologies, attention has become the world's scarcest resource. And as with any other scarce resource, whoever has it gains the power to do whatever they please. It is the well-known who will inherit the earth..</p>
+        <h3>
+          Get More Traffic, Money, Recognition, and Even Free Time
+        </h3>
+        <p>
+          Let's not beat around the bush here: the main reason to read this book is increase traffic. Whether you are seeking riches, recognition, reform, or repose, traffic is the crucial first step in today's internet-addicted world. Now that the ability to get published has been fully democratised through Web 2.0 technologies, attention has become the world's scarcest resource. And as with any other scarce resource, whoever has it gains the power to do whatever they please. It is the well-known who will inherit the earth..
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="benefits-of-reading__universal-principles">
-        <h3>Universal Marketing Principles Instead of the Nitty-Gritty</h3>
+        <h3>
+          Universal Marketing Principles Instead of the Nitty-Gritty
+        </h3>
         <p>
           The only constant in the internet age is change. That's why the wisest career-minded people specialise on the timeless rather than the transient. <i><%= book.title %></i> leaves out the minutiae of configuring advertising software or setting up Google Analytics: this sort of tedium changes every six months and you might as well Google the official docs. In place of such trivia, this book focuses on the evergreen, on showing you the lay of the land, and on instilling the strategic principles that will keep paying dividends for years and years and years to come.
         </p>
@@ -32,21 +95,31 @@
     </div>
     <div class="row">
       <div class="benefits-of-reading__dangerous">
-        <h3>Know Enough To Be Dangerous After Only 10 Hours</h3>
-        <p>If this is your first serious online marketing read, you'll leave the book with a newfound ability to concoct clever marketing strategies that'll make your co-workers, co-founders, and clients raise their eyebrows in intrigue and empower you to switch on a fire hose of traffic to your web properties. Obviously, you won't be a master of marketing immediately after reading this, but you will know your way around the ecosystem. And with a little practice the ideas in this book will gradually become internalised, automatic, and second nature to you.</p>
+        <h3>
+          Know Enough To Be Dangerous After Only 10 Hours
+        </h3>
+        <p>
+          If this is your first serious online marketing read, you'll leave the book with a newfound ability to concoct clever marketing strategies that'll make your co-workers, co-founders, and clients raise their eyebrows in intrigue and empower you to switch on a fire hose of traffic to your web properties. Obviously, you won't be a master of marketing immediately after reading this, but you will know your way around the ecosystem. And with a little practice the ideas in this book will gradually become internalised, automatic, and second nature to you.
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="benefits-of-reading__concrete-examples">
-        <h3>Packed with Real-World, Concrete Examples</h3>
-        <p>This book was written by a marketer who got down and dirty building his own businesses, someone who kept his ears to the ground and his eyes open. You won't find any highfalutin academic theories or armchair punditry here; instead this is a practical and empirical book, based on observations from the field and trial and error. Everything you read here will be accompanied by examples and placed in a practical context which you can easily translate back to your own marketing problems.
+        <h3>
+          Packed with Real-World, Concrete Examples
+        </h3>
+        <p>
+          This book was written by a marketer who got down and dirty building his own businesses, someone who kept his ears to the ground and his eyes open. You won't find any highfalutin academic theories or armchair punditry here; instead this is a practical and empirical book, based on observations from the field and trial and error. Everything you read here will be accompanied by examples and placed in a practical context which you can easily translate back to your own marketing problems.
         </p>
       </div>
     </div>
     <div class="row">
       <div class="benefits-of-reading__crammed-advice">
-        <h3>A Book That Respects Your Time</h3>
-        <p>The overwhelming majority of business/sales/marketing books contain about 10 pages of content for every 200 pages of unnecessary, condescending, repetitive filler. Traditional publishers insist on padding out their books and bumping up the page count, even when the authors of these books don't have an awful lot to say... By contrast, this book squeezes and condenses the world of online marketing into a concentrated and interconnected whole that respects your time and intelligence. This is the perfect guide for busy people who want the maximum rate of information intake per second. If Tim Ferris wrote a marketing book...
+        <h3>
+          A Book That Respects Your Time
+        </h3>
+        <p>
+          The overwhelming majority of business/sales/marketing books contain about 10 pages of content for every 200 pages of unnecessary, condescending, repetitive filler. Traditional publishers insist on padding out their books and bumping up the page count, even when the authors of these books don't have an awful lot to say... By contrast, this book squeezes and condenses the world of online marketing into a concentrated and interconnected whole that respects your time and intelligence. This is the perfect guide for busy people who want the maximum rate of information intake per second. If Tim Ferris wrote a marketing book...
         </p>
       </div>
     </div>
@@ -55,94 +128,155 @@
 
 <div class="row">
   <section class="what-you-learn">
-    <h2 class="centered">A Taster of What You'll Learn</h2>
+    <h2 class="centered">
+      A Taster of What You'll Learn
+    </h2>
     <div class="row">
       <div class="half-page">
-        <h3>Paid Advertising</h3>
+        <h3>
+          Paid Advertising
+        </h3>
         <ul class="benefits-list">
-          <li><b>The 8 best categories of photos for sticking in your online advertisements</b>. To give one example: anthropomorphic food. You wouldn't believe how often people click on cappuccinos with smiley faces or cupcakes with legs. I wish I was joking... </li>
-          <li>Why advertisers are so excited about <b>behaviour targeting, the latest (and scariest) generation of online advertising technologies </b>that let you target people based on their <i>real world</i> behaviours (e.g. "bought peanut butter in the store", "owns a car", "is an expat", etc.)</li>
-          <li><b>How to spot promising niches for new/related products through "advertising ease" research. </b>This is a damn lot cheaper than developing a product first, only to realise nobody wants it. This is the Lean Startup-lite.</li>
-          <li>The cunning to <b>recognise the lies lurking behind the many feel-good metrics given in paid advertising reports. A great click-through rate may hide the fact that none of those clickers ever bought something from you.</b> A great conversion rate may hide the fact that the people who converted only bought your lowest-margin products.</li>
+          <li>
+            <b>The 8 best categories of photos for sticking in your online advertisements</b>. To give one example: anthropomorphic food. You wouldn't believe how often people click on cappuccinos with smiley faces or cupcakes with legs. I wish I was joking...
+          </li>
+          <li>
+            Why advertisers are so excited about <b>behaviour targeting, the latest (and scariest) generation of online advertising technologies </b>that let you target people based on their <i>real world</i> behaviours (e.g. "bought peanut butter in the store", "owns a car", "is an expat", etc.)
+          </li>
+          <li>
+            <b>How to spot promising niches for new/related products through "advertising ease" research. </b>This is a damn lot cheaper than developing a product first, only to realise nobody wants it. This is the Lean Startup-lite.
+          </li>
+          <li>
+            The cunning to <b>recognise the lies lurking behind the many feel-good metrics given in paid advertising reports. A great click-through rate may hide the fact that none of those clickers ever bought something from you.</b> A great conversion rate may hide the fact that the people who converted only bought your lowest-margin products.
+          </li>
         </ul>
 
-        <h3>Statistical Significance Testing</h3>
+        <h3>
+          Statistical Significance Testing
+        </h3>
         <ul class="benefits-list">
-          <li>The real world concerns of statistical significance, that old epistemological bugbear that, when left unchecked, can quickly lead you up the garden path when trying to improve your on-site (and off-site) conversion rates. <b>Instead of diving too deep into the math, the book will keep you intrigued with examples from politics polling and mobile phone cancer linkage research.</b> The section concludes with practical pointers.</li>
+          <li>
+            The real world concerns of statistical significance, that old epistemological bugbear that, when left unchecked, can quickly lead you up the garden path when trying to improve your on-site (and off-site) conversion rates. <b>Instead of diving too deep into the math, the book will keep you intrigued with examples from politics polling and mobile phone cancer linkage research.</b> The section concludes with practical pointers.
+          </li>
         </ul>
 
-        <h3>Google Analytics</h3>
+        <h3>
+          Google Analytics
+        </h3>
         <ul class="benefits-list">
-          <li>How to integrate analytical and tracking systems that tell you whether your paid advertising campaigns are worth keeping around. These reports should be sophisticated enough to take into account unavoidable expenses like sales tax, shipping fees, and costs of merchandise. <b>Revenue is for losers; you want profit.</b></li>
+          <li>
+            How to integrate analytical and tracking systems that tell you whether your paid advertising campaigns are worth keeping around. These reports should be sophisticated enough to take into account unavoidable expenses like sales tax, shipping fees, and costs of merchandise. <b>Revenue is for losers; you want profit.</b>
+          </li>
         </ul>
 
-        <h3>Email Marketing</h3>
+        <h3>
+          Email Marketing
+        </h3>
         <ul class="benefits-list">
-          <li>Learn devious techniques for use in the (highly underrated) field of email marketing. <b>Preview: ever think of putting a large, useless button in the centre of your promotional emails, even when that button does nothing other than link to your homepage? </b>People love clicking on big, shiny buttons, and this is the basis of this practice. The text written on your giant, fake button can say anything at all, so make it enticing. For example, I once used a huge button that read, “Activate Discount” even though the reality was that the discount had already been activated by the server-side code before the email was ever sent.</li>
+          <li>
+            Learn devious techniques for use in the (highly underrated) field of email marketing. <b>Preview: ever think of putting a large, useless button in the centre of your promotional emails, even when that button does nothing other than link to your homepage? </b>People love clicking on big, shiny buttons, and this is the basis of this practice. The text written on your giant, fake button can say anything at all, so make it enticing. For example, I once used a huge button that read, “Activate Discount” even though the reality was that the discount had already been activated by the server-side code before the email was ever sent.
+          </li>
         </ul>
       </div>
 
       <div class="half-page">
-        <h3>Conversion Optimisation</h3>
+        <h3>
+          Conversion Optimisation
+        </h3>
         <ul class="benefits-list">
-          <li>High-level discussion of conversion optimisiation, focusing on the major leverage possibilities, i.e. reducing funnel length, <b>tweaking time variables, toying with pricing, minimising on-page clickables, constructing clever choice architecture, and directing user attention</b> through salience. Buying traffic is super expensive, so one of the most efficient things any online marketer can do is to squeeze more conversions out of the visitors they already have.</li>
+          <li>
+            High-level discussion of conversion optimisiation, focusing on the major leverage possibilities, i.e. reducing funnel length, <b>tweaking time variables, toying with pricing, minimising on-page clickables, constructing clever choice architecture, and directing user attention</b> through salience. Buying traffic is super expensive, so one of the most efficient things any online marketer can do is to squeeze more conversions out of the visitors they already have.
+          </li>
         </ul>
 
-        <h3>Copywriting</h3>
+        <h3>
+          Copywriting
+        </h3>
         <ul class="benefits-list">
-          <li>What to say on your sales pages. The section on copywriting is the perfect antidote for anyone fighting the writer's block that accompanies the creation of landing pages. <b>Included are psychological tricks from the science of persuasion, practical measures inspired by behavioural economics, and copywriter-to-copywriter best-practices that are known to work.</b></li>
+          <li>
+            What to say on your sales pages. The section on copywriting is the perfect antidote for anyone fighting the writer's block that accompanies the creation of landing pages. <b>Included are psychological tricks from the science of persuasion, practical measures inspired by behavioural economics, and copywriter-to-copywriter best-practices that are known to work.</b>
+          </li>
         </ul>
 
-        <h3>Search Engine Optimisation</h3>
+        <h3>
+          Search Engine Optimisation
+        </h3>
         <ul class="benefits-list">
-          <li>The <b>internals of Google's mysterious Quality Score metric</b>, the magic metric that can dramatically reduce your cost of advertising once mastered.</li>
-          <li>The various ways in which <b>rich snippets and structured data enhance your website's showing in Google Search results.</b> Judicious use of these markup technologies can greatly improve your "organic click-through rate". In English, this means that a higher percentage of people encountering your website in search results will end up clicking through to visit. If stiff competition prevents you from ranking #1 in Google Search results, it's often better to focus on getting more traffic from your <u>current</u> ranking position, even if you're stuck down at #8.</li>
-
-          <li><b>The basics of white-hat (and gray-hat) Search Engine Optimisation, both on-site and off:</b> we'll cover everything from HTML title tags, to scalable content creation strategies, to techniques for attracting incoming links (e.g. Brian Dean's Skyscraper Technique). Content is still king in SEO, so the question becomes "how do you leverage human tendencies to verbalise or show off in generating compelling content at little expense?"</li>
-          <li><b>The pitfalls of choosing the wrong domain or top-level domain (i.e. ".co.uk" or a ".com").</b> There are some serious gotchas that are essential to know <i>before</i> you launch your business. Not knowing these things could cost you tens or hundreds of thousands in lost earnings.</li>
-
-          <li>The technical wizardry needed to <b>max out search engine benefit when your website architecture is complicated by subdomains, legacy URLs, regionalisations, duplicate pages, and foreign language translations.</b></li>
+          <li>
+            The <b>internals of Google's mysterious Quality Score metric</b>, the magic metric that can dramatically reduce your cost of advertising once mastered.
+          </li>
+          <li>
+            The various ways in which <b>rich snippets and structured data enhance your website's showing in Google Search results.</b> Judicious use of these markup technologies can greatly improve your "organic click-through rate". In English, this means that a higher percentage of people encountering your website in search results will end up clicking through to visit. If stiff competition prevents you from ranking #1 in Google Search results, it's often better to focus on getting more traffic from your <u>current</u> ranking position, even if you're stuck down at #8.
+          </li>
+          <li>
+            <b>The basics of white-hat (and gray-hat) Search Engine Optimisation, both on-site and off:</b> we'll cover everything from HTML title tags, to scalable content creation strategies, to techniques for attracting incoming links (e.g. Brian Dean's Skyscraper Technique). Content is still king in SEO, so the question becomes "how do you leverage human tendencies to verbalise or show off in generating compelling content at little expense?"
+          </li>
+          <li>
+            <b>The pitfalls of choosing the wrong domain or top-level domain (i.e. ".co.uk" or a ".com").</b> There are some serious gotchas that are essential to know <i>before</i> you launch your business. Not knowing these things could cost you tens or hundreds of thousands in lost earnings.
+          </li>
+          <li>
+            The technical wizardry needed to <b>max out search engine benefit when your website architecture is complicated by subdomains, legacy URLs, regionalisations, duplicate pages, and foreign language translations.</b>
+          </li>
         </ul>
       </div>
     </div>
-</div>
-
-<div class="center-box">
-  <h3>And Much Much More...</h3>
-
-  <p>All in all, this book has approximately 300 information-packed pages (though don't go suing me if the exact number of pages differs–this depends on your E-book reader, font-size, and how the book gets updated in future).</i>
   </section>
 </div>
 
-<div class=row>
+<div class="center-box">
+  <h3>
+    And Much Much More...
+  </h3>
+  <p>
+    All in all, this book has approximately 300 information-packed pages (though don't go suing me if the exact number of pages differs–this depends on your E-book reader, font-size, and how the book gets updated in future).
+  </p>
+</div>
+
+<div class="row">
   <section class="peek-inside" id="peek-inside">
-    <h2 class="centered">Table of Contents</h2>
+    <h2 class="centered">
+      Table of Contents
+    </h2>
     <div class="book__preview">
       <%= render "chapter_list", book: book %>
     </div>
   </section>
 </div>
 
-<div class=row>
+<div class="row">
   <section class="who-should-read-this">
-    <h2 class="centered">Who Should Read This Book?</h2>
+    <h2 class="centered">
+      Who Should Read This Book?
+    </h2>
     <div class="row">
       <div class="quarter-page">
-        <h3>Programmers</h3>
-        <p>The most versatile programmers today are the "full stack developers", armies-of-one that can solve any and all problems facing online businesses. As the complexity of online marketing escalates, business owners increasingly need the technical ability of programmer to implement server-side SEO, analytical tracking tools, API connections to paid advertising platforms etcetera. The programmers with these bonus skills therefore become indispensable to their employers and clients.
+        <h3>
+          Programmers
+        </h3>
+        <p>
+          The most versatile programmers today are the "full stack developers", armies-of-one that can solve any and all problems facing online businesses. As the complexity of online marketing escalates, business owners increasingly need the technical ability of programmer to implement server-side SEO, analytical tracking tools, API connections to paid advertising platforms etcetera. The programmers with these bonus skills therefore become indispensable to their employers and clients.
         </p>
       </div>
       <div class="quarter-page">
-        <h3>Web Entrepreneurs</h3>
-        <p>The main reason web businesses fail is because they can't get enough traffic. They build and build, but no-one comes. That's why it's crucial to start your business with a clear idea of exactly where and how you will find your first thousand customers. This book will give you a roadmap of the most promising sources of traffic along with the techniques needed to convert these visitors into paying customers.
+        <h3>
+          Web Entrepreneurs
+        </h3>
+        <p>
+          The main reason web businesses fail is because they can't get enough traffic. They build and build, but no-one comes. That's why it's crucial to start your business with a clear idea of exactly where and how you will find your first thousand customers. This book will give you a roadmap of the most promising sources of traffic along with the techniques needed to convert these visitors into paying customers.
         </p>
       </div>
       <div class="quarter-page">
-        <h3>Experienced Online Marketers</h3>
-        <p>While not everything in this book will be new to the experienced online marketer, there are sections that will tickle even the most experienced with fresh perspectives. In particular, this group of readers will enjoy the discussion of strategic principles for online advertising effectiveness and the breakdown of the most important variables in conversion optimisation.</p>
+        <h3>
+          Experienced Online Marketers
+        </h3>
+        <p>
+          While not everything in this book will be new to the experienced online marketer, there are sections that will tickle even the most experienced with fresh perspectives. In particular, this group of readers will enjoy the discussion of strategic principles for online advertising effectiveness and the breakdown of the most important variables in conversion optimisation.
+        </p>
       </div>
       <div class="quarter-page">
-        <h3>Anyone Who Needs to Self-Promote </h3>
+        <h3>
+          Anyone Who Needs to Self-Promote
+        </h3>
         <p>
           Many of us want attention for reasons other than the pursuit of paying customers: we may wish to build a following for our personal brand as an author or musician, or we may want to promote a beloved political cause. Whatever your goal, this book will help you reach the right people faster.
         </p>
@@ -151,13 +285,18 @@
   </section>
 </div>
 
-<div class=row>
+<div class="row">
   <section class="about-author">
-    <h2 class="centered">About The Author</h2>
+    <h2 class="centered">
+      About The Author
+    </h2>
     <div class="about-author__text-side">
-      <h3>Jack Kinsella</h3>
+      <h3>
+        Jack Kinsella
+      </h3>
       <p>
-        After graduating law at Oxford, Jack all too quickly realized that life in the cubicles of a London law firm wasn't exactly his cup of tea. He quit corporate claustrophobia and set himself the goal of retiring by the age of 25–or "Freedom 25" as he called it. In pursuit of this lofty dream, Jack travelled to Dublin, Tokyo, San Francisco, and Berlin, and along the way he learned enough coding to build his own software business and enough online marketing to sell a million dollars worth of goods. A few fun years later, Jack realised his dream of financial and temporal independence and now lives happily ever after in Berlin, leading a colourful rentier life of bookishness and the production of (admittedly) crappy electronic music.</p>
+        After graduating law at Oxford, Jack all too quickly realized that life in the cubicles of a London law firm wasn't exactly his cup of tea. He quit corporate claustrophobia and set himself the goal of retiring by the age of 25–or "Freedom 25" as he called it. In pursuit of this lofty dream, Jack travelled to Dublin, Tokyo, San Francisco, and Berlin, and along the way he learned enough coding to build his own software business and enough online marketing to sell a million dollars worth of goods. A few fun years later, Jack realised his dream of financial and temporal independence and now lives happily ever after in Berlin, leading a colourful rentier life of bookishness and the production of (admittedly) crappy electronic music.
+      </p>
     </div>
     <div class="about-author__image-side">
       <%= image_tag("jack-kinsella-portrait.jpg", class: "book__author-portrait") %>
@@ -169,9 +308,11 @@
   </section>
 </div>
 
-<div class=row>
+<div class="row">
   <section class="objections">
-    <h2 class="centered">But But... Worries and Objections</h2>
+    <h2 class="centered">
+      But But... Worries and Objections
+    </h2>
     <div class="selectable-objections">
       <div class="selectable-objection selectable-objection--selected js-selectable-objection" data-objection-id="#objection-not-marketer">
         <span class="objection-pointer-arrow">&nbsp</span>
@@ -198,21 +339,68 @@
         <p>
           Engineers often describe themselves as lacking the sales/marketing mindset. But this is defeatist thinking: marketing is not magic. It is not innate. It is not outside your reach. I would describe myself as "an <i>unnatural</i> born salesman", a math/music/programmer-type who studied sales/marketing later in life. I've found that the ever more technical aspects of modern marketing techniques are a good match for our engineering brains. All the slick haircuts and smooth-talking in the world won't help the classic "natural born salesperson" interpret analytical reports or navigate the maze of paid advertising targeting options or implement scalable SEO strategies.
         </p>
-        <p>Furthermore, there are no pre-requisites required for this book: it is designed to be readable even by people without any online marketing experience. You don't need any familiarity with the alphabet soup of acronyms (CPC, PPC, CTR, SEO etc.). Nor do you need to have ever marketed before.</p>
+        <p>
+          Furthermore, there are no pre-requisites required for this book: it is designed to be readable even by people without any online marketing experience. You don't need any familiarity with the alphabet soup of acronyms (CPC, PPC, CTR, SEO etc.). Nor do you need to have ever marketed before.
+        </p>
       </div>
       <div id="objection-too-expensive" class="hidden">
-        <p>Buying this book is an investment in your education, in your future wealth. People routinely spend $10,000+ on college fees and accompanying living expenses, even though today's job market means that the financial return on investment for many courses is dwindling. That said, there are few skills that are as great a financial force-multiplier today as online marketing. The handful of dollars you spend today could earn you tens (or even hundreds) of thousands tomorrow.</p>
-        <p>Learning about online marketing before getting your feet wet is a sort of insurance policy. Think about it: online marketing campaigns cost money to run—that much is unavoidable. If you create an amateur Google AdWords campaign, you are going to burn through your cash like nobody's business. There is an enormous cost to diving into online marketing blind. By investing in this book, you can insure yourself against some of the gravest and most expensive future mistakes.
-          <p>"If You Pay Peanuts, You'll Get Monkeys": that is a saying from commercial life that I've found to be true time and time again (e.g. when hiring seemingly cheap outsourced programmers only to realise they were dangerously incompetent.) Do you want to read a 400-word blog post by some self-styled "social media mogul" or would you prefer to read a carefully written book authored by a law graduate-cum-programmer-cum-entrepreneur, by someone who has built a real business? <i><%= book.title %></i> is not your typical e-book thrown together unprofessionally in 24 hours; rather, it is a serious work which was created over 18 months with the help of a team of professionals over four rounds of edits. TL;DR: it cost a pretty penny to throw this together for you and we're charging what it's worth.
-          </p>
-          <p>Are you a business or freelancer or student? In many tax jurisdictions, you can offset the price of this book against your tax bill.</p>
-          <p>Last but not least, if the book's price were lower you wouldn't read it. Paying money for something creates an internal obligation to use and apply it. #gym-membership-effect</p>
+        <p>
+          Buying this book is an investment in your education, in your future wealth. People routinely spend $10,000+ on college fees and accompanying living expenses, even though today's job market means that the financial return on investment for many courses is dwindling. That said, there are few skills that are as great a financial force-multiplier today as online marketing. The handful of dollars you spend today could earn you tens (or even hundreds) of thousands tomorrow.
+        </p>
+        <p>
+          Learning about online marketing before getting your feet wet is a sort of insurance policy. Think about it: online marketing campaigns cost money to run—that much is unavoidable. If you create an amateur Google AdWords campaign, you are going to burn through your cash like nobody's business. There is an enormous cost to diving into online marketing blind. By investing in this book, you can insure yourself against some of the gravest and most expensive future mistakes.
+        </p>
+        <p>
+          "If You Pay Peanuts, You'll Get Monkeys": that is a saying from commercial life that I've found to be true time and time again (e.g. when hiring seemingly cheap outsourced programmers only to realise they were dangerously incompetent.) Do you want to read a 400-word blog post by some self-styled "social media mogul" or would you prefer to read a carefully written book authored by a law graduate-cum-programmer-cum-entrepreneur, by someone who has built a real business? <i><%= book.title %></i> is not your typical e-book thrown together unprofessionally in 24 hours; rather, it is a serious work which was created over 18 months with the help of a team of professionals over four rounds of edits. TL;DR: it cost a pretty penny to throw this together for you and we're charging what it's worth.
+        </p>
+        <p>
+          Are you a business or freelancer or student? In many tax jurisdictions, you can offset the price of this book against your tax bill.
+        </p>
+        <p>
+          Last but not least, if the book's price were lower you wouldn't read it. Paying money for something creates an internal obligation to use and apply it. #gym-membership-effect
+        </p>
       </div>
       <div id="objection-free-blog" class="hidden">
-        <p>In the years preceding the writing of this book, I assembled an elite group of successful online marketers and regularly met with them to exchange tactics. Among these were multiple ex-Google employees, the owner of a consultancy that did conversion optimisation for Amazon, the AdWords guy for Goldman Sachs, a Serbian making $100,000 a month selling e-books on dating, an affiliate marketer turned top-10 bestselling author, the heads of marketing for Delivery Hero, Research Gate, and Contentful, and an impossibly intelligent, quite possibly immortal, and most certainly immoral Taiwanese man named Ulysses. I gathered these strategies and techniques–some of which the original authors couldn't attach their names to in public–and made them all available to you in anonymised form as part of their public premiere.</p>
+        <p>
+          In the years preceding the writing of this book, I assembled an elite group of successful online marketers and regularly met with them to exchange tactics. Among these were multiple ex-Google employees, the owner of a consultancy that did conversion optimisation for Amazon, the AdWords guy for Goldman Sachs, a Serbian making $100,000 a month selling e-books on dating, an affiliate marketer turned top-10 bestselling author, the heads of marketing for Delivery Hero, Research Gate, and Contentful, and an impossibly intelligent, quite possibly immortal, and most certainly immoral Taiwanese man named Ulysses. I gathered these strategies and techniques–some of which the original authors couldn't attach their names to in public–and made them all available to you in anonymised form as part of their public premiere.
+        </p>
 
-        <p>Because I came from a nerdy, programmer background, I like to arrange concepts and ideas neatly. I worked for a year-and-a-half to impose structure and order on the chaotic, rapidly changing field that is internet marketing. The end result of this focus is a book that connects the dots together and helps you see the big principles with the eyes of an experienced expert. Compare this to reading a blog that was written article-by-article, where in each post the author tears off only a tiny piece of reality and deals with it in isolation. By writing in such a piecemeal fashion without an overarching plan, the blog author often doesn't realise that what they say today is inconsistent with what they said yesterday, making for a frustrating and unsatisfying read.</p>
+        <p>
+          Because I came from a nerdy, programmer background, I like to arrange concepts and ideas neatly. I worked for a year-and-a-half to impose structure and order on the chaotic, rapidly changing field that is internet marketing. The end result of this focus is a book that connects the dots together and helps you see the big principles with the eyes of an experienced expert. Compare this to reading a blog that was written article-by-article, where in each post the author tears off only a tiny piece of reality and deals with it in isolation. By writing in such a piecemeal fashion without an overarching plan, the blog author often doesn't realise that what they say today is inconsistent with what they said yesterday, making for a frustrating and unsatisfying read.
+        </p>
       </div>
+    </div>
+  </section>
+</div>
+
+<div class="row">
+  <section class="testimonials">
+    <h2 class="centered">Testimonials</h2>
+    <div class="row">
+      <blockquote>
+        What I loved about the book is that it covers the basics so well, but still has plenty of pearls for experienced marketers. Entreprenerd is a must read for anyone in online marketing today - A classic in the making.
+      </blockquote>
+      <p>
+        <b><%= link_to "Daan Löning", "https://twitter.com/daan_kinderfee" %> Founder of Putzfee, acquired by Helpling (Rocket Internet)</b>
+      </p>
+      <blockquote>
+        Immaculately researched and extremely detailed, this book delivers. Let it take your online projects to a whole new success level.
+      </blockquote>
+      <p>
+        <b><%= link_to "Adam Fletcher", "https://twitter.com/adamfletcher" %> 3x Spiegel Best-Selling Author</b>
+      </p>
+      <blockquote>
+        Jack is the growth hacker people like me would hire on the spot - alas, he doesn't need a job! I'm thrilled to see him finally sharing his enviable online marketing experience and insight in a full-blown book.
+      </blockquote>
+      <p>
+        <b><%= link_to "Fabian Stelzer", "https://twitter.com/fabianstelzer" %> CEO EyeQuant</b>
+      </p>
+      <blockquote>
+        This book has so much actionable advice that I practically highlighted the whole thing.
+      </blockquote>
+      <p>
+        <b><%= link_to "Sascha Konietzke", "https://twitter.com/s2o?lang=en" %> CEO Contentful</b>
+      </p>
     </div>
   </section>
 </div>
