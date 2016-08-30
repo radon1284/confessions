@@ -35,4 +35,14 @@ describe "Article Management" do
     visit admin_articles_path
     expect(page).to have_content("Janki Method")
   end
+
+  it "lets you assign tags to an existing article" do
+    article = FactoryGirl.create(:article)
+    visit edit_admin_article_path(article.slug)
+    fill_in "All tags", with: "programming, marketing"
+    expect { click_on "Send" }
+      .to change { article.reload.tags.count }
+      .from(0)
+      .to(2)
+  end
 end
