@@ -13,11 +13,11 @@
     <hr>
     <h2> More Articles:</h2>
     <div class="article__list">
-      <% random_articles.each.with_index do |article, index| %>
+      <% related_articles.each do |article| %>
         <div class="article__item">
           <h3><%= link_to article.title, article_path(article.slug) %></h3>
           <p><%= article.subtitle %> </p>
-          <% unless random_articles.last == article %>
+          <% unless related_articles.last == article %>
             <hr>
           <% end %>
         </div>
