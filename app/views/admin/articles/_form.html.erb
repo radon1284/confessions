@@ -24,6 +24,10 @@
   <%= f.label :main_image %>
   <%= f.text_field :main_image %>
   <br/>
+  <%= f.label :published %>
+  <%= f.check_box :published %>
+  <p>If left unticked, the article will be created on the front-end but not linked to, effectively making it unpublished.</p>
+  <br/>
   <%= f.label :all_tags %>
   <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
   <br/>

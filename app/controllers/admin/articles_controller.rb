@@ -30,7 +30,7 @@ module Admin
     def create
       article = Article.new(article_params)
       if article.save
-        flash[:notice] = "Successfully created article"
+        flash[:notice] = "Successfully created article."
         redirect_to article_path(article.slug)
       else
         flash[:alert] = "Errors creating your article"
@@ -56,7 +56,7 @@ module Admin
       params.require(:article)
             .permit(:title, :slug, :short_description,
                     :subtitle, :body, :main_image,
-                    :all_tags)
+                    :all_tags, :published)
     end
   end
 end

@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def feed
-    articles = Article.all
+    articles = Article.published
     render(
       locals: { articles: articles }
     )
@@ -32,9 +32,9 @@ class ArticlesController < ApplicationController
 
   def articles_scope
     if params[:tag_name]
-      Tag.find_by!(name: params[:tag_name]).articles
+      Tag.find_by!(name: params[:tag_name]).articles.published
     else
-      Article.all
+      Article.published
     end
   end
 end

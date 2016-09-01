@@ -5,6 +5,8 @@ class Article < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  scope :published, -> { where(published: true) }
+
   # Virtual attribute getter and setter
   def all_tags
     tags.map(&:name).join(", ")

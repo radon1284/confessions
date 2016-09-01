@@ -22,6 +22,7 @@ class FindRelatedArticles
   def articles_with_tags(article)
     Article
       .includes(:tags)
+      .published
       .where(tags: { id: article.tag_ids })
       .where
       .not(id: article.id)
@@ -32,6 +33,7 @@ class FindRelatedArticles
 
   def random_articles(article, already_selected_ids)
     Article
+      .published
       .where
       .not(id: already_selected_ids + [article.id])
       .order("RANDOM()")
