@@ -14,7 +14,7 @@ window.TrackingProxy.GoogleAnalyticsTracker = {
         hitType: 'event',
         eventCategory: 'PDFPreview',
         eventAction: 'download',
-        eventLabel: payload.book_title
+        eventLabel: payload.slug
       },
       {
         'transport': 'beacon',

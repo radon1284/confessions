@@ -35,13 +35,12 @@
         <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats.</li>
       </ul>
       <div class="book__pdf_preview_download">
-        <%= button_to "Download Free 27 Page Preview", download_pdf_preview_book_path(book), method: :get, target: "_blank",
-          onclick: "event.preventDefault(); TrackingProxy.Proxy.track({
-                event: 'pdf_preview_downloaded',
-                book_title: '#{book.slug}'
-              });
-            document.location = '#{download_pdf_preview_book_path(book)}';".html_safe
-          %>
+        <%= button_to "Download Free 27 Page Preview", download_pdf_preview_book_path(book), method: :get,
+          form: { target: "_blank" },
+          id: "test-download-pdf-preview",
+          class: "js-download-pdf-preview",
+          data: { slug: book.slug }
+        %>
       </div>
     </div>
   </div>
