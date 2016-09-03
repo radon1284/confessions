@@ -1,7 +1,7 @@
 module Admin
   class PhotosController < Admin::BaseController
     def index
-      photos = Photo.order(created_at: :desc).limit(50).page(params[:page])
+      photos = Photo.order(created_at: :desc).page(params[:page]).per(50)
       render(
         locals: {
           photos: photos
