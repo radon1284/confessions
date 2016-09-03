@@ -17,7 +17,8 @@ describe PayForCart do
         visitor: visitor,
         stripe_token: stripe_token,
         email: email,
-        ip_address: "8.8.8.8"
+        ip_address: "8.8.8.8",
+        subscribed_to_mailing_list: true
       )
     end.to change { Order.count }.by(1)
   end
@@ -27,7 +28,8 @@ describe PayForCart do
       visitor: visitor,
       stripe_token: stripe_token,
       email: email,
-      ip_address: "8.8.8.8"
+      ip_address: "8.8.8.8",
+      subscribed_to_mailing_list: false
     )
     order = Order.last
     expect(order.order_items.count).to eq 1
@@ -40,7 +42,8 @@ describe PayForCart do
         visitor: visitor,
         stripe_token: stripe_token,
         email: email,
-        ip_address: "8.8.8.8"
+        ip_address: "8.8.8.8",
+        subscribed_to_mailing_list: true
       )
     end.to change { PersistedEvent.where(event_type: "cart_cleared").count }
       .by(1)
@@ -52,7 +55,8 @@ describe PayForCart do
         visitor: visitor,
         stripe_token: stripe_token,
         email: email,
-        ip_address: "8.8.8.8"
+        ip_address: "8.8.8.8",
+        subscribed_to_mailing_list: true
       )
     end.to change {
       PersistedEvent.where(event_type: "order_completed").count
@@ -64,7 +68,8 @@ describe PayForCart do
       visitor: visitor,
       stripe_token: stripe_token,
       email: email,
-      ip_address: "8.8.8.8"
+      ip_address: "8.8.8.8",
+      subscribed_to_mailing_list: true
     )
     order = Order.last
     expect(order.invoice_number).to eq(
@@ -77,7 +82,8 @@ describe PayForCart do
       visitor: visitor,
       stripe_token: stripe_token,
       email: email,
-      ip_address: "8.8.8.8"
+      ip_address: "8.8.8.8",
+      subscribed_to_mailing_list: true
     )
     order = Order.last
     expect(order.ip_address).to eq("8.8.8.8")
@@ -91,7 +97,8 @@ describe PayForCart do
             visitor: visitor,
             stripe_token: stripe_token,
             email: email,
-            ip_address: "8.8.8.8"
+            ip_address: "8.8.8.8",
+            subscribed_to_mailing_list: true
           )
         end.to change { User.count }
           .by(1)
@@ -102,7 +109,8 @@ describe PayForCart do
           visitor: visitor,
           stripe_token: stripe_token,
           email: email,
-          ip_address: "8.8.8.8"
+          ip_address: "8.8.8.8",
+          subscribed_to_mailing_list: true
         )
         order = Order.last
         expect(order.user.email).to eq email
@@ -117,7 +125,8 @@ describe PayForCart do
           visitor: visitor,
           stripe_token: stripe_token,
           email: email,
-          ip_address: "8.8.8.8"
+          ip_address: "8.8.8.8",
+          subscribed_to_mailing_list: true
         )
         order = Order.last
         expect(order.user).to eq user
@@ -134,7 +143,8 @@ describe PayForCart do
         visitor: visitor,
         stripe_token: stripe_token,
         email: email,
-        ip_address: "8.8.8.8"
+        ip_address: "8.8.8.8",
+        subscribed_to_mailing_list: true
       )
       uuid = Order.last.id
       expect(make_stripe_payment)

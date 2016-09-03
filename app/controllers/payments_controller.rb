@@ -17,7 +17,8 @@ class PaymentsController < ApplicationController
       visitor: current_visitor,
       stripe_token: stripe_token,
       email: email_provided_by_stripe,
-      ip_address: request.remote_ip
+      ip_address: request.remote_ip,
+      subscribed_to_mailing_list: subscribed_to_mailing_list
     )
   end
 
@@ -27,5 +28,9 @@ class PaymentsController < ApplicationController
 
   def email_provided_by_stripe
     params.fetch(:stripeEmail)
+  end
+
+  def subscribed_to_mailing_list
+    params.fetch(:subscribed_to_mailing_list, false)
   end
 end

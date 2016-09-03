@@ -30,4 +30,11 @@ describe "Payment", :js do
     expect(page).to have_content("YOUR ORDER DETAILS")
     expect(current_path).to include("/orders/order_completed/")
   end
+
+  it "subscribes user to the mailing list by default" do
+    visit cart_path
+    simulate_user_filling_in_the_form
+    expect(page).to have_content("Thank you for paying!")
+    expect(User.last.subscribed_to_mailing_list).to eq true
+  end
 end

@@ -40,6 +40,10 @@
   </p>
 
   <%= form_tag(payments_pay_path, method: :post, id: "test-stripe-payment") do %>
+    <label>
+      <%= check_box_tag :subscribed_to_mailing_list, "1", true %>
+      Subscribe me to the mailing list
+    </label>
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key=<%= ENV.fetch("STRIPE_PUBLISHABLE_KEY") %>
