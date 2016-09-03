@@ -8,6 +8,7 @@
 4. Node.js (for asset compilation)
 5. Mailcatcher - http://mailcatcher.me/ (required only during development)
 6. Qt - https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit (required only for tests)
+7. Calibre with `ebook-convert` executable - https://calibre-ebook.com/
 
 #### External services
 
