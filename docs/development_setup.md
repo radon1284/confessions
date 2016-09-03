@@ -6,3 +6,7 @@
 4. ```bundle install```.
 5. ```rake db:setup```
 6. ```rake``` to check that the tests are passing.
+
+#### Running background jobs
+
+Execute `bundle exec sidekiq` in a seperate terminal tab and leave it running.
