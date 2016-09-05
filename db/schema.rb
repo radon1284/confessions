@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905144358) do
+ActiveRecord::Schema.define(version: 20160905223726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160905144358) do
     t.text     "invoice_number"
     t.inet     "ip_address"
     t.string   "stripe_charge_identifier"
+    t.string   "country_from_stripe"
     t.index ["invoice_number"], name: "index_orders_on_invoice_number", unique: true, using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
