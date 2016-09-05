@@ -11,6 +11,7 @@ class PayForCart
     self.make_stripe_payment = make_stripe_payment
   end
 
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def call(
     visitor:,
     stripe_token:,
@@ -18,55 +19,45 @@ class PayForCart
     ip_address:,
     subscribed_to_mailing_list:
   )
-    self.cart = restore_cart.call(visitor, Time.current)
-    self.order_id = generate_order_id
-    make_stripe_payment.call(cart, stripe_token, order_id)
-    handle_successful_payment(
-      visitor: visitor,
-      email: email,
-      ip_address: ip_address,
-      subscribed_to_mailing_list: subscribed_to_mailing_list
+    cart = restore_cart.call(visitor, Time.current)
+    order_id = generate_order_id
+    stripe_charge_identifier = make_stripe_payment.call(
+      cart,
+      stripe_token,
+      order_id
     )
+    user = existing_or_new_user(email, subscribed_to_mailing_list)
+    order = user.orders.create!(
+      id: order_id,
+      order_items: build_order_items(cart),
+      invoice_number: generate_invoice_number,
+      ip_address: ip_address,
+      stripe_charge_identifier: stripe_charge_identifier
+    )
+    EventPublisher.publish(CartCleared.new(visitor))
+    EventPublisher.publish(OrderCompleted.new(visitor, order))
+
     order
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   private
 
   attr_accessor :restore_cart
   attr_accessor :make_stripe_payment
-  attr_accessor :cart
-  attr_accessor :order_id
-  attr_accessor :order
 
   def generate_order_id
     SecureRandom.uuid
   end
 
-  def handle_successful_payment(
-    visitor:,
-    email:,
-    ip_address:,
-    subscribed_to_mailing_list:
-  )
+  def existing_or_new_user(email, subscribed_to_mailing_list)
     user = User.where(email: email).first_or_initialize
     user.subscribed_to_mailing_list = subscribed_to_mailing_list
     user.save!
-
-    self.order = create_order(user, ip_address)
-    EventPublisher.publish(CartCleared.new(visitor))
-    EventPublisher.publish(OrderCompleted.new(visitor, order))
+    user
   end
 
-  def create_order(user, ip_address)
-    user.orders.create!(
-      id: order_id,
-      order_items: build_order_items,
-      invoice_number: generate_invoice_number,
-      ip_address: ip_address
-    )
-  end
-
-  def build_order_items
+  def build_order_items(cart)
     cart.items.map do |cart_item|
       OrderItem.new(
         product_id: cart_item.product_id,

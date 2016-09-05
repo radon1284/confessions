@@ -7,7 +7,8 @@ class MakeStripePayment
   end
 
   def call(cart, token, order_id)
-    create_charge(cart.total, token, order_id)
+    charge = create_charge(cart.total, token, order_id)
+    charge.id
   rescue Stripe::CardError => ex
     Rollbar.warning(ex)
     raise PaymentFailedDueToCustomer, ex.message

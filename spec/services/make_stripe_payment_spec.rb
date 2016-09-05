@@ -21,5 +21,10 @@ describe MakeStripePayment, :vcr do
     it "raises no exception" do
       expect { service.call(cart, token, order_id) }.not_to raise_error
     end
+
+    it "returns charge identifier" do
+      charge_identifier = service.call(cart, token, order_id)
+      expect(charge_identifier).to eq "ch_98kHW12NrslY5y"
+    end
   end
 end

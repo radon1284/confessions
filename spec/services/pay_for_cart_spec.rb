@@ -5,7 +5,7 @@ describe PayForCart do
   let!(:cart_item) { CartItem.new(product.id, 1_000, "USD") }
   let!(:cart) { Cart.new([cart_item]) }
   let!(:restore_cart) { ->(_, _) { cart } }
-  let!(:make_stripe_payment) { -> (_, _, _) {} }
+  let!(:make_stripe_payment) { -> (_, _, _) { "charge_identifier" } }
   let!(:service) { PayForCart.new(restore_cart, make_stripe_payment) }
   let!(:visitor) { Visitor.new("123") }
   let!(:stripe_token) { "abc" }
@@ -138,7 +138,13 @@ describe PayForCart do
     let!(:make_stripe_payment) { spy("make_stripe_payment") }
     let!(:service) { PayForCart.new(restore_cart, make_stripe_payment) }
 
-    it "passes order UUID" do
+    before do
+      allow(make_stripe_payment)
+        .to receive(:call)
+        .and_return("charge_identifier")
+    end
+
+    it "passes order UUID to Stripe" do
       service.call(
         visitor: visitor,
         stripe_token: stripe_token,
@@ -150,6 +156,17 @@ describe PayForCart do
       expect(make_stripe_payment)
         .to have_received(:call)
         .with(anything, anything, uuid)
+    end
+
+    it "saves Stripe charge ID in the database" do
+      service.call(
+        visitor: visitor,
+        stripe_token: stripe_token,
+        email: email,
+        ip_address: "8.8.8.8",
+        subscribed_to_mailing_list: true
+      )
+      expect(Order.last.stripe_charge_identifier).to eq "charge_identifier"
     end
   end
 end
