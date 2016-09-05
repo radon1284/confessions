@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
   has_many :watermarked_books
   has_many :invoice_requests
 
-  validates_presence_of :user, :invoice_number
+  validates_presence_of :user, :invoice_number, :ip_address
 
   def total
     order_items.map(&:price).sum
