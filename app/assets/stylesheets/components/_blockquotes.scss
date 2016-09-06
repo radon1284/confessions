@@ -2,16 +2,6 @@ blockquote {
   background: #f9f9f9;
   border-left: $base-border;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D";
-}
-blockquote:before {
-  color: $light-gray;
-  content: open-quote;
-  font-size: 4rem;
-  line-height: 0.1rem;
-  margin-right: 0.25rem;
-  display: inline-block;
-  vertical-align: -2rem;
 }
 blockquote p {
   text-align: left;
