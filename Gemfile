@@ -31,6 +31,7 @@ gem 'prawn-table'
 gem 'font-awesome-sass'
 gem 'combine_pdf'
 gem 'epub-maker'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-rails'

@@ -30,3 +30,8 @@ EventPublisher.push_handler(
   OrderCompleted,
   ->(event) { StripeCountryWorker.perform_async(event.order.id) }
 )
+
+EventPublisher.push_handler(
+  OrderCompleted,
+  ->(event) { IPCountryWorker.perform_async(event.order.id) }
+)
