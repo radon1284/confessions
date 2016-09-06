@@ -51,6 +51,7 @@ Rails.application.routes.draw do
       end
     end
     resources :photos, only: [:index, :create, :destroy, :new]
+    resources :financial_transactions_reports, only: [:new, :create, :index]
   end
 
   resources :customer_support_requests, only: [:new, :create]

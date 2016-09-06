@@ -1,0 +1,13 @@
+<h1>
+  Schedule generation of a new financial transactions report
+</h1>
+
+<%= form_tag admin_financial_transactions_reports_path do %>
+  <%= label_tag :date_month, "Month" %>
+  <%= select_month(1.month.ago) %>
+  <br/>
+  <%= label_tag :date_year, "Year" %>
+  <%= select_year(1.month.ago) %>
+  <br/>
+  <%= submit_tag "Schedule" %>
+<% end %>
