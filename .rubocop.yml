@@ -12,3 +12,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/MethodLength:
   Max: 20
+Style/EmptyElse:
+  EnforcedStyle: empty
