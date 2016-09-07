@@ -1,5 +1,5 @@
 class GenerateFinancialTransactionsReport
-  class FetchBalanceTransactions
+  class FetchFromStripe
     def self.build
       new
     end
