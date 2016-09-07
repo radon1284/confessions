@@ -16,7 +16,8 @@ describe FetchCountryFromStripe, :vcr do
     Stripe::Charge.create(
       amount: 100,
       currency: "USD",
-      source: token.id
+      source: token.id,
+      metadata: { order_id: "dummy" }
     )
   end
   let!(:order) do
