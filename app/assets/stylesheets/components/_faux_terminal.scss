@@ -1,0 +1,113 @@
+.terminal {
+	border: 1px solid rgba(white, .9);
+	box-shadow: 7px 10px 8px rgba(black, .2);
+	background: #333;
+	min-height: 25em;
+	margin: auto;
+  font-family: consolas;
+	max-width: 90%;
+  @include media($tablet) {
+    width: 100%;
+  }
+	min-height: 75vh;
+  position: relative;
+  .responses, .answers {
+    padding-top: $tiny-spacing;
+    padding-right: $base-spacing;
+    padding-bottom: $large-spacing * 2;
+    border-top: $base-border;
+    font-size: 1rem;
+  }
+  label {
+    display: inline;
+  }
+  .quizResults {
+    margin: $base-spacing;
+  }
+
+  .questions {
+    margin-left: $base-spacing;
+  }
+  .backToQuestion {
+    position: absolute;
+    margin: $base-spacing;
+    bottom: 0;
+    left: 0;
+    @include link-color-scheme($sch1-main-green, $sch1-main-green);
+    padding: $tiny-spacing;
+    border: 1px solid;
+  }
+  .nextQuestion {
+    @include link-color-scheme($sch1-main-green, $sch1-main-green);
+    padding: $tiny-spacing;
+    border: 1px solid;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: $base-spacing;
+    margin-right: $base-spacing;
+  }
+  .startQuiz {
+    width: 50%;
+    margin-top: $large-spacing * 3;
+    background-color: $entreprenerd-green;
+    color: white;
+    margin-left: 20%;
+    &:visited {
+      color: white;
+    }
+  }
+}
+.terminal-title {
+	background: #ddd;
+  padding-bottom: $tiny-spacing;
+	position: relative;
+  p {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: $tiny-spacing;
+    white-space: wrap;
+    margin-bottom: 0px;
+  }
+	.fa {
+		color: #aaa;
+		cursor: pointer;
+		float: right;
+		padding-left: .4em;
+		padding-right: .4em;
+    padding-top: .2em;
+		&:hover {
+			background: #ccc;
+			color: #333;
+    }
+		&.close:hover {
+			background: darken($sch1-orange, 10%);
+			color: white;
+    }
+   }
+	.terminal-icon {
+		color: $sch1-orange;
+		float: left;
+		&:hover {
+			color: $sch1-orange;
+			cursor: text;
+			background: none;
+    }
+  }
+}
+
+.terminal-content {
+	color: rgba(white, .8);
+	padding: 1em;
+}
+
+.command-line {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	li:before {
+		content: '>';
+		color: rgba(white, .3);
+  }
+}

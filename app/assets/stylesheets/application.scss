@@ -5,9 +5,15 @@
 @import "bourbon";
 @import "./grid_settings";
 @import "neat";
+
+/*local items to load first*/
+@import './variables';
+@import './components/mixins';
+
 /*syntax highlighting*/
 @import "highlightjs/tomorrow-night-eighties";
 @import 'social-share-kit';
+@import "slickquiz/slickquiz";
 /*customisation icons*/
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -15,9 +21,6 @@
 /*section:*/
 /*Our own stuff*/
 
-/*general items to load first*/
-@import './variables';
-@import './components/mixins';
 
 @import './components/*';
 @import './pages/*';

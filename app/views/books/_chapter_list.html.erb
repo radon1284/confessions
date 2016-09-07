@@ -9,6 +9,7 @@
     <% book.chapters.each do |chapter| %>
       <tr>
         <td> <%= chapter.title %> </td>
+        <td> <%= link_to "(read for free)", articles_path %> </td>
         <td> <%= chapter.number %> </td>
       </tr>
     <% end %>

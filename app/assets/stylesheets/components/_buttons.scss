@@ -19,7 +19,7 @@
   transition: background-color $base-duration $base-timing;
   user-select: none; // stops the user selecting that element
   vertical-align: middle; // centre of button aligns with other els in baseline
-  white-space: nowrap; // will instead overflow outside box
+  white-space: normal;
 
   &:hover,
   &:focus {

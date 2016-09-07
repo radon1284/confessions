@@ -3,8 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :ensure_visitor_identified
+  helper_method :minimise_layout?
 
   private
+
+  def minimise_layout?
+    @minimised_layout || false
+  end
+
+  def use_minimised_layout
+    @minimised_layout = true
+  end
 
   def ensure_visitor_identified
     if cookies[:visitor_identifier].blank?

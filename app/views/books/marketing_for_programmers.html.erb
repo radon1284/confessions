@@ -1,0 +1,291 @@
+<% content_for :title, "Marketing <for> Programmers: Entrenerd" %>
+<div class="landing-page">
+  <div class="header-box">
+    <div class="book-title-image">
+      <%= image_tag "entreprenerd/entreprenerd-title.png", alt: "Entreprenerd" %>
+    </div>
+    <div class="book-title">
+      <h1>
+        Marketing <span class="for"><span class="brackets">&lt;</span>for<span class="brackets">&gt;</span></span> programmers
+      </h1>
+      <h4 class="centered">Learn to market software like a pro</h4>
+    </div>
+  </div>
+  <div>
+    <ul class="internal-page-nav">
+      <li><%= link_to "Quiz", "#quiz" %></li>
+      <li>|</li>
+      <li><%= link_to "Testimonials", "#testimonials" %></li>
+      <li>|</li>
+      <li><%= link_to "Author", "#about-author" %></li>
+      <li>|</li>
+      <li><%= link_to "Topics", "#peek-inside" %></li>
+      <li>|</li>
+      <li><%= link_to "#buy-it-now", class: "internal-page-nav-highlight" do %>
+        <i class="fa fa-book"></i> Buy Book
+      <% end %>
+      </li>
+    </ul>
+
+  </div>
+  <section class="quiz" id="quiz">
+    <%= render "quiz_data" %>
+    <div id="slickQuiz" class="terminal">
+      <div class="terminal-title">
+        <p>
+          <i class="fa fa-heart terminal-icon" aria-hidden="true"></i>
+          Do You Make Marketing Mistakes? Take The Quiz
+          <i class="fa fa-times"></i>
+          <i class="fa fa-square-o"></i>
+          <i class="fa fa-minus"></i>
+        </p>
+      </div>
+      <div class="quizArea">
+        <div class="terminal-content">
+          <div class="quizHeader">
+            <ul class="command-line">
+              <li> hello world</li>
+              <li> ... </li>
+              <li> i've prepared a short quiz to test your marketing knowledge</li>
+              <li> ... </li>
+              <li> are you up for the challenge :) ?</li>
+            </ul>
+            <button class="startQuiz">Start Quiz</button>
+          </div>
+        </div>
+      </div>
+      <div class="quizResults">
+        <h3 class="quizScore">You Scored: <span></span></h3>
+        <h3 class="quizLevel"><strong>Ranking:</strong> <span></span></h3>
+        <div class="quizResultsCopy"></div>
+      </div>
+    </div>
+
+  </section>
+  <div class="row">
+    <section class="testimonials" id="testimonials">
+      <h2 class="centered">Testimonials</h2>
+      <div class="testimonial">
+        <div class="testimonial-img">
+          <%= image_tag "entreprenerd/jose.jpg" %>
+        </div>
+        <p>
+          Tech people can do marketing in a more automated way than non-techies. This book will show you the ropes. It will also help you being systematic and measuring everything worth paying attention to.
+          <br>
+          <b><%= link_to "Jose Quesada", "https://twitter.com/Quesada" %> Founder, Data Science Retreat</b>
+        </p>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-img">
+          <%= image_tag "entreprenerd/sascha.jpg" %>
+        </div>
+        <p>
+          This book has so much actionable advice that I practically highlighted the whole thing.
+          </br>
+          <b><%= link_to "Sascha Konietzke", "https://twitter.com/s2o?lang=en" %> CEO, Contentful</b>
+        </p>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-img">
+          <%= image_tag "entreprenerd/daan.jpg"%>
+        </div>
+        <p>
+          What I loved about the book is that it covers the basics so well, but still has plenty of pearls for experienced marketers. Entreprenerd is a must read for anyone in online marketing today - A classic in the making.
+          </br>
+          <b><%= link_to "Daan Löning", "https://twitter.com/daan_kinderfee" %> Founder Putzfee, acquired by Rocket Internet</b>
+        </p>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-img">
+          <%= image_tag "entreprenerd/adam.jpg" %>
+        </div>
+        <p>
+          Immaculately researched and extremely detailed, this book delivers. Let it take your online projects to a whole new success level.
+          <br>
+          <b><%= link_to "Adam Fletcher", "https://twitter.com/adamfletcher" %> 3x Spiegel Best-Selling Author</b>
+        </p>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-img">
+          <%= image_tag "entreprenerd/fabian.jpg" %>
+        </div>
+        <p>
+          Jack is the growth hacker people like me would hire on the spot - alas, he doesn't need a job! I'm thrilled to see him finally sharing his enviable online marketing experience and insight in a full-blown book.
+          </br>
+          <b><%= link_to "Fabian Stelzer", "https://twitter.com/fabianstelzer" %> CEO, EyeQuant</b>
+        </p>
+      </div>
+    </section>
+  </div>
+  <div class="row">
+    <section class="these-companies">
+      <h2 class="centered">Based on Systems Learned From First-Rate Companies</h2>
+      <p>
+        While researching this book, I set up a private, Berlin-based marketing group where I was privy to closed-door tactics used by consultants, senior marketing staff, and company owners in select tech operations.
+      </p>
+      <p>These marketers were involved with marketing for these (unaffiliated) companies: </span>
+      </p>
+
+      <div class="centered-images">
+        <div class="centered-img">
+          <%= image_tag "entreprenerd/amazon-audible.jpg" %>
+        </div>
+        <div class="centered-img">
+          <%= image_tag "entreprenerd/rocket-internet.png" %>
+        </div>
+        <div class="centered-img">
+          <%= image_tag "entreprenerd/goldman.jpeg" %>
+        </div>
+        <div class="centered-img">
+          <%= image_tag "entreprenerd/delivery-hero.jpg" %>
+        </div>
+      </div>
+
+      <p>
+        To balance things off, I also conferred with marketers active in the <i>darker side of internet marketing</i>, such as shady coupon website owners and fitness ebook sellers.
+      </p>
+    </section>
+  </div>
+  <div class="row">
+    <section class="peek-inside" id="peek-inside">
+      <h2 class="centered">
+        Topic's Covered
+      </h2>
+      <div class="book__preview">
+        <div class="book__topic">
+          <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/60/typewriter-1603999_1280.jpg" %>
+          <p>Copywriting
+            <br>
+            <p>
+              <%= link_to article_path(slug: "website-copywriting") do %>
+                <i class="fa fa-eye"></i> <i class="fa fa-eye"></i>
+                <span> Free Preview </span>
+              <% end %>
+            </p>
+        </div>
+        <div class="book__topic">
+          <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/81/light-bulbs-1125016_640.jpg" %>
+          <p>SEO</p>
+          </p>
+        </div>
+        <div class="book__topic">
+          <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/82/motorcycle-1286540_640.jpg" %>
+          <p>Paid Advertising (AdWords, Facebook, etc.)</p>
+          </p>
+        </div>
+        <div class="book__topic">
+          <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/62/heating-931930_1280.jpg" %>
+          <p>Statistical Significance</p>
+        </div>
+        <div class="book__topic">
+          <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/15/conversion-mixer.jpg" %>
+          <p>Google Analytics</p>
+        </div>
+        <div class="book__topic">
+          <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/61/mailbox-1056324_1280.jpg" %>
+          <p>Email Marketing</p>
+        </div>
+        <div class="book__topic">
+          <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/63/battleship-389274_640.jpg" %>
+          <p>Marketing Issues that impinge on programming</p>
+        </div>
+        <div class="book__topic">
+          <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/80/colored-166920_640.jpg" %>
+          <p>How all the components slot together</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="row">
+    <section class="about-author" id="about-author">
+      <h2 class="centered">About the Author </h2>
+      <div class="quarter-page">
+        <h3> Jack Kinsella</h3>
+        <%= image_tag("jack-kinsella-portrait.jpg") %>
+        <h3> Lives In</h3>
+        <%= image_tag("entreprenerd/berlin.jpg") %>
+        <p><b>Berlin, Germany's Tech Hub</b></p>
+      </div>
+      <div class="quarter-page">
+        <h3> Studied at </h3>
+        <%= image_tag "entreprenerd/oxford.jpg" %>
+        <%= image_tag "entreprenerd/raddy.jpg" %>
+      </div>
+      <div class="quarter-page">
+        <h3>Companies</h3>
+        <%= image_tag "entreprenerd/oxbridgenotes.png" %>
+        <p>Founded and owns <b>Oxbridge Notes</b>, the UK's largest online retailer of legal study materials.
+        </p>
+        <%= image_tag "entreprenerd/bx.jpg" %>
+        <p>Co-founded <b>Bolivian Express</b>, Bolivia's largest English-language magazine.</p>
+      </div>
+      <div class="quarter-page">
+        <h3>Codes with</h3>
+        <div class="image-cloud">
+          <%= image_tag "entreprenerd/rails.svg" %>
+          <%= image_tag "entreprenerd/git.png" %>
+          <%= image_tag "entreprenerd/vim.png" %>
+          <%= image_tag "entreprenerd/javascript.png" %>
+          <%= image_tag "entreprenerd/postgresql.png" %>
+          <%= image_tag "entreprenerd/python.png" %>
+          <%= image_tag "entreprenerd/ubuntu.png" %>
+          <%= image_tag "entreprenerd/css3.svg" %>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="row">
+    <section class="pleasantly-typeset">
+      <h2 class="centered">Pleasantly Typeset</h2>
+      <div class="book__format">
+        <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/54/Bildschirmfoto_2016-09-08_um_17.03.17.jpeg" %>
+        <p>PDF</p>
+      </div>
+      <div class="book__format">
+        <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/51/Bildschirmfoto_2016-09-08_um_16.51.46.jpeg	" %>
+        <p>EPUB</p>
+      </div>
+      <div class="book__format">
+        <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/56/Bildschirmfoto_2016-09-09_um_12.15.17.jpg" %>
+        <p>MOBI</p>
+      </div>
+    </section>
+  </div>
+
+  <section class="buy-it-now" id="buy-it-now">
+    <div class="row">
+      <h2 class="centered">Buy Entreprenerd Now</h2>
+      <div class="book-image">
+        <%= image_tag "entreprenerd/entreprenerd-cover.jpg" %>
+      </div>
+      <div class="book__description">
+        <h3>Format and Buying Info</h3>
+        <ul>
+          <li class="rocket-list-item">Instant download.</li>
+          <li class="rocket-list-item">Approx 331 pages (depends on reader device).</li>
+          <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats on this site (<%= link_to "get it here", "#add-to-cart-button" %>).</li>
+          <li class="rocket-list-item">Also available on MOBI only (with DRM) on <%= link_to "Amazon.com", "https://www.amazon.com/Entreprenerd-Persons-Advertising-Conversion-Optimisation-ebook/" %>
+        </li>
+        </ul>
+        <div>
+          <h3>Top 7 Reasons To Buy Entreprenerd</h3>
+          <ul>
+            <li class="rocket-list-item">It's the only marketing book <b>written from the programmer's perspective.</b></li>
+            <li class="rocket-list-item">Reading it will give you an overview of the <b>full-stack</b> of <i> online marketing tools.</i></li>
+            <li class="rocket-list-item"><b>Employees</b> will become more well-informed as programmers and will be better able assist their teams with marketing tasks. <b>Software entrepreneurs</b> will be better equipped to sell more of their own goods.</li>
+            <li class="rocket-list-item">This book has the <b>highest rate of information transfer per word</b> compared to competing offerings.</li>
+            <li class="rocket-list-item"><span class="highlight">No questions asked refunds</span>- if you don't find the book worth every cent, I'll refund you in full.</li>
+            <li class="rocket-list-item">You'll have oodles of fun reading it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="checkout-button-container">
+        <%= link_to "<div class='pulse'></div>".html_safe, cart_add_path(product_id: book.product.id), method: :post %>
+        <%= button_to "Learn Online Marketing Now | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %>
+      </div>
+    </div>
+  </section>
+</div>

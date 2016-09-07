@@ -8,10 +8,14 @@ Rails.application.routes.draw do
 
   get 'feed' => 'articles#feed', constraints: { format: "rss" }, format: true
 
+
   resources :articles, only: [:show, :index], param: :slug
 
+  # keep responding to old book URL but redirect it
+  get '/books/entreprenerd-seo-paid-advertising-and-conversion-optimisation/', to: redirect('/books/entreprenerd/marketing_for_programmers')
   resources :books, only: [:show, :index] do
     member do
+      get :marketing_for_programmers
       get :download_pdf_preview
     end
   end

@@ -3,3 +3,27 @@ picture {
   margin: 0;
   max-width: 100%; // otherwise the image will go off the screen
 }
+
+.image-cloud {
+  img {
+    width: 40%;
+    @include media($tablet) {
+      width: 23%;
+      display: inline !important;
+    }
+  }
+}
+
+.about-author img {
+  padding-top: $small-spacing;
+  padding-right: $small-spacing;
+}
+
+.centered-images {
+  display: table;
+  .centered-img {
+    display: table-cell;
+    vertical-align: middle;
+    width: 25%;
+  }
+}

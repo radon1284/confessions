@@ -8,6 +8,18 @@ class BooksController < ApplicationController
     )
   end
 
+  def marketing_for_programmers
+    book = Book.find_by!(slug: params.fetch(:id))
+    chapters = book.chapters.order(:number)
+    use_minimised_layout
+    render(
+      locals: {
+        book: book,
+        chapters: chapters,
+      }
+    )
+  end
+
   def show
     book = Book.find_by!(slug: params.fetch(:id))
     chapters = book.chapters.order(:number)

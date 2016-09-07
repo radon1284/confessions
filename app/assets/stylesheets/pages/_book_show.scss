@@ -17,15 +17,39 @@
   @include browser-width-bar($sch3-navy);
   color: white;
 }
-.who-should-read-this h2 {
+.fa-book {
+  color: $sch1-orange;
+}
+.book__format {
+  @include span-columns(4 of 12);
+  font-weight: bold;
+  @include media($tablet) {
+    @include span-columns(12 of 12);
+    p {
+      margin: $base-spacing;
+      text-align: center;
+    }
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+.who-should-read-this h2, .pleasantly-typeset h2 {
   @include browser-width-bar($sch3-lightened-navy);
   color: white;
+}
+.pleasantly-typeset {
+  img {
+    box-shadow: 5px 5px 30px;
+  }
 }
 .about-author h2 {
   @include browser-width-bar($sch1-darkened-green);
   color: white;
 }
-.objections h2 {
+.objections h2, .these-companies h2 {
   @include browser-width-bar($medium-gray);
 }
 .testimonials h2 {
@@ -34,13 +58,25 @@
 .testimonials p:last-of-type {
   margin-bottom: -$base-spacing;
 }
-.faq h2 {
+.testimonial {
+  @include span-columns(12);
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+  .testimonial-img {
+    @include span-columns(3 of 12);
+  }
+  img {
+    margin-top: $small-spacing;
+  }
+  p {
+    @include span-columns(9 of 12);
+  }
+}
+.faq h2, .buy-it-now h2 {
   @include browser-width-bar($sch2-orange);
 }
 
 .about-author__social-media-icons {
-  position: absolute;
-  right: 0px;
   @include media($small-laptop) {
     right: 0px;
   }
@@ -101,6 +137,9 @@
 .about-author {
   @include span-columns(12);
   position: relative;
+  h3 {
+    border-bottom: 5px $warm-black solid;
+  }
 }
 .about-author__text-side {
   @include span-columns(5);
@@ -124,10 +163,11 @@
   }
 }
 
-.built-it-no-one-came {
-  h2 {
-    @include browser-width-bar($sch1-main-green);
-  }
+.built-it-no-one-came h2 {
+  @include browser-width-bar($sch1-main-green);
+}
+
+.built-it-no-one-came{
   p {
     @include shift(3);
     @include span-columns(7);
@@ -137,7 +177,6 @@
     }
   }
 }
-
 
 .benefits-of-reading__traffic {
   @include span-columns(6);
@@ -256,6 +295,36 @@
   }
 }
 
+.highlight {
+  background-color: tint($entreprenerd-green, 40);
+}
+
+.internal-page-nav {
+  @include browser-width-bar($sch2-light-blue);
+
+  padding: $small-spacing;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  li {
+    flex-grow: 1;
+    font-family: $heading-font-family;
+    text-transform: uppercase;
+  }
+  .internal-page-nav-highlight {
+    background: white;
+    color: black;
+    padding: $tiny-spacing;
+  }
+  a {
+    color: white;
+    &:hover {
+      background-color: white;
+      color: $warm-black;
+    }
+  }
+}
+
 .pulse {
   content: '';
   display: inline-block;
@@ -264,13 +333,22 @@
   border-radius: 8px;
   animation: out 2s infinite linear;
   background: $sch3-orange;
-  margin: 0 9px -2px 1px;
   animation-name: pulse;
   cursor: pointer;
 }
 
 .checkout-button-container {
+  margin-top: $large-spacing;
   position: relative;
+  margin-bottom: $large-spacing * 2;
+  @include shift(2);
+  @include media($tablet) {
+    @include shift(0);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
 }
 
 .checkout-button-container form {
@@ -278,54 +356,14 @@
   left: $large-spacing;
   top: -14px;
   display: inline-block;
-  @include media($tablet) {
-    @include shift(1 of 6);
-  }
 }
 
 .book__preview {
-  background-color: tint(#dcdace, 60%);
-  padding-bottom: $small-spacing;
-  padding-left: $large-spacing * 2;
-  padding-right: $large-spacing * 2;
-  width: 83.333%;
-  margin: 0 auto;
-  @include media($tablet) {
-    width: 100%;
-  }
-  table {
-    text-transform: uppercase;
-    a {
-      color: $warm-black;
-    }
-  }
-  td {
-    padding-bottom: 0;
-    padding-top: 0;
-    border-bottom: 1px dotted $readable-gray;
-  }
-  tbody tr:hover {
-    background-color: shade(#dcdace, 20%);
-    a {
-      color: white;
-    }
-  }
-  td:nth-child(2), th {
-    text-align: right;
-    @include media($tablet) {
-      text-align: left;
-    }
-  }
-
-  tr:first-of-type td {
-    padding-top: $base-spacing;
-  }
-  tbody {
-    top: $column;
-  }
   thead {
-    margin-bottom: $column;
-    border-bottom: 2px solid $warm-black;
+    text-transform: uppercase;
+  }
+  tbody tr:nth-child(odd) {
+    background-color: $light-gray;
   }
 }
 
@@ -335,5 +373,94 @@
     color: $light-gray;
     padding: 20px;
     box-shadow: 0px 7px 10px $warm-black;
+  }
+}
+.brackets {
+}
+.for {
+  font-size: 70%;
+  color: $sch3-orange;
+}
+.book-title-image {
+  img {
+    margin-top: $small-spacing;
+    max-height: 80px;
+    @include media($small-laptop) {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @include span-columns(3 of 12);
+  @include media($small-laptop) {
+    @include span-columns(12);
+    @include omega();
+  }
+}
+.book-title {
+  @include span-columns(9 of 12);
+  @include omega();
+  @include media($small-laptop) {
+    @include span-columns(12 of 12);
+  }
+  h1, h4 {
+    text-align: right;
+    @include media($small-laptop) {
+      text-align: center;
+    }
+  }
+}
+.landing-page {
+  font-size: modular-scale(1);
+  position: relative;
+  z-index: 1;
+  padding: 0px;
+  margin: 0px;
+
+  &:before {
+    background-image: image-url('entreprenerd/wave-graph.png');
+    content: "";
+    opacity: .2;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+.book__topic {
+  @include span-columns(4);
+  &:nth-of-type(3n) {
+    @include omega();
+  }
+  @include media($tablet) {
+    @include span-columns(6 of 12);
+    &:nth-of-type(2n) {
+      @include omega();
+    }
+  }
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  &:before {
+    background-image: image-url('entreprenerd/wave-graph.png');
+    z-index: -1;
+    content: "";
+    position:absolute;
+    bottom: 0;
+    filter: hue-rotate(90deg);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .2;
+  }
+  padding: $small-spacing;
+  margin-bottom: $small-spacing;
+  p {
+    text-align: center;
+  }
+  img {
+    @include filter(saturate(70%));
   }
 }

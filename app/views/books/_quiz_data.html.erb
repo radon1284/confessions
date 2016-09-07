@@ -1,0 +1,95 @@
+<script>
+  var quizJSON = {
+    "info": {
+      "name":    "",
+      "main":    "",
+      "results": "Thanks for taking my quiz! If you found it remotely interesting or useful, I recommend you read a few of my articles or considering purchasing my book, Entreprenerd. It's stuffed with the kinds of insights you just saw. <p>Scroll on down to find out more</p>"
+    },
+    "questions": [
+    {
+      "q": "One of these images had a 3000% higher click-through rate in Facebook advertising than the other. Which one and WHY? <div><img src='https://confessions-production.s3.amazonaws.com/uploads/photo/file/84/conversion-contacts.jpg' /> <img src='https://confessions-production.s3.amazonaws.com/uploads/photo/file/83/flower_dog_resize.jpg' /></div>",
+      "a": [
+      {"option": "The contact lenses",       "correct": true},
+      {"option": "The cute kitten",          "correct": false}
+      ],
+      "correct": "Although internet surfers love kittens, the contact lenses pic trounces it for conversions, thanks to its whiff of sexual connotation. The overarching principle here is that pictures of objects arranged suggestively can amount to subtle, plausibly deniable ways to sneak sex into advertisements... and we all know that sex sells."
+    },
+    {
+      "q": "<p>At launch, your website primarily serves people living in the UK, but you MIGHT expand internationally next year. </p><p>Should you use a '.co.uk' top-level domain (TLD) during this first year so as to get a local SEO boost?",
+      "a": [
+      {"option": "Yes",       "correct": false },
+      {"option": "No",          "correct": true }
+      ],
+      "correct": "<p>The UK domain is not recommended. Although country-specific top-level domains (TLDs) give you a boost in <i>local</i> search results for that region, they perform dismally internationally. If your website will eventually expands overseas, you'll realistically have to buy a fresh domain for the other countries. This leads to problems: your desired international domain might have already been bought up by a domain-name squatter. Or the domain might only be available for purchase through a heavily regulated registrar that demands that you own a corresponding trademark in that country.</p><p>Even if you somehow succeed in getting hold of the international domains, you will still end up with a nasty SEO handicap. This is because each TLD is considered fundamentally unconnected by Google, so you essentially start from scratch with each new domain, forgoing any SEO advantages you might have otherwise built up. As such, it would have been a better strategy to have launched your business with an appropriately international domain from day one, instead using your <i>URL structure</i> to indicate country."
+    },
+    {
+      "q": "<p>Suppose you own an AirBnB-like apartment listing website that has various sorting filters (e.g., by price, by location). Suppose too that your code automatically updates your site's URLs to reflect the application of these filters, e.g., the listing URL becomes: <br> '/apartments<b>?sort=price&direction=asc</b>'.</p> <p>Do you know what corresponding change you ought to have made in Google Analytics to prevent the ensuing data-reporting anarchy?</p>",
+      "a": [
+      {"option": "Yes",       "correct": true },
+      {"option": "No",          "correct": false}
+      ],
+      "correct": "<p>Google Analytics (along with most other internet services) treats each combination of GET parameters as representing a unique, separate URL. Therefore your Google Analytics reports are going to contain separate entries for <i>every combination</i> of sorting parameters, leading to separate reporting of traffic on '/apartments<b>?sort=price&direction=asc</b>', on '<b>/apartments?sort=price&direction=desc</b>', and on '<b>/apartments?sort=location&direction=asc</b>', etc. This is absolutely NOT what you want from an analytical point of view, because you, as a human, only really care about traffic on the '/apartments' page generally, irregardless of what filters were applied or how the user wanted to order the apartments. Now that Google Analytics disperses the apartments listing data across many different entries, it becomes super awkward to work with your data and reach useful conclusions.</p> <p>It is more useful for you, the marketer, to instruct Google Analytics to bucket all the above into a single collapsed Analytics entry for '/apartments'. The sort/filter/pagination parameters are irrelevant to you. To set this up, you simply tell Google Analytics the names of the URL parameters which you want it to ignore. This is done through the Exclude URL parameters feature.</p>"
+    },
+    {
+      "q": "<p>Tomorrow morning, you plan on launching a website WITHOUT buying any online ads to send you traffic. That said, you haven't ruled out the idea of ever using paid ads, and you might eventually give AdWords, Facebook Ads, and Twitter Ads a shot. Before you take your website live tomorrow, is there anything you ought to do so as to not miss out on a huge later opportunity?</p> <p> (Hint: Think about <i>Remarketing</i> – those stunningly cost-effective online advertisements that follow customers around the web)</i></p>",
+      "a": [
+      {"option": "Yes",       "correct": true },
+      {"option": "No",          "correct": false}
+      ],
+      "correct": "In order to remarket to someone, you need to have placed them on a remarketing list hosted by the relevant advertising provider (or providers). The thing is, remarketing lists can only be populated <i>prospectively</i>, i.e., after the fact. It's just not possible for you to retrospectively add past visitors to these lists when, six months down the line, you decide to finally give advertising a shot. For that reason, you should always <i>launch</i> with remarketing pixels installed for each of the major online advertising platforms, otherwise you'll miss the chance to later remarket to all those early leads. Considering that people can stay on remarketing lists for up to 540 days, that's a lot of lost opportunity."
+    },
+    {
+      "q": "<p>Imagine that you own a marketplace website where artists sell Star Wars-themed merchandise. Each artist sells many different products under public URLs that are composed of both the artist's username and each product's name (e.g., typical URLs would be '/star-wars-fan-44/R2D2-keyring', '/star-wars-fan-44/holographic-lightsaber').</p><p> One of your website's features makes it possible for an artist to change their username and product names at any time in future. As it stands, is this architecture acceptable from an SEO point of view?",
+      "a": [
+      {"option": "Yes",       "correct": false},
+      {"option": "No",          "correct": true}
+      ],
+      "correct": "<p>Over the years, your Star Wars-themed marketplace will accumulate external links to its many different product pages. Whenever an artist changes their username or modifies one of their products' names, this edit severs the old links. All the traffic arriving to these no-longer-existent pages will now be greeted by a big fat 404 error page. What's more, any external pages that were channeling SEO juice to these old pages will now be pointing to kaput pages, killing your website's rankings in Google.</p> <p>The solution to this SEO disaster is to either: <br> - use permalinks for each username/product combo and not allow the artist to change <i>these</i> (they can, of course, change the text in H1s etc. that appears on the page) <br> - store the old URLs in a database and ensure the web app's router continues responding to them, e.g. by automatically redirecting them to the updated URLs, thereby preserving about 90% of your SEO power <br> - travel back in time, and design the website with a URL structure that is less dependent on user-input data (e.g., perhaps the username shouldn't have been included in the URL) </p>"
+    },
+    {
+      "q": "There is a major thought-leader in your niche whose followers are EXACTLY the kind of people who'd eat up your freshly released software. Unfortunately for you, this thought-leader is such a big deal that you don't stand a snowball's chance in hell of getting her attention. Can you think of scalable, indirect way to reach her audience without needing to coordinate with her?",
+      "a": [
+      {"option": "Yes",       "correct": true },
+      {"option": "Nope",          "correct": false}
+      ],
+      "correct": "Your best current option is to use Twitter Ads to advertise to her followers. You simply feed Twitter her @handle, then Twitter will display your ads to all of her followers. This is a marketing tactic so great it's comparable to picking up the Mario Kart star power-up."
+    },
+    {
+      "q": "After three years of client work, you decide to productize your skill at creating Wordpress themes by building a marketplace that sells these themes as digital downloads. Through Google's Keyword Tool, you figure out that your principal SEO keyword ought to be 'Wordpress themes', so you make sure that you put this phrase on all 200 of your product pages (and in their URLs, title tags, meta descriptions, etc.). Is this the optimal way to rank in Google Search for 'wordpress themes'?",
+      "a": [
+      {"option": "Yes",       "correct": false },
+      {"option": "No",          "correct": true }
+      ],
+      "correct": "<p>Google ranks the web in terms of web <i>pages</i> not web <i>domains</i>. Your website is really a collection of pages that compete with each other (and every other web page out there) to rank for some particular keyword or phrase.</i> Any competition for the same keyword between the pages <i>on your own domain</i> leads to a problem known as 'keyword cannibalisation'. Because you included the phrase 'wordpress themes' on 200 different product pages, no single one of these pages is obviously pre-eminent to a third party wishing to direct their customers to your Wordpress templates. As a result, whenever a third party links to you, their link will effectively point to a random one of your 200 different pages. The end result is that NONE of these pages ever reach the requisite inbound-link strength to appear on the first page of Google results.</p><p> A better strategy for you to have followed would have been to create a single product page optimised for 'wordpress themes', such that your inbound links would all be concentrated into this one catch-all. Don't spread yourself too thin.</p>"
+    },
+    {
+      "q": "Shorter funnels are a sure-fire way to increase your conversion rates. What are some ways to trim an overly lengthy funnel?",
+      "a": [
+      {"option": "Make as many fields as possible non-mandatory, particularly if they require creativity (e.g. 'description' or 'bio' fields)",       "correct": false},
+      {"option": "Guess and pre-fill country codes based on the user's IP address",       "correct": false},
+      {"option": "Make validations in-line instead of through a page refresh",       "correct": false},
+      {"option": "Remove Paypal and replace with on-site payment",       "correct": false},
+      {"option": "Remove coupon fields from check out flows",       "correct": false},
+      {"option": "All of the above",       "correct": true }
+      ],
+      "correct": "All of them! <br>1. Making steps optional obviously helps - it's a good compromise between a) deleting a field altogether and b) keeping the field around to gather useful data.<br> 2. The presence of a coupon code gives your visitors the impression that discounts are available <i>somewhere</i>. This allure of a lower possible price causes your visitors to leave your site on an internet-wide quest for the valid code. During this search, these visitors may get distracted and never come back to complete the conversion.  <br> 3. Pre-filled form fields shave time off for the user, cutting down the negative impact of those fields.  <br> 4. In-line validations are great for reducing funnel length because they remove a lengthy and disorientating browser reload from the error cycle.  <br> 5. By introducing an off-site payment provider, you add a Pandora's box of extra steps to your funnel (some of which may even include additional logging-in cycles!)"
+    },
+    {
+      "q": "<p>Branding consultants get paid $20,000+ to coin evocative, new brand names for their clients.</p><p>Reflect on the connotations of the word 'Accenture' and figure out why it sounds so prestigious.</p>",
+      "a": [
+      {"option": "I'm done thinking about it. Tell me the answer",       "correct": true }
+      ],
+      "correct": "<p>The first syllable, 'acc', connotes both the word 'accelerate' and (phonologically) the word 'ascent'. The last syllable, 'ture', recalls 'venture'. Because of these phonological and morphological associations with positive terms, the brand named 'Accenture' manages to communicate positive vibes without having to resort to explicit, transparent descriptions of themselves.</p> <p> To give you a further idea of how associative naming can work, I'd like to offer another example: A friend invented an algorithm to figure out the cheapest solar storage batteries for homes. If he christened the algorithm 'Deep Green', he would associate his company both with environmental friendliness ('green') and also with the 'Deep Blue' program, the first piece of software to beat a reigning (human) chess champion.</p>"
+    }
+    ]
+  }
+</script>
+    <%#{%>
+      <%#"q": "Which property of Facebook Ads (that doesn't apply to Google AdWords) generates the largest difference in optimal advertising strategy?",%>
+      <%#"a": [%>
+      <%#{"option": "Advertisees on Facebook are all connected with their friends, whereas on Google everyone is more or less flying solo.",       "correct": false},%>
+      <%#{"option": "Advertisees on Facebook are there to be entertained, whereas on Google they want to get something done.",       "correct": false},%>
+      <%#{"option": "Advertisees on Facebook see their adverts in a waterfall manner (basically without rationing), whereas advertisees on Google are shown ads in drip-feed, rationed manner",          "correct": true},%>
+      <%#],%>
+      <%#"correct": "While all the aforementioned are consequential differences, it's the different rationing that causes the most strategic deviation. Today there are over 7 billion people in the world. But unless you’re selling water, only a small proportion of these people will have any interest in whatever it is you sell. This tiny group of potential customers is your intended audience, and it’s these people that you target. To a greater or lesser degree, your advertising only enables you to reach a narrow sliver of this targeted audience on any particular day. Imagine you are selling guides to pass law finals. Your targeted audience will be all students sitting their law finals at the end of this academic year. But only a fraction of these students will google “XYZ exam” on any given day, meaning that only a fraction of your audience will see the adverts you configured to appear for those keywords. Despite your targeting, your access to the underlying intended audience is rationed. By contrast, suppose you had a parallel Facebook campaign that displayed adverts to Facebook users who identified themselves as studying law this year. Because a much larger percentage of law students log in to Facebook every day than search on Google for a particular law exam, you will reach a much wider slice of the underlying audience on any particular day. Through this target- ing mechanism, your access is rationed to a much lesser degree. ￼(Of course, you’re unlikely to reach everyone in your targeted au- dience because some of them might not log in to Facebook at all while your campaigns are running.). <b>The practical offshoot of all this is the following:</b> 1. Unrationed advertisements have the possibility of gas pedals, aka to reach everyone in the group in a short period of time. 2. Unrationed audiences are at risk of ad-blindness, whereby an advertisement shown multiple times ceases to be registered in conscious attention due to pyschological adaption. This requires Facebook advertisers to rotate their ads approximately every week, otherwise they rapidly loose effectiveness when shown to the same people."%>
+    <%#}%>
