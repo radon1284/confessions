@@ -33,11 +33,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 05 Sep 2016 19:30:16 GMT
+      - Sat, 10 Sep 2016 13:58:42 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '761'
+      - '780'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -51,19 +51,19 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_98kHNZySi2pQVd
+      - req_9AX4sTwAM9N6iC
       Stripe-Version:
-      - '2016-03-07'
+      - '2016-07-06'
       Strict-Transport-Security:
       - max-age=31556926; includeSubDomains
     body:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_98kHuBkKVJeL9z",
+          "id": "tok_18sC0DExoLTEnFFvC4QF3Wn7",
           "object": "token",
           "card": {
-            "id": "card_98kHYyt6ebEroB",
+            "id": "card_18sC0DExoLTEnFFv15N96DqA",
             "object": "card",
             "address_city": null,
             "address_country": null,
@@ -79,27 +79,27 @@ http_interactions:
             "dynamic_last4": null,
             "exp_month": 7,
             "exp_year": 2019,
-            "fingerprint": "ufArVA4AmgyTYN8A",
+            "fingerprint": "83foGQX3rMLx1Gjy",
             "funding": "credit",
             "last4": "4242",
             "metadata": {},
             "name": null,
             "tokenization_method": null
           },
-          "client_ip": "94.254.163.228",
-          "created": 1473103816,
+          "client_ip": "83.29.211.137",
+          "created": 1473515921,
           "livemode": false,
           "type": "card",
           "used": false
         }
     http_version: 
-  recorded_at: Mon, 05 Sep 2016 19:30:15 GMT
+  recorded_at: Sat, 10 Sep 2016 13:58:42 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: UTF-8
-      string: amount=1000&currency=USD&metadata[order_id]=3078aba1-45b9-4623-b2d6-dacfc5e82f90&source=tok_98kHuBkKVJeL9z
+      string: amount=1000&currency=USD&metadata[order_id]=399cd162-8e82-4d11-bf7c-fe417ba0faa0&source=tok_18sC0DExoLTEnFFvC4QF3Wn7
     headers:
       Accept:
       - "*/*"
@@ -116,7 +116,7 @@ http_interactions:
         version 4.2.0-42-generic (buildd@lgw01-54) (gcc version 5.2.1 20151010 (Ubuntu
         5.2.1-22ubuntu2) ) #49-Ubuntu SMP Tue Jun 28 21:26:26 UTC 2016","hostname":"adamsunday-ThinkPad-E450"}'
       Content-Length:
-      - '106'
+      - '116'
       Host:
       - api.stripe.com
   response:
@@ -127,11 +127,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 05 Sep 2016 19:30:19 GMT
+      - Sat, 10 Sep 2016 13:58:43 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1486'
+      - '1526'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -145,23 +145,23 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_98kHeciIkF81Z8
+      - req_9AX4JLy1DUz5Ys
       Stripe-Version:
-      - '2016-03-07'
+      - '2016-07-06'
       Strict-Transport-Security:
       - max-age=31556926; includeSubDomains
     body:
       encoding: UTF-8
       string: |
         {
-          "id": "ch_98kHW12NrslY5y",
+          "id": "ch_18sC0FExoLTEnFFvCZAzmDS5",
           "object": "charge",
           "amount": 1000,
           "amount_refunded": 0,
           "application_fee": null,
-          "balance_transaction": "txn_98kHoJu0AYdxmj",
+          "balance_transaction": "txn_18sC0FExoLTEnFFvpYSqLblH",
           "captured": true,
-          "created": 1473103818,
+          "created": 1473515923,
           "currency": "usd",
           "customer": null,
           "description": null,
@@ -173,7 +173,7 @@ http_interactions:
           "invoice": null,
           "livemode": false,
           "metadata": {
-            "order_id": "3078aba1-45b9-4623-b2d6-dacfc5e82f90"
+            "order_id": "399cd162-8e82-4d11-bf7c-fe417ba0faa0"
           },
           "order": null,
           "paid": true,
@@ -185,11 +185,11 @@ http_interactions:
             "data": [],
             "has_more": false,
             "total_count": 0,
-            "url": "/v1/charges/ch_98kHW12NrslY5y/refunds"
+            "url": "/v1/charges/ch_18sC0FExoLTEnFFvCZAzmDS5/refunds"
           },
           "shipping": null,
           "source": {
-            "id": "card_98kHYyt6ebEroB",
+            "id": "card_18sC0DExoLTEnFFv15N96DqA",
             "object": "card",
             "address_city": null,
             "address_country": null,
@@ -206,7 +206,7 @@ http_interactions:
             "dynamic_last4": null,
             "exp_month": 7,
             "exp_year": 2019,
-            "fingerprint": "ufArVA4AmgyTYN8A",
+            "fingerprint": "83foGQX3rMLx1Gjy",
             "funding": "credit",
             "last4": "4242",
             "metadata": {},
@@ -218,5 +218,5 @@ http_interactions:
           "status": "succeeded"
         }
     http_version: 
-  recorded_at: Mon, 05 Sep 2016 19:30:18 GMT
+  recorded_at: Sat, 10 Sep 2016 13:58:43 GMT
 recorded_with: VCR 3.0.3

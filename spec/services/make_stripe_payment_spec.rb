@@ -24,7 +24,7 @@ describe MakeStripePayment, :vcr do
 
     it "returns charge identifier" do
       charge_identifier = service.call(cart, token, order_id)
-      expect(charge_identifier).to eq "ch_98kHW12NrslY5y"
+      expect(charge_identifier).to eq "ch_18sC0FExoLTEnFFvCZAzmDS5"
     end
   end
 end
