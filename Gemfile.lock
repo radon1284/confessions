@@ -274,7 +274,7 @@ GEM
     rails-assets-slideout.js (0.1.12)
       rails-assets-decouple (= 0.0.2)
       rails-assets-emitter-es6 (= 0.0.7)
-    rails-assets-social-share-kit (1.0.9)
+    rails-assets-social-share-kit (1.0.10)
     rails-dom-testing (2.0.1)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6.0)
