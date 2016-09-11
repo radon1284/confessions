@@ -43,6 +43,9 @@ VCR.configure do |c|
   c.filter_sensitive_data('<STRIPE_TOKEN>') do
     ENV.fetch("STRIPE_SECRET_KEY")
   end
+  c.filter_sensitive_data('<VATLAYER_API_KEY>') do
+    ENV.fetch("VATLAYER_API_KEY")
+  end
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
