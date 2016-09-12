@@ -7,11 +7,12 @@ class GenerateFinancialTransactionsReport
     def call(country_code, date)
       return nil unless CountryHelper.eu_country?(country_code)
 
-      vat_rates(date.beginning_of_day)
+      day = date.beginning_of_day
+      vat_rates(day)
         .fetch(country_code)
         .fetch("standard_rate")
     rescue ActiveRecord::RecordNotFound, KeyError
-      raise "Cannot find the rate for #{country_code} #{date}"
+      raise "Cannot find the rate for #{country_code} #{day}"
     end
 
     private
