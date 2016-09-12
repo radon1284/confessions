@@ -5,7 +5,7 @@ class GenerateFinancialTransactionsReport
     end
 
     def call(country_code, date)
-      return nil unless eu_country?(country_code)
+      return nil unless CountryHelper.eu_country?(country_code)
 
       vat_rates(date.beginning_of_day)
         .fetch(country_code)
@@ -15,11 +15,6 @@ class GenerateFinancialTransactionsReport
     end
 
     private
-
-    def eu_country?(country_code)
-      country_object = ISO3166::Country.find_country_by_alpha2(country_code)
-      country_object.eu_member
-    end
 
     def vat_rates(date)
       VATRateResponse.find_by!(date: date).payload.fetch("rates")
