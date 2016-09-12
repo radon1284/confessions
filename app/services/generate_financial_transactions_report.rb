@@ -4,6 +4,7 @@ class GenerateFinancialTransactionsReport
   GERMANY_PURCHASE_CODE = 8400
   EU_PURCHASE_CODE = 8331
   OUTSIDE_EU_PURCHASE_CODE = 8338
+  STRIPE_COUNTER_CODE = 1220
 
   def self.build
     new
