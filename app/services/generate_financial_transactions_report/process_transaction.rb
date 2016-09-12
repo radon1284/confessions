@@ -48,7 +48,7 @@ class GenerateFinancialTransactionsReport
             sheet_number: 2
           )
         ]
-      when "withdrawal"
+      when "transfer"
         [
           ReportRow.new(
             date: transaction.date,

@@ -5,10 +5,10 @@ describe GenerateFinancialTransactionsReport::ProcessTransaction do
     GenerateFinancialTransactionsReport::ProcessTransaction.build
   end
 
-  describe "withdrawal" do
+  describe "transfer" do
     let!(:transaction) do
       GenerateFinancialTransactionsReport::Transaction.new(
-        "withdrawal",
+        "transfer",
         -10_000,
         3.days.ago,
         nil,
