@@ -1,5 +1,9 @@
 class GenerateFinancialTransactionsReport
   class GetTransactions
+    class UnknownTransactionTypeError < StandardError; end
+
+    KNOWN_TRANSACTION_TYPES = %w(charge refund transfer).freeze
+
     def self.build
       new(DI.get(FetchFromStripe))
     end
@@ -10,6 +14,8 @@ class GenerateFinancialTransactionsReport
 
     def call(date)
       fetch_from_stripe.call(date, date.end_of_month).map do |raw_transaction|
+        check_type(raw_transaction.type)
+
         Transaction.new(
           raw_transaction.type,
           raw_transaction.amount,
@@ -23,6 +29,13 @@ class GenerateFinancialTransactionsReport
     private
 
     attr_accessor :fetch_from_stripe
+
+    def check_type(type)
+      raise(
+        UnknownTransactionTypeError,
+        "#{type} is not supported"
+      ) unless KNOWN_TRANSACTION_TYPES.include?(type)
+    end
 
     def get_order_id(raw_transaction)
       case raw_transaction.type
