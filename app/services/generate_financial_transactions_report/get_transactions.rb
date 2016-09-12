@@ -1,7 +1,5 @@
 class GenerateFinancialTransactionsReport
   class GetTransactions
-    Transaction = Struct.new(:type, :amount, :date, :order_id, :fee_amount)
-
     def self.build
       new(DI.get(FetchFromStripe))
     end
