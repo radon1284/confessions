@@ -24,5 +24,12 @@ describe "Financial transactions reports" do
       visit admin_financial_transactions_reports_path
       expect(page).to have_content(report.name)
     end
+
+    it "displays links to download each sheet of the report" do
+      visit admin_financial_transactions_reports_path
+      expect(page).to have_link("First sheet")
+      expect(page).to have_link("Second sheet")
+      expect(page).to have_link("Third sheet")
+    end
   end
 end

@@ -15,6 +15,9 @@
       <th>
         created
       </th>
+      <th>
+        download
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +28,17 @@
         </td>
         <td>
           <%= financial_transactions_report.created_at %>
+        </td>
+        <td>
+          <%=
+            link_to "First sheet", financial_transactions_report.first_sheet.download_url
+          %> |
+          <%=
+            link_to "Second sheet", financial_transactions_report.second_sheet.download_url
+          %> |
+          <%=
+            link_to "Third sheet", financial_transactions_report.third_sheet.download_url
+          %>
         </td>
       </tr>
     <% end %>
