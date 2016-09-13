@@ -9,7 +9,7 @@ describe GenerateFinancialTransactionsReport::CalculateTaxRate do
     it "returns nil" do
       result = service.call(
         "CA",
-        DateTime.new(2016, 9, 5, 16, 30)
+        Time.zone.local(2016, 9, 5, 16, 30)
       )
       expect(result).to eq nil
     end
@@ -18,7 +18,7 @@ describe GenerateFinancialTransactionsReport::CalculateTaxRate do
   context "for a country in the EU" do
     before do
       VATRateResponse.create!(
-        date: DateTime.new(2016, 9, 5),
+        date: Time.zone.local(2016, 9, 5),
         payload: {
           rates: {
             PT: {
@@ -32,7 +32,7 @@ describe GenerateFinancialTransactionsReport::CalculateTaxRate do
     it "returns the tax rate" do
       result = service.call(
         "PT",
-        DateTime.new(2016, 9, 5, 16, 30)
+        Time.zone.local(2016, 9, 5, 16, 30)
       )
       expect(result).to eq 23
     end
@@ -41,7 +41,7 @@ describe GenerateFinancialTransactionsReport::CalculateTaxRate do
   context "for a country in the EU with reduced rate for e-books" do
     before do
       VATRateResponse.create!(
-        date: DateTime.new(2016, 9, 5),
+        date: Time.zone.local(2016, 9, 5),
         payload: {
           rates: {
             FR: {
@@ -58,7 +58,7 @@ describe GenerateFinancialTransactionsReport::CalculateTaxRate do
     it "returns the reduced rate" do
       result = service.call(
         "FR",
-        DateTime.new(2016, 9, 5, 16, 30)
+        Time.zone.local(2016, 9, 5, 16, 30)
       )
       expect(result).to eq 5.5
     end

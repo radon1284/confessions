@@ -11,8 +11,8 @@ describe GenerateFinancialTransactionsReport::FetchFromStripe, :vcr do
 
   it "returns all balance transactions in the given period" do
     result = service.call(
-      DateTime.new(2016, 9, 1),
-      DateTime.new(2016, 9, 30).end_of_day
+      Time.zone.local(2016, 9, 1),
+      Time.zone.local(2016, 9, 30).end_of_day
     )
     expect(result).to be_present
   end

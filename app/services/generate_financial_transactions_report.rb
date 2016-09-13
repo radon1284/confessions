@@ -40,7 +40,7 @@ class GenerateFinancialTransactionsReport
   attr_accessor :create_csv
 
   def get_date(month, year)
-    DateTime.new(year.to_i, month.to_i)
+    Time.zone.local(year.to_i, month.to_i)
   end
 
   def process_and_group(transactions)
