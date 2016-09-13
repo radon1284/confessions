@@ -2,12 +2,13 @@ class WatermarkedBook < ApplicationRecord
   belongs_to :order
   belongs_to :book
 
-  validates_presence_of(
+  validates(
     :order,
     :book,
     :content_pdf,
     :content_epub,
-    :content_mobi
+    :content_mobi,
+    presence: true
   )
 
   delegate :title, to: :book

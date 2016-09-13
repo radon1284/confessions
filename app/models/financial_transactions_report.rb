@@ -1,5 +1,5 @@
 class FinancialTransactionsReport < ApplicationRecord
-  validates_presence_of :name, :first_sheet, :second_sheet, :third_sheet
+  validates :name, :first_sheet, :second_sheet, :third_sheet, presence: true
 
   mount_uploader :first_sheet, CSVReportUploader
   mount_uploader :second_sheet, CSVReportUploader

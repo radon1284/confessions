@@ -2,7 +2,7 @@ class Book < ActiveRecord::Base
   has_one :product, as: :purchasable
   has_many :chapters, dependent: :destroy
 
-  validates_presence_of :slug, :title
+  validates :slug, :title, presence: true
 
   mount_uploader :content_pdf, BookContentPDFUploader
   mount_uploader :content_epub, BookContentEPUBUploader
