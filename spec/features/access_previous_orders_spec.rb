@@ -14,14 +14,14 @@ describe "Access previous orders" do
       FactoryGirl.create(
         :order,
         user: user,
-        created_at: DateTime.new(2016, 3, 20)
+        created_at: Time.zone.local(2016, 3, 20)
       )
     end
     let!(:second_order) do
       FactoryGirl.create(
         :order,
         user: user,
-        created_at: DateTime.new(2016, 2, 12)
+        created_at: Time.zone.local(2016, 2, 12)
       )
     end
 
