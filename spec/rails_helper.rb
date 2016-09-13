@@ -75,12 +75,21 @@ RSpec.configure do |config|
   config.file_fixture_path = "spec/fixtures"
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(
+      :truncation,
+      except: [ActiveRecord::InternalMetadata.table_name]
+    )
   end
 
   config.before(:each) do |example|
-    DatabaseCleaner.strategy =
-      example.metadata[:js] ? :truncation : :transaction
+    if example.metadata[:js]
+      DatabaseCleaner.strategy =
+        :truncation,
+        { except: [ActiveRecord::InternalMetadata.table_name] }
+    else
+      DatabaseCleaner.strategy = :transaction
+    end
+
     DatabaseCleaner.start
   end
 
