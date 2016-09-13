@@ -37,4 +37,30 @@ describe GenerateFinancialTransactionsReport::CalculateTaxRate do
       expect(result).to eq 23
     end
   end
+
+  context "for a country in the EU with reduced rate for e-books" do
+    before do
+      VATRateResponse.create!(
+        date: DateTime.new(2016, 9, 5),
+        payload: {
+          rates: {
+            FR: {
+              standard_rate: 20,
+              reduced_rates: {
+                "e-books" => 5.5
+              }
+            }
+          }
+        }
+      )
+    end
+
+    it "returns the reduced rate" do
+      result = service.call(
+        "FR",
+        DateTime.new(2016, 9, 5, 16, 30)
+      )
+      expect(result).to eq 5.5
+    end
+  end
 end
