@@ -1,6 +1,6 @@
 class CSVReportUploader < CarrierWave::Uploader::Base
   aws_acl 'private'
-  aws_authenticated_url_expiration 1.minute
+  aws_authenticated_url_expiration 10.minutes
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
