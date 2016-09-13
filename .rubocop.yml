@@ -16,3 +16,7 @@ Style/EmptyElse:
   EnforcedStyle: empty
 Metrics/ParameterLists:
   CountKeywordArgs: false
+Rails:
+  Enabled: true
+Rails/Delegate:
+  Enabled: false
