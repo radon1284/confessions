@@ -11,11 +11,12 @@ class Order < ActiveRecord::Base
   has_many :watermarked_books
   has_many :invoice_requests
 
-  validates_presence_of(
+  validates(
     :user,
     :invoice_number,
     :ip_address,
-    :stripe_charge_identifier
+    :stripe_charge_identifier,
+    presence: true
   )
 
   def total

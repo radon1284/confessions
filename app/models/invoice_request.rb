@@ -1,7 +1,7 @@
 class InvoiceRequest < ActiveRecord::Base
   belongs_to :order
 
-  validates_presence_of :order, :company_name, :address, :country
+  validates :order, :company_name, :address, :country, presence: true
   validate :vat_id_required_in_eu
 
   def vat_id_required_in_eu

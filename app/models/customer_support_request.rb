@@ -1,3 +1,3 @@
 class CustomerSupportRequest < ActiveRecord::Base
-  validates_presence_of :subject, :body, :email
+  validates :subject, :body, :email, presence: true
 end

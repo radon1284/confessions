@@ -1,3 +1,3 @@
 class VATRateResponse < ApplicationRecord
-  validates_presence_of :date, :payload
+  validates :date, :payload, presence: true
 end

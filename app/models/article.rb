@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
-  validates_presence_of :slug, :title, :body
-  validates_uniqueness_of :slug
+  validates :slug, :title, :body, presence: true
+  validates :slug, uniqueness: true
 
   has_many :taggings
   has_many :tags, through: :taggings
