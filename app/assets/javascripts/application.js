@@ -30,6 +30,14 @@ $(function(){
                             backButtonText: '< Back ',
                             displayQuestionNumber: false,
                             checkAnswerText: '',
-                            disableRanking: true
+                            disableRanking: true,
+                            animationCallbacks: {
+                              nextQuestion: function () {
+                                $('body').animate({
+                                  scrollTop: $('#slickQuiz').offset().top - 20
+                                }, 'fast');
+                              }
+                            }
+
   });
 });
