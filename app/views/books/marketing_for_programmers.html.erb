@@ -21,13 +21,14 @@
       <li>|</li>
       <li><%= link_to "Topics", "#peek-inside" %></li>
       <li>|</li>
-      <li><%= link_to "#buy-it-now", class: "internal-page-nav-highlight" do %>
+      <li><%= link_to "#buyme", class: "internal-page-nav-highlight" do %>
         <i class="fa fa-book"></i> Buy Book
       <% end %>
       </li>
     </ul>
     <p class="back-to-main-site">
       Brought to you by <%= link_to "jackkinsella.ie", root_path %>
+      <i class="fa fa-commenting-o" aria-hidden="true"></i>
   </p>
 
   </div>
@@ -127,7 +128,7 @@
       <p>
         While researching this book, I set up a private, Berlin-based marketing group where I was privy to closed-door tactics used by consultants, senior marketing staff, and company owners in select tech operations.
       </p>
-      <p>These marketers were involved with marketing for these (unaffiliated) companies: </span>
+      <p>These marketers were involved with marketing for these (unaffiliated) companies:
       </p>
 
       <div class="centered-images">
@@ -160,23 +161,21 @@
           <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/60/typewriter-1603999_1280.jpg" %>
           <p>Copywriting
             <br>
-            <p>
-              <%= link_to article_path(slug: "website-copywriting") do %>
-                <i class="fa fa-eye"></i> <i class="fa fa-eye"></i>
-                <span> Free Preview </span>
-              <% end %>
-            </p>
+            <%= link_to article_path(slug: "website-copywriting") do %>
+              <i class="fa fa-eye"></i> <i class="fa fa-eye"></i>
+              <span> Free Preview </span>
+            <% end %>
+          </p>
         </div>
         <div class="book__topic">
           <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/57/pyramid-387277_640.jpg" %>
           <p>Conversion Optimisation
             <br>
-            <p>
-              <%= link_to article_path(slug: "the-conversion-surgeon-a-guide-to-conversion-rate-optimization") do %>
-                <i class="fa fa-eye"></i> <i class="fa fa-eye"></i>
-                <span> Free Preview </span>
-              <% end %>
-            </p>
+            <%= link_to article_path(slug: "the-conversion-surgeon-a-guide-to-conversion-rate-optimization") do %>
+              <i class="fa fa-eye"></i> <i class="fa fa-eye"></i>
+              <span> Free Preview </span>
+            <% end %>
+          </p>
         </div>
         <div class="book__topic">
           <%= image_tag "https://confessions-production.s3.amazonaws.com/uploads/photo/file/81/light-bulbs-1125016_640.jpg" %>
@@ -267,7 +266,9 @@
     </section>
   </div>
 
-  <section class="buy-it-now" id="buy-it-now">
+
+<div class="row">
+  <section class="buy-it-now" id="buyme">
     <div class="row">
       <h2 class="centered">Buy Entreprenerd Now</h2>
       <div class="book-image">
@@ -302,4 +303,5 @@
       </div>
     </div>
   </section>
+</div>
 </div>
