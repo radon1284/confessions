@@ -303,6 +303,7 @@
   @include browser-width-bar($sch2-light-blue);
 
   padding: $small-spacing;
+  margin-bottom: 0px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -380,6 +381,16 @@
 .for {
   font-size: 70%;
   color: $sch3-orange;
+}
+.back-to-main-site {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  border-bottom: $base-border;
+  a {
+    text-decoration: underline;
+  }
 }
 .book-title-image {
   img {
