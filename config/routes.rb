@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # keep responding to old book URL but redirect it
   get '/books/entreprenerd-seo-paid-advertising-and-conversion-optimisation/', to: redirect('/books/entreprenerd/marketing_for_programmers')
+  get '/books/entreprenerd', to: redirect('/books/entreprenerd/marketing_for_programmers')
   resources :books, only: [:show, :index] do
     member do
       get :marketing_for_programmers
