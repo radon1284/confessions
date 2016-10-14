@@ -27,9 +27,9 @@ describe "Financial transactions reports" do
 
     it "displays links to download each sheet of the report" do
       visit admin_financial_transactions_reports_path
-      expect(page).to have_link("First sheet")
-      expect(page).to have_link("Second sheet")
-      expect(page).to have_link("Third sheet")
+      expect(page).to have_link("2016-8 Transactions-and-refunds")
+      expect(page).to have_link("2016-8 Stripe Fees")
+      expect(page).to have_link("2016-8 Withdrawals")
     end
   end
 end
