@@ -13,10 +13,10 @@ class GenerateFinancialTransactionsReport
       self.format_report_row = format_report_row
     end
 
-    def call(report_rows)
+    def call(report_rows, name)
       InMemoryFile.new(
         string_with_csv_data(report_rows),
-        "sheet.csv"
+        "#{name}.csv"
       )
     end
 

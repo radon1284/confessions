@@ -14,4 +14,6 @@ Please take a look at the ```docs/development_setup.md``` file.
 
 Our primary business value comes from the book and the application is just a distribution platform for it, so we are not afraid of "someone stealing our ideas". Moreover, we hope that we will get some social media recognition for developing the application in public (so please share it with your friends!)
 
+### Generate A Taxation Report
 
+Visit "/admin/financial_transactions_reports"

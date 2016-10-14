@@ -27,9 +27,9 @@ class GenerateFinancialTransactionsReport
 
     FinancialTransactionsReport.create!(
       name: "#{year}-#{month}",
-      first_sheet: create_csv.call(report_rows_by_sheet.fetch(1, [])),
-      second_sheet: create_csv.call(report_rows_by_sheet.fetch(2, [])),
-      third_sheet: create_csv.call(report_rows_by_sheet.fetch(3, []))
+      first_sheet: create_csv.call(report_rows_by_sheet.fetch(1, []), "#{year}-#{month}"),
+      second_sheet: create_csv.call(report_rows_by_sheet.fetch(2, []), "#{year}-#{month}"),
+      third_sheet: create_csv.call(report_rows_by_sheet.fetch(3, []), "#{year}-#{month}")
     )
   end
 

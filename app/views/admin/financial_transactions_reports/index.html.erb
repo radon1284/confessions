@@ -31,13 +31,13 @@
         </td>
         <td>
           <%=
-            link_to "First sheet", financial_transactions_report.first_sheet.download_url
+            link_to "#{financial_transactions_report.name} Transactions-and-refunds", financial_transactions_report.first_sheet.download_url
           %> |
           <%=
-            link_to "Second sheet", financial_transactions_report.second_sheet.download_url
+            link_to "#{financial_transactions_report.name} Stripe Fees", financial_transactions_report.second_sheet.download_url
           %> |
           <%=
-            link_to "Third sheet", financial_transactions_report.third_sheet.download_url
+            link_to "#{financial_transactions_report.name} Withdrawals", financial_transactions_report.third_sheet.download_url
           %>
         </td>
       </tr>
