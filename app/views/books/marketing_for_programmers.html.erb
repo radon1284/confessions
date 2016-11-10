@@ -295,8 +295,8 @@
         <ul>
           <li class="rocket-list-item">Instant download.</li>
           <li class="rocket-list-item">Approx 331 pages (depends on reader device).</li>
-          <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats on this site (<%= link_to "get it here", "#add-to-cart-button" %>).</li>
-          <li class="rocket-list-item">Also available on MOBI only (with DRM) on <%= link_to "Amazon.com", "https://www.amazon.com/Entreprenerd-Persons-Advertising-Conversion-Optimisation-ebook/dp/B01KMJIC12/" %>
+          <!-- <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats on this site (<%= link_to "get it here", "#add-to-cart-button" %>).</li> -->
+          <li class="rocket-list-item">available on MOBI only (with DRM) on <%= link_to "Amazon.com", "https://www.amazon.com/Entreprenerd-Persons-Advertising-Conversion-Optimisation-ebook/dp/B01KMJIC12/" %>
         </li>
         </ul>
         <div>
@@ -314,8 +314,9 @@
     </div>
     <div class="row">
       <div class="checkout-button-container">
-        <%= link_to "<div class='pulse'></div>".html_safe, cart_add_path(product_id: book.product.id), method: :post %>
-        <%= button_to "Learn Online Marketing Now | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %>
+        <!-- <%= link_to "<div class='pulse'></div>".html_safe, cart_add_path(product_id: book.product.id), method: :post %>
+      <%= button_to "Learn Online Marketing Now | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %> -->
+        <%= button_to "Learn Online Marketing Now | #{humanized_money_with_symbol(book.product.price)}", "https://www.amazon.com/Entreprenerd-Persons-Advertising-Conversion-Optimisation-ebook/dp/B01KMJIC12", id: "add-to-cart-button", class: "add-to-cart-button" %>
       </div>
     </div>
   </section>
