@@ -22,7 +22,7 @@
       <li><%= link_to "Topics", "#peek-inside" %></li>
       <li>|</li>
       <li><%= link_to "#buyme", class: "internal-page-nav-highlight" do %>
-        <i class="fa fa-book"></i> Buy Book
+        <i class="fa fa-book"></i> <u>FREE</u> Book
       <% end %>
       </li>
     </ul>
@@ -286,22 +286,24 @@
 <div class="row">
   <section class="buy-it-now" id="buyme">
     <div class="row">
-      <h2 class="centered">Buy Entreprenerd Now</h2>
+      <h2 class="centered">Download Entreprenerd Now</h2>
       <div class="book-image">
         <%= image_tag "entreprenerd/entreprenerd-cover.jpg" %>
       </div>
       <div class="book__description">
-        <h3>Format and Buying Info</h3>
+        <h3>Format and Download Info</h3>
         <ul>
           <li class="rocket-list-item">Instant download.</li>
           <li class="rocket-list-item">Approx 331 pages (depends on reader device).</li>
           <!-- <li class="rocket-list-item">Available in DRM-free MOBI, EPUB, and PDF formats on this site (<%= link_to "get it here", "#add-to-cart-button" %>).</li> -->
-          <li class="rocket-list-item">Available on MOBI only (with DRM) on <%= link_to "Amazon.com", "https://www.amazon.com/Entreprenerd-Persons-Advertising-Conversion-Optimisation-ebook/dp/B01KMJIC12/" %>
+          <li class="rocket-list-item">Available for FREE download on <%= link_to "Leanpub", "https://leanpub.com/marketing-for-programmers-entreprenerd
+          " %>
         </li>
         </ul>
         <div>
-          <h3>Top 7 Reasons To Buy Entreprenerd</h3>
+          <h3>Top 8 Reasons To Download Entreprenerd</h3>
           <ul>
+            <li class="rocket-list-item">It's doesn't cost you a dime!</b></li>
             <li class="rocket-list-item">It's the only marketing book <b>written from the programmer's perspective.</b></li>
             <li class="rocket-list-item">Reading it will give you an overview of the <b>full-stack</b> of <i> online marketing tools.</i></li>
             <li class="rocket-list-item"><b>Employees</b> will become more well-informed as programmers and will be better able assist their teams with marketing tasks. <b>Software entrepreneurs</b> will be better equipped to sell more of their own goods.</li>
@@ -315,8 +317,8 @@
     <div class="row">
       <div class="checkout-button-container">
         <!-- <%= link_to "<div class='pulse'></div>".html_safe, cart_add_path(product_id: book.product.id), method: :post %>
-      <%= button_to "Learn Online Marketing Now | #{humanized_money_with_symbol(book.product.price)}", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %> -->
-        <%= button_to "Learn Online Marketing Now | #{humanized_money_with_symbol(book.product.price)}", "https://www.amazon.com/Entreprenerd-Persons-Advertising-Conversion-Optimisation-ebook/dp/B01KMJIC12", id: "add-to-cart-button", class: "add-to-cart-button" %>
+      <%= button_to "Learn Online Marketing Now | Free", cart_add_path(product_id: book.product.id), id: "add-to-cart-button", class: "add-to-cart-button" %> -->
+        <%= button_to "Learn Online Marketing Now | Free", "https://leanpub.com/marketing-for-programmers-entreprenerd", id: "add-to-cart-button", class: "add-to-cart-button", method: :get %>
       </div>
     </div>
   </section>
