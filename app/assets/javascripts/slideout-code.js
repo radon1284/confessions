@@ -3,6 +3,7 @@ function initializeSlideout() {
     'panel': document.getElementById('main-container'),
     'menu': document.getElementById('mobile-only-menu'),
     'padding': 256,
+    'touch': false,
     'tolerance': 70
   });
 
