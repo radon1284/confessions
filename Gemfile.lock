@@ -218,8 +218,8 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     mustermann (1.0.0)
-    neat (2.0.0)
-      sass (~> 3.4)
+    neat (1.8.0)
+      sass (>= 3.3)
       thor (~> 0.19)
     nenv (0.3.0)
     nio4r (2.0.0)
@@ -417,7 +417,7 @@ DEPENDENCIES
   kramdown
   launchy
   money-rails
-  neat
+  neat (~> 1)
   pg
   prawn
   prawn-table

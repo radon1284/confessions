@@ -26,7 +26,7 @@ gem 'kaminari'
 gem 'carrierwave-aws'
 gem "kramdown"
 gem 'bourbon'
-gem 'neat'
+gem 'neat', '~> 1'
 gem 'countries'
 gem 'prawn'
 gem 'prawn-table'
