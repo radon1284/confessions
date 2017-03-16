@@ -17,7 +17,9 @@ gem 'stripe'
 gem 'rollbar'
 gem 'equalizer'
 gem 'sidekiq'
-gem 'rack-protection', github: 'sinatra/rack-protection'
+github 'sinatra/sinatra' do
+  gem 'rack-protection'
+end
 gem 'sinatra', github: 'sinatra/sinatra'
 gem 'jwt'
 gem 'kaminari'
