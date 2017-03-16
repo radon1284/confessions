@@ -49,7 +49,7 @@
     backface-visibility: hidden;
   }
 
-  @include media($mobile) {
+  @include media($tablet) {
     display: none;
   }
 }
