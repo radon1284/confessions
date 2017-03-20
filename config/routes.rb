@@ -65,6 +65,8 @@ Rails.application.routes.draw do
     resources :books, only: [:update]
   end
 
+  get ".well-known/acme-challenge/9EqJmv1zO1_upKSt1CYzddZosF5oHaq5xKSMLWggmAY", to: proc {|env| [200, {}, ["9EqJmv1zO1_upKSt1CYzddZosF5oHaq5xKSMLWggmAY.N-o_utQ9dYQSBk126FSfqj-q7twFqACVQISu3ZIKiIY"]] }
+
   # redirects from legacy website where we had articles
   # such as "http://www.jackinsella/2014/06/17/awareness-through-jargon.html"
   get "/:year/:month/:date/:article_name", to: redirect { |path_params, _|
