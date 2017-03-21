@@ -10,10 +10,20 @@ GIT
       rack-protection (= 2.0.0.rc1)
       tilt (~> 2.0)
 
+GIT
+  remote: https://github.com/jalada/platform-api
+  revision: 4a06e57bd32d805248f3b8e1358ed4833296c659
+  branch: master
+  specs:
+    platform-api (0.8.0)
+      heroics (~> 0.0.17)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
   specs:
+    acme-client (0.4.1)
+      faraday (~> 0.9, >= 0.9.1)
     actioncable (5.0.2)
       actionpack (= 5.0.2)
       nio4r (>= 1.2, < 3.0)
@@ -134,6 +144,7 @@ GEM
     equalizer (0.0.11)
     erubis (2.7.0)
     eventmachine (1.2.3)
+    excon (0.55.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -164,6 +175,10 @@ GEM
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
     hashdiff (0.3.2)
+    heroics (0.0.21)
+      erubis (~> 2.0)
+      excon
+      multi_json (>= 1.9.2)
     http_parser.rb (0.6.0)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
@@ -188,6 +203,9 @@ GEM
     kramdown (1.13.2)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letsencrypt-rails-heroku (1.2.0)
+      acme-client (~> 0.4.0)
+      platform-api
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -416,9 +434,11 @@ DEPENDENCIES
   kaminari
   kramdown
   launchy
+  letsencrypt-rails-heroku
   money-rails
   neat (~> 1)
   pg
+  platform-api!
   prawn
   prawn-table
   pry-byebug

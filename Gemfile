@@ -34,6 +34,10 @@ gem 'font-awesome-sass'
 gem 'combine_pdf'
 gem 'epub-maker'
 gem 'httparty'
+# This is a fork of the Heroku API, as needed on 21 Mar 17 to use letsencrypt-rails-heroku gem.
+# Please delete this in future when the dependency no longer shows in this README:
+# https://github.com/pixielabs/letsencrypt-rails-heroku
+gem 'platform-api', git: 'https://github.com/jalada/platform-api', branch: 'master'
 
 group :development, :test do
   gem 'pry-rails'
@@ -65,6 +69,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'letsencrypt-rails-heroku'
 end
 
 # Uses Bower to auto-update assets

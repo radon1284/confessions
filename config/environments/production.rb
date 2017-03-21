@@ -40,8 +40,8 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and
-  # use secure cookies.
+  config.middleware.use Letsencrypt::Middleware
+  # We must not force SSL if we are going to use Letsencrypt (as per their readme on 21 Mar 17)
   config.force_ssl = false
 
   # Use the lowest log level to ensure availability of diagnostic information
