@@ -8,6 +8,9 @@ class BooksController < ApplicationController
     )
   end
 
+  def confessions_of_an_unintentional_cto
+  end
+
   def marketing_for_programmers
     book = Book.find_by!(slug: params.fetch(:id))
     chapters = book.chapters.order(:number)
