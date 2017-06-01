@@ -10,3 +10,10 @@
 #### Running background jobs
 
 Execute `bundle exec sidekiq` in a seperate terminal tab and leave it running.
+
+#### Download production database
+
+Must drop local database first.
+
+$ dropdb confessions_development
+$ h pg:pull DATABASE_URL confessions_development
