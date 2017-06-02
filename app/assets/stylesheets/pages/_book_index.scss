@@ -1,0 +1,9 @@
+.book-item {
+  img {
+    float: left;
+    margin-right: $small-spacing;
+    @include media($tablet) {
+      float: inherit;
+    }
+  }
+}
