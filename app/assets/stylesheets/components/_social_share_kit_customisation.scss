@@ -6,7 +6,6 @@
     /*increase size of buttons so thumbs can click on them*/
     &:after {
       content: '';
-      position: absolute;
       top: -14px;
       bottom: -14px;
       left: -14px;
