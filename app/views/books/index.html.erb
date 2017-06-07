@@ -1,26 +1,29 @@
 <% content_for :title, "Books" %>
-<h1>
-  Books
-</h1>
-<div class="book-item">
-  <h2>Confessions of an Unintentional CTO</h2>
+<%#including this here for the sake of Safari reader%>
+<article>
+  <h1>
+    Books
+  </h1>
+  <div class="book-item">
+    <h2>Confessions of an Unintentional CTO</h2>
     <%= image_tag "confessions-cover-small.png" %>
-  <p>
-    <b>A book of generalised, language-agnostic advice pertinent to hacker-y web developers working on live web applications which have real-life users and all too real problems.</b> I would consider this an "advanced" book on web development, albeit not in the (unfortunate) usual sense of touring the latest hipster language's arcana or providing a cookbook of "solutions" no reasonable person would ever need. Confessions of an Unintentional CTO focuses on the issues I believe are most pertinent to the new CTO, such as ensuring data integrity, easing system maintenance, knowing what not to test, developing professional-grade accounting features for taxation reporting, sharpening an application’s ability to inform one of errors, and integrating SEO/analytics/online marketing right into the very foundations of a web application. This book is ideal for engineers in small companies who are not insulated by their team’s sheer size from the sundry practical issues and tradeoffs implicit in running a software business.
-  </p>
-  <ul>
-    <li> > <%= link_to "Read for free online", "/books/confessions_of_an_unintentional_cto" %></li>
-  </ul>
-</div>
-<hr>
-<div class="book-item">
-  <h2>Entreprenerd: Marketing &lt;for&gt; Programmers</h2>
-  <%= image_tag "entreprenerd/entreprenerd-cover-small.jpg" %>
-  <p><b>A modern web-marketing book that outlines a multi-modal system for growing a website with SEO, Google AdWords/Facebook Ads, Conversion Optimisation, Copywriting/Classic Persuasion/Behavioural Psychology, Google Analytics, Statistical Significance, Email Marketing, and Remarketing.</b>
-    When I launched my first web application it started off with zero traffic. This obviously was not satisfactory so I started a private Berlin-based marketing group with local marketing consultants and tech company owners. During these sessions, I was privy to tactics from marketers working with companies like Goldman Sachs, Amazon Audible, Delivery Hero, ResearchGate, etc. To balance things out, I also conferred with people active in the darker side of internet marketing, like guys running shady coupon sites or selling fitness ebooks. This book is the product of what I learned from these sessions and my own experiments.
-  </p>
-  <ul>
-    <li> > <%= link_to "Find out more", "https://www.jackkinsella.ie/books/entreprenerd/marketing_for_programmers" %></li>
-    <li> > <%= link_to "Download for free on Leanpub", "https://leanpub.com/marketing-for-programmers-entreprenerd" %></li>
-  </ul>
-</div>
+    <p>
+      <b>A book of generalised, language-agnostic advice pertinent to hacker-y web developers working on live web applications which have real-life users and all too real problems.</b> I would consider this an "advanced" book on web development, albeit not in the (unfortunate) usual sense of touring the latest hipster language's arcana or providing a cookbook of "solutions" no reasonable person would ever need. Confessions of an Unintentional CTO focuses on the issues I believe are most pertinent to the new CTO, such as ensuring data integrity, easing system maintenance, knowing what not to test, developing professional-grade accounting features for taxation reporting, sharpening an application’s ability to inform one of errors, and integrating SEO/analytics/online marketing right into the very foundations of a web application. This book is ideal for engineers in small companies who are not insulated by their team’s sheer size from the sundry practical issues and tradeoffs implicit in running a software business.
+    </p>
+    <ul>
+      <li> > <%= link_to "Read for free online", "/books/confessions_of_an_unintentional_cto" %></li>
+    </ul>
+  </div>
+  <hr>
+  <div class="book-item">
+    <h2>Entreprenerd: Marketing &lt;for&gt; Programmers</h2>
+    <%= image_tag "entreprenerd/entreprenerd-cover-small.jpg" %>
+    <p><b>A modern web-marketing book that outlines a multi-modal system for growing a website with SEO, Google AdWords/Facebook Ads, Conversion Optimisation, Copywriting/Classic Persuasion/Behavioural Psychology, Google Analytics, Statistical Significance, Email Marketing, and Remarketing.</b>
+      When I launched my first web application it started off with zero traffic. This obviously was not satisfactory so I started a private Berlin-based marketing group with local marketing consultants and tech company owners. During these sessions, I was privy to tactics from marketers working with companies like Goldman Sachs, Amazon Audible, Delivery Hero, ResearchGate, etc. To balance things out, I also conferred with people active in the darker side of internet marketing, like guys running shady coupon sites or selling fitness ebooks. This book is the product of what I learned from these sessions and my own experiments.
+    </p>
+    <ul>
+      <li> > <%= link_to "Find out more", "/books/entreprenerd/marketing_for_programmers" %></li>
+      <li> > <%= link_to "Download for free on Leanpub", "https://leanpub.com/marketing-for-programmers-entreprenerd" %></li>
+    </ul>
+  </div>
+</article>

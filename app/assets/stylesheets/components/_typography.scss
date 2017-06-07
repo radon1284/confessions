@@ -1,5 +1,8 @@
 :root {
   font-size: $base-font-size;
+  @include media($tablet) {
+    font-size: $base-font-size * 2;
+  }
 }
 body {
   color: $base-font-color;

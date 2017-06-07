@@ -8,7 +8,10 @@
 
     <%= render "rich_snippets", article: article %>
 
-    <%= MarkdownWrapper.new.display(article.body) %>
+    <%#including this here for the sake of Safari reader%>
+    <article>
+      <%= MarkdownWrapper.new.display(article.body) %>
+    </article>
 
     <hr>
     <h2> More Articles:</h2>
